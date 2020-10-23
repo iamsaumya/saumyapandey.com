@@ -52,8 +52,8 @@ const BlogHeader = ({ frontMatter, slug }) => {
               mr={2}
             />
             <Text fontSize="sm" color={textColor[colorMode]}>
-              {"Saumya Pandey / "}
-              {format(parseISO(frontMatter.publishedAt), "MMMM dd, yyyy")}
+              {"Saumya Pandey"}
+              {/* {format(parseISO(frontMatter.publishedAt), "MMMM dd, yyyy")} */}
             </Text>
           </Flex>
         </Flex>
