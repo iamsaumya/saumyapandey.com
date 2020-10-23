@@ -9,7 +9,6 @@ const Content = () => {
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="flex-start"
-        p={4}
       >
         <Heading>Blogs</Heading>
         <BlogCard

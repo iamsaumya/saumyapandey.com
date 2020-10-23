@@ -7,10 +7,17 @@ export default function Container({ children }) {
   return (
     <>
       <Head>
-        <title>My new cool app</title>
+        <title>Saumya Pandey</title>
       </Head>
-      <Flex flexDirection="column" mx="auto" width="100%" maxW="700px" mt="3em">
-        <NavBar />
+      <NavBar />
+      <Flex
+        flexDirection="column"
+        mx="auto"
+        width="100%"
+        maxW="700px"
+        p={4}
+        textAlign="justify"
+      >
         {children}
         <Footer />
       </Flex>

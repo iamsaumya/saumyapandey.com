@@ -34,8 +34,8 @@ function App({ Component, pageProps }) {
     <>
       <MDXProvider components={components}>
         <ThemeProvider theme={theme}>
+          <GlobalStyle />
           <Container>
-            <GlobalStyle />
             <Component {...pageProps} />
           </Container>
         </ThemeProvider>

@@ -19,7 +19,7 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
   const content = hydrate(mdxSource);
 
   return (
-    <>
+    <Box textAlign="justify" m={8}>
       <BlogHeader frontMatter={frontMatter} slug={slug} />
       {content}
       <Box mt={10}>
@@ -31,7 +31,7 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
           {"Edit on GitHub"}
         </CustomLink>
       </Box>
-    </>
+    </Box>
   );
 }
 

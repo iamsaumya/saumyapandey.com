@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Stack, Flex, Avatar, Button } from "@chakra-ui/core";
+import { Stack, Flex, Avatar, Button } from "@chakra-ui/core";
 import NextLink from "next/link";
 
 const NavBar = () => (
@@ -7,8 +7,11 @@ const NavBar = () => (
     justifyContent="space-between"
     alignItems="space-between"
     width="100%"
+    mx="auto"
+    maxW="800px"
     position="sticky"
     top="-1px"
+    mt="3em"
     p={4}
     background="white"
     zIndex={1800}
