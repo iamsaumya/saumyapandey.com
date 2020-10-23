@@ -10,14 +10,7 @@ export default function Container({ children }) {
         <title>Saumya Pandey</title>
       </Head>
       <NavBar />
-      <Flex
-        flexDirection="column"
-        mx="auto"
-        width="100%"
-        maxW="700px"
-        p={4}
-        textAlign="justify"
-      >
+      <Flex flexDirection="column" mx="auto" width="100%" maxW="700px" p={4}>
         {children}
         <Footer />
       </Flex>
