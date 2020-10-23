@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Text, Stack, Heading, Link, IconButton } from "@chakra-ui/core";
-import Socials from "../components/Socials";
-const About = () => (
+import Socials from "./Socials";
+const Introduction = () => (
   <Flex
     justifyContent="center"
     flexDirection="column"
@@ -24,4 +24,4 @@ const About = () => (
   </Flex>
 );
 
-export default About;
+export default Introduction;

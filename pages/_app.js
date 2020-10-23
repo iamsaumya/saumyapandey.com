@@ -2,8 +2,8 @@ import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 import theme from "../styles/theme";
 import { Global, css } from "@emotion/core";
 import Container from "../components/Container.js";
-import { Head } from "next/document";
-
+import { MDXProvider } from "@mdx-js/react";
+import components from "../components/MDXComponents";
 const GlobalStyle = () => {
   return (
     <>
@@ -32,12 +32,14 @@ const GlobalStyle = () => {
 function App({ Component, pageProps }) {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Container>
-          <GlobalStyle />
-          <Component {...pageProps} />
-        </Container>
-      </ThemeProvider>
+      <MDXProvider components={components}>
+        <ThemeProvider theme={theme}>
+          <Container>
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </Container>
+        </ThemeProvider>
+      </MDXProvider>
     </>
   );
 }

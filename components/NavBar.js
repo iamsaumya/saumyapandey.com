@@ -36,7 +36,10 @@ const NavBar = () => (
       </NextLink>
     </Stack>
     <Flex justifyContent="center" alignItems="center">
-      <Avatar size="md" src="https://bit.ly/dan-abramov" />
+      <Avatar
+        size="md"
+        src="https://avatars1.githubusercontent.com/u/40148448?s=460&v=4"
+      />
     </Flex>
   </Flex>
 );
