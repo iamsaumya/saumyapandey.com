@@ -18,11 +18,10 @@ const BlogHeader = ({ frontMatter, slug }) => {
 
   return (
     <Stack
-      as="article"
       spacing={8}
       justifyContent="center"
       alignItems="flex-start"
-      m="0 auto 4rem auto"
+      m="0 auto 2rem auto"
       maxWidth="700px"
       w="100%"
     >
@@ -52,21 +51,12 @@ const BlogHeader = ({ frontMatter, slug }) => {
               mr={2}
             />
             <Text fontSize="sm" color={textColor[colorMode]}>
-              <b>{"Saumya Pandey "}</b>
-              {frontMatter.publishedAt}
+              {"Saumya Pandey "}
+              {" / " + frontMatter.publishedAt}
             </Text>
           </Flex>
         </Flex>
       </Flex>
-      <Box>
-        <Link href={discussUrl(slug)} isExternal>
-          {"Discuss on Twitter"}
-        </Link>
-        {` • `}
-        <Link href={editUrl(slug)} isExternal>
-          {"Edit on GitHub"}
-        </Link>
-      </Box>
     </Stack>
   );
 };

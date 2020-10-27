@@ -1,8 +1,10 @@
 ---
 title: "My Understanding of Primitive Types and Special Values"
-publishedAt: "2020-10-27"
+publishedAt: "27-10-2020"
 summary: "Learn about Javascript Primitive Types and Special values, have a chat with me if you want to add something"
 ---
+
+![Banner](/static/images/my_understanding_of_primitive_types/banner.png)
 
 Look at the following code and guess what will be the answer.
 
@@ -30,7 +32,7 @@ Do you know what happened here?
 
 Do you know why I put such questions above? Because we will be discussing the **Primitive Types** and **Special Values**.
 
-**Aarambh**
+# Aarambh
 
 Javascript has the following primitive types:
 
@@ -102,10 +104,12 @@ typeof "object"; //"string"
 
 I guess this example must have helped to understand `typeof` better.
 
-**Special Values**
+## Special Values
+
 Within primitive types, we have special values ​​that we should focus on, quite a few but we will focus on two special values ​​that crop up more often than we would like.
 
-**`NaN`**
+### NaN
+
 Many of us think of it as an acronym for Not a Number, which is not correct. In Javascript,`NaN` is a special value that means an invalid number.
 
 ```js
@@ -160,7 +164,8 @@ function isItNaN(n) {
 }
 ```
 
-**`Negative Zero`**
+### Negative Zero
+
 Let's talk about another special value that exists, `-0`. I was in complete oblivion that something like `-0` exists in Javascript. Negative zero is essentially zero with a signed bit on.
 
 ```js
@@ -197,4 +202,6 @@ function isNegZero(x) {
 }
 ```
 
-This is it from my side folks, I come back to discuss with on **coercion** in Javascript. I would love to hear from you, discuss with me on Twitter or ping me on LinkedIn. See you!
+This is it from my side folks, I'll come back to discuss **coercion** in Javascript. I would love to hear from you, discuss with me on Twitter or ping me on LinkedIn.
+
+See you 👋

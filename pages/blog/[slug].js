@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 import BlogHeader from "../../components/BlogHeader";
 import { CustomLink } from "../../components/MDXComponents";
-import { Box, Link } from "@chakra-ui/core";
+import { Box, Link, Stack } from "@chakra-ui/core";
 import mdxPrism from "mdx-prism";
 const root = process.cwd();
 
@@ -22,7 +22,9 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
   return (
     <Box m={8}>
       <BlogHeader frontMatter={frontMatter} slug={slug} />
-      <Box textAlign="justify">{content}</Box>
+      <Stack as="article" textAlign="justify">
+        {content}
+      </Stack>
       <Box mt={10}>
         <CustomLink href={discussUrl(slug)} isExternal>
           {"Discuss on Twitter"}
