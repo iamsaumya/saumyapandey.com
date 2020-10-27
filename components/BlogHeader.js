@@ -46,14 +46,14 @@ const BlogHeader = ({ frontMatter, slug }) => {
         >
           <Flex align="center">
             <Avatar
-              size="xs"
+              size="sm"
               name="Saumya Pandey"
               src="https://avatars1.githubusercontent.com/u/40148448?s=460&v=4"
               mr={2}
             />
             <Text fontSize="sm" color={textColor[colorMode]}>
-              {"Saumya Pandey"}
-              {/* {format(parseISO(frontMatter.publishedAt), "MMMM dd, yyyy")} */}
+              <b>{"Saumya Pandey "}</b>
+              {format(parseISO(frontMatter.publishedAt), "MMMM dd, yyyy")}
             </Text>
           </Flex>
         </Flex>

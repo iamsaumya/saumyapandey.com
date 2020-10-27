@@ -6,9 +6,7 @@ const Introduction = () => (
     <Stack flexDirection="column">
       <Heading size="2xl">Hi! I am Saumya Pandey</Heading>
       <Text color="#2D3748" fontFamily="Inter,-apple-system,BlinkMacSystemFont">
-        I’m a developer, writer, and creator. I work at ▲Vercel as a Solutions
-        Architect. You’ve found my personal slice of the internet – everything
-        you want to know and more is here.
+        I’m a developer
       </Text>
       <Socials />
     </Stack>

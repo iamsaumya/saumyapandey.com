@@ -6,6 +6,7 @@ import path from "path";
 import BlogHeader from "../../components/BlogHeader";
 import { CustomLink } from "../../components/MDXComponents";
 import { Box, Link } from "@chakra-ui/core";
+import mdxPrism from "mdx-prism";
 const root = process.cwd();
 
 const editUrl = (slug) =>
@@ -19,9 +20,9 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
   const content = hydrate(mdxSource);
 
   return (
-    <Box textAlign="justify" m={8}>
+    <Box m={8}>
       <BlogHeader frontMatter={frontMatter} slug={slug} />
-      {content}
+      <Box textAlign="justify">{content}</Box>
       <Box mt={10}>
         <CustomLink href={discussUrl(slug)} isExternal>
           {"Discuss on Twitter"}
@@ -50,6 +51,8 @@ export async function getStaticProps({ params }) {
     "utf8"
   );
   const { data, content } = matter(source);
-  const mdxSource = await renderToString(content);
+  const mdxSource = await renderToString(content, {
+    mdxOptions: { rehypePlugins: [mdxPrism] }
+  });
   return { props: { mdxSource, frontMatter: data, slug: params.slug } };
 }

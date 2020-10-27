@@ -1,5 +1,6 @@
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 import theme from "../styles/theme";
+import { prismLightTheme, prismDarkTheme } from "../styles/prism";
 import { Global, css } from "@emotion/core";
 import Container from "../components/Container.js";
 import { MDXProvider } from "@mdx-js/react";
@@ -10,6 +11,7 @@ const GlobalStyle = () => {
       <CSSReset />
       <Global
         styles={css`
+          ${prismLightTheme}
           ::selection {
             background-color: #47a3f3;
             color: #fefefe;
