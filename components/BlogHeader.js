@@ -3,7 +3,7 @@ import { parseISO, format } from "date-fns";
 import { Heading, Text, Flex, Stack, Avatar, Link, Box } from "@chakra-ui/core";
 
 const editUrl = (slug) =>
-  `https://github.com/iamsaumya/saumyapandey.com/edit/master/pages/blog/${slug}.mdx`;
+  `https://github.com/iamsaumya/saumyapandey.com/edit/master/content/${slug}.mdx`;
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://saumyapandey/blog/${slug}`
