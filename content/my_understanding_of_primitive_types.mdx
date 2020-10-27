@@ -1,0 +1,200 @@
+---
+title: "My Understanding of Primitive Types and Special Values"
+publishedAt: "2020-10-27"
+summary: "Learn about Javascript Primitive Types and Special values, have a chat with me if you want to add something"
+---
+
+Look at the following code and guess what will be the answer.
+
+```js
+var x = 5;
+x++;
+console.log(x);
+
+var x = "5";
+x++;
+console.log(x);
+```
+
+Is it going to be an error for the second case? Is it going to be 6?
+I was in hell when I was asked this question.
+
+```js
+//The answer is
+6;
+6;
+```
+
+Do you know what happened here?
+`x` was a string in the second case. It was converted into a number and then incremented.
+
+Do you know why I put such questions above? Because we will be discussing the **Primitive Types** and **Special Values**.
+
+**Aarambh**
+
+Javascript has the following primitive types:
+
+- `undefined`
+- `string`
+- `boolean`
+- `number`
+- `bigint`
+- `symbol`
+- `object`
+
+What is a primitive type?
+A primitive type is a value in the lowest level of the language implementation, think of it as a building block. It is not an `object` and has no `methods` to call.
+
+Wait a minute! It has no`methods` to call? All my life I have been doing this
+
+```js
+var s = "primitive";
+s.length; // 9
+```
+
+How the heck are we calling length on `s`? The answer to this question is `Boxing` which JS does for itself. JS converts `s` into an object of `String` class and we call its methods.
+
+**In JavaScript, variables don't have types, values do.**
+
+When we assign a value to a variable, then we use operator like `typeof` to figure out the value and to determine something about its identity, its kind, its type.
+
+NB: When we do `typeof x` we do not ask the type of variable, rather we ask for the type of the value that is currently in x.
+
+Now, read the bold text above again and it would make a lot more sense.
+
+```js
+var v;
+typeof v; // "undefined"
+v = 1;
+typeof v; // "number"
+v = "1";
+typeof v; // "string"
+v = [];
+typeof v; // "object"
+v = {};
+typeof v; // "object"
+v = null;
+typeof v; // "object" OOPS!
+```
+
+All outputs are logical except for the last, `typeof null` is an `object`? Yes! This is supposed to be a bug in JavaScript and now they can fix it because it will break a lot of code. Now, it is very logical why `null` is not a primitive type.
+
+```js
+typeof doesnotexist; //"undefined"
+```
+
+It's weird, isn't it? If the variable doesn't exist, its type is still `undefined`. Don't you think it should be something like `undeclared`?. Wouldn't it be more expressive?
+
+Javascript treats `undeclared` variable as `undefined` type and it is one of that nitty-gritty to care about.
+
+Also, We can infer a fun fact out of this. `typeof` operator is the only operator that can reference a thing that does not exist and still not give an error. Please be mindful of this if and when you try this is production :p.
+
+Observe those quotes in the returned value from `typeof`, it is a `string`. `typeof` guarantee that it will always return string.
+
+```js
+typeof typeof []; //"string"
+```
+
+```js
+typeof []; //"object"
+typeof "object"; //"string"
+```
+
+I guess this example must have helped to understand `typeof` better.
+
+**Special Values**
+Within primitive types, we have special values ​​that we should focus on, quite a few but we will focus on two special values ​​that crop up more often than we would like.
+
+**`NaN`**
+Many of us think of it as an acronym for Not a Number, which is not correct. In Javascript,`NaN` is a special value that means an invalid number.
+
+```js
+typeof NaN; //"number"
+```
+
+```js
+var number = 5; //5
+number - "four"; //NaN
+var nan = Number("n/a"); //NaN
+```
+
+I hope these examples made sense and the last example is a possible way to create NaN.
+NaN has a very strange property, **it is the only value that is not equal to itself**.
+
+```JS
+NaN === NaN       //false
+```
+
+So if the triple equals lie to us, we need a way to determine if a value is NaN. `isNaN()` is a utility function that can help us determine.
+
+```js
+isNaN(32); //false
+isNaN(NaN); //true
+isNaN("AmINaN"); //true OOPS!
+```
+
+Strange! Isn't it? This worked for the first two examples and gave the wrong answer in the last example. Well, because of its implementation. `isNaN` converts the argument that is passed to a `Number` and then checks whether it is a `NaN`.
+
+So, the last example coerced to something like this:
+
+```js
+isNaN(Number("AmINaN"));
+//we all know that
+Number("AmINaN"); //NaN
+//as a result
+isNaN(NaN); //true
+```
+
+How would you check if a Number is NaN?
+There is another utility function that will always give you the correct answer.
+
+```js
+Number.isNaN("AmINaN"); //false
+```
+
+Here is a custom method that will result in an incorrect value.
+
+```js
+function isItNaN(n) {
+  return n !== n;
+}
+```
+
+**`Negative Zero`**
+Let's talk about another special value that exists, `-0`. I was in complete oblivion that something like `-0` exists in Javascript. Negative zero is essentially zero with a signed bit on.
+
+```js
+var negZero = -0;
+negZero === -0; //true
+negZero === 0; //true  OOPS!
+negZero.toString(); //0   OOPS!
+negZero < 0; //false
+negZero > 0; //false
+```
+
+Weird! All the above operation seems to be weird. It kinda feels like they cheating. Triple equals lie to us, greater than and less than are behaving weird.
+
+So how the telling one could determine whether we have a `-0`. There is a function at our rescue, In ES6 we had `Object.is()` come to our rescue.
+
+```js
+Object.is(0, -0); //false
+Object.is(-0, -0); //true
+```
+
+There is another possible way to determine for `-0`,
+
+```js
+//we know that in JS
+1 / 0; //Infinity
+1 / -0; //-Infinity
+```
+
+We can use this fact to create our custom function.
+
+```js
+function isNegZero(x) {
+  return x === 0 && 1 / x === -Infinity;
+}
+```
+
+This is it from my side folks, I come back to discuss with on **coercion** in Javascript. I would love to hear from you, discuss with me on Twitter or ping me on LinkedIn. See you!
