@@ -5,6 +5,9 @@ import { Global, css } from "@emotion/core";
 import Container from "../components/Container.js";
 import { MDXProvider } from "@mdx-js/react";
 import components from "../components/MDXComponents";
+import SEO from "../next-seo.config";
+import { DefaultSeo } from "next-seo";
+
 const GlobalStyle = () => {
   return (
     <>
@@ -36,6 +39,7 @@ function App({ Component, pageProps }) {
     <>
       <MDXProvider components={components}>
         <ThemeProvider theme={theme}>
+          <DefaultSeo {...SEO} />
           <GlobalStyle />
           <Container>
             <Component {...pageProps} />
