@@ -10,7 +10,7 @@ import mdxPrism from "mdx-prism";
 const root = process.cwd();
 
 const editUrl = (slug) =>
-  `https://github.com/iamsaumya/saumyapandey.com/edit/master/pages/blog/${slug}.mdx`;
+  `https://github.com/iamsaumya/saumyapandey.com/edit/master/content/${slug}.mdx`;
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://saumyapandey/blog/${slug}`
