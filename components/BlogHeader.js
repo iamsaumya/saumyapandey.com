@@ -1,16 +1,15 @@
 import React from "react";
-import { parseISO, format } from "date-fns";
-import { Heading, Text, Flex, Stack, Avatar, Link, Box } from "@chakra-ui/core";
-
-const editUrl = (slug) =>
-  `https://github.com/iamsaumya/saumyapandey.com/edit/master/content/${slug}.mdx`;
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://saumyapandey/blog/${slug}`
-  )}`;
+import {
+  Heading,
+  Text,
+  Flex,
+  Stack,
+  Avatar,
+  useColorMode
+} from "@chakra-ui/core";
 
 const BlogHeader = ({ frontMatter, slug }) => {
-  const colorMode = "light";
+  const { colorMode } = useColorMode();
   const textColor = {
     light: "gray.700",
     dark: "gray.400"

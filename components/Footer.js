@@ -1,10 +1,10 @@
 import React from "react";
 import NextLink from "next/link";
-import { Flex, Link, IconButton } from "@chakra-ui/core";
+import { Flex, Link } from "@chakra-ui/core";
 import Socials from "../components/Socials";
 
 const Footer = () => (
-  <Flex align="center" mx={4} direction="column">
+  <Flex align="center" mt={4} direction="column">
     <Socials />
     <div>
       <NextLink href="/uses" passHref>
