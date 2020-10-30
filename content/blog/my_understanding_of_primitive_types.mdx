@@ -29,6 +29,7 @@ I was in hell when I was asked this question.
 ```
 
 Do you know what happened here?
+
 `x` was a string in the second case. It was converted into a number and then incremented.
 
 Do you know why I put such questions above? Because we will be discussing the **Primitive Types** and **Special Values**.
@@ -43,7 +44,6 @@ Javascript has the following primitive types:
 - `number`
 - `bigint`
 - `symbol`
-- `object`
 
 What is a primitive type?
 A primitive type is a value in the lowest level of the language implementation, think of it as a building block. It is not an `object` and has no `methods` to call.
@@ -55,7 +55,7 @@ var s = "primitive";
 s.length; // 9
 ```
 
-How the heck are we calling length on `s`? The answer to this question is `Boxing` which JS does for itself. JS converts `s` into an object of `String` class and we call its methods.
+How the heck are we calling length on `s`? The answer to this question is `Boxing` which JS does for itself. JS converts `s` into an object of the `String` class and we call its methods.
 
 **In JavaScript, variables don't have types, values do.**
 
@@ -80,7 +80,7 @@ v = null;
 typeof v; // "object" OOPS!
 ```
 
-All outputs are logical except for the last, `typeof null` is an `object`? Yes! This is supposed to be a bug in JavaScript and now they can fix it because it will break a lot of code. Now, it is very logical why `null` is not a primitive type.
+All outputs are logical except for the last, `typeof null` is an `object`? Yes! This is supposed to be a bug in JavaScript and now they cannot fix it because it will break a lot of code. Now, it is very logical why `null` is not a primitive type.
 
 ```js
 typeof doesnotexist; //"undefined"
@@ -111,7 +111,7 @@ Within primitive types, we have special values ​​that we should focus on, qu
 
 ### NaN
 
-Many of us think of it as an acronym for Not a Number, which is not correct. In Javascript,`NaN` is a special value that means an invalid number.
+Many of us think of it as an acronym for "Not a Number", which is incorrect. In Javascript,`NaN` is a special value that means an invalid number.
 
 ```js
 typeof NaN; //"number"
@@ -123,7 +123,7 @@ number - "four"; //NaN
 var nan = Number("n/a"); //NaN
 ```
 
-I hope these examples made sense and the last example is a possible way to create NaN.
+I hope these examples made sense and the last example is a possible and recommended way to create NaN.
 NaN has a very strange property, **it is the only value that is not equal to itself**.
 
 ```JS
@@ -157,7 +157,7 @@ There is another utility function that will always give you the correct answer.
 Number.isNaN("AmINaN"); //false
 ```
 
-Here is a custom method that will result in an incorrect value.
+Here is a custom method that will not result in an incorrect value.
 
 ```js
 function isItNaN(n) {
@@ -178,7 +178,7 @@ negZero < 0; //false
 negZero > 0; //false
 ```
 
-Weird! All the above operation seems to be weird. It kinda feels like they cheating. Triple equals lie to us, greater than and less than are behaving weird.
+Weird! All the above operation seems to be weird. It kinda feels like they are cheating. Triple equals lie to us, greater than and less than are behaving weird.
 
 So how the telling one could determine whether we have a `-0`. There is a function at our rescue, In ES6 we had `Object.is()` come to our rescue.
 
