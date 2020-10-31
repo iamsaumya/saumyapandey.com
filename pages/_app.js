@@ -47,11 +47,20 @@ const GlobalStyle = () => {
             font-style: normal;
           }
           @font-face {
-            font-family: "GT Walsheim Pro";
+            font-family: "GT Walsheim Pro Bold";
             src: local("GT Walsheim Pro Bold"), local("GTWalsheimPro-Bold"),
               url("/static/fonts/GT Walsheim/GTWalsheimPro-Bold.woff2")
                 format("woff2");
             font-weight: bold;
+            font-style: normal;
+          }
+          @font-face {
+            font-family: "GT Walsheim Pro";
+            src: local("GT Walsheim Pro Regular"),
+              local("GTWalsheimPro-Regular"),
+              url("/static/fonts/GT Walsheim/GTWalsheimPro-Regular.woff2")
+                format("woff2");
+            font-weight: normal;
             font-style: normal;
           }
         `}
