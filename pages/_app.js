@@ -37,6 +37,23 @@ const GlobalStyle = () => {
             min-height: 100vh;
             background: ${colorMode === "light" ? "white" : "#171923"};
           }
+          @font-face {
+            font-family: "FreightTextBook";
+            src: local("FreightText Pro Book"),
+              local("FreightTextProBook-Regular"),
+              url("/static/fonts/Freight Text Pro/FreightTextProBook-Regular.woff2")
+                format("woff2");
+            font-weight: normal;
+            font-style: normal;
+          }
+          @font-face {
+            font-family: "GT Walsheim Pro";
+            src: local("GT Walsheim Pro Bold"), local("GTWalsheimPro-Bold"),
+              url("/static/fonts/GT Walsheim/GTWalsheimPro-Bold.woff2")
+                format("woff2");
+            font-weight: bold;
+            font-style: normal;
+          }
         `}
       />
     </>

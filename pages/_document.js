@@ -42,6 +42,12 @@ class MyDocument extends Document {
             href="/static/favicons/safari-pinned-tab.svg"
             rel="mask-icon"
           />
+          <link
+            rel="preload"
+            href="/static/fonts/Freight Text Pro/FreightTextProBook-Regular.woff2"
+            as="font"
+            crossOrigin=""
+          />
         </Head>
         <body>
           <Main />
