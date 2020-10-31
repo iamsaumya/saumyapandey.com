@@ -11,12 +11,15 @@ const Introduction = () => {
   return (
     <Flex justifyContent="center" flexDirection="column" width="100%" mx="auto">
       <Stack flexDirection="column">
-        <Heading size="2xl">Hi! I am Saumya Pandey</Heading>
         <Text
-          color={secondaryTextColor[colorMode]}
-          fontFamily="Inter,-apple-system,BlinkMacSystemFont"
+          fontFamily="GT Walsheim Pro Bold"
+          fontSize={["2rem", "5rem"]}
+          color={colorMode === "light" ? "#233044" : "white"}
         >
-          I’m a developer
+          Hi! I am Saumya.
+        </Text>
+        <Text color={secondaryTextColor[colorMode]} fontSize={["2rem"]}>
+          I’m a developer, Noob chess player and Runner.
         </Text>
         <Socials />
       </Stack>
