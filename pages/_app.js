@@ -65,7 +65,7 @@ function App({ Component, pageProps }) {
     <>
       <MDXProvider components={components}>
         <ThemeProvider theme={theme}>
-          <ColorModeProvider value="dark">
+          <ColorModeProvider value="light">
             <DefaultSeo {...SEO} />
             <GlobalStyle />
             <Head>
