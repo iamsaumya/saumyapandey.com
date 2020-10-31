@@ -1,14 +1,6 @@
-import React from "react";
-import {
-  Stack,
-  Flex,
-  Avatar,
-  Button,
-  useColorMode,
-  IconButton
-} from "@chakra-ui/core";
+import { Stack, Flex, Button, useColorMode, IconButton } from "@chakra-ui/core";
 import NextLink from "next/link";
-
+import NavLink from "./NavLink";
 const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const navBgColor = {
@@ -28,28 +20,13 @@ const NavBar = () => {
       p={4}
       bg={navBgColor[colorMode]}
       zIndex={1800}
+      fontFamily="GT Walsheim Pro"
     >
       <Stack isInline spacing={["1", "4"]} alignItems="center">
-        <NextLink href="/" passHref>
-          <Button as="a" variant="ghost" p={[2, 4]}>
-            Home
-          </Button>
-        </NextLink>
-        <NextLink href="/blog" passHref>
-          <Button as="a" variant="ghost" p={[2, 4]}>
-            Blog
-          </Button>
-        </NextLink>
-        <NextLink href="/learnings" passHref>
-          <Button as="a" variant="ghost" p={[2, 4]}>
-            Learnings
-          </Button>
-        </NextLink>
-        <NextLink href="/projects" passHref>
-          <Button as="a" variant="ghost" p={[2, 4]}>
-            Projects
-          </Button>
-        </NextLink>
+        <NavLink href="/" name="Home" />
+        <NavLink href="/blog" name="Blog" />
+        <NavLink href="/learnings" name="Learnings" />
+        <NavLink href="/projects" name="Projects" />
       </Stack>
       <Flex justifyContent="center" alignItems="center">
         <IconButton
