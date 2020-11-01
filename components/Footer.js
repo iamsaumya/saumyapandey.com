@@ -24,6 +24,18 @@ const Footer = () => {
             /uses
           </Link>
         </NextLink>
+        <NextLink href="/static/resume.pdf" passHref>
+          <Link
+            fontSize="18px"
+            lineHeight="22px"
+            color={textColor[colorMode]}
+            minWidth="100px"
+            mr={2}
+            title="Uses"
+          >
+            /resume
+          </Link>
+        </NextLink>
       </div>
     </Flex>
   );
