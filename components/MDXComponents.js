@@ -165,7 +165,14 @@ const Hr = () => {
 
 const MDXComponents = {
   h1: (props) => (
-    <Heading fontFamily="FreightTextBook" as="h1" size="xl" my={4} {...props} />
+    <Heading
+      fontSize={["2rem", "2.5rem"]}
+      fontFamily="FreightTextBook"
+      as="h1"
+      size="xl"
+      my={4}
+      {...props}
+    />
   ),
   h2: (props) => (
     <DocsHeading
@@ -173,6 +180,7 @@ const MDXComponents = {
       as="h2"
       fontWeight="bold"
       size="lg"
+      fontSize={["1.5rem", "2rem"]}
       {...props}
     />
   ),
@@ -182,6 +190,7 @@ const MDXComponents = {
       as="h3"
       size="md"
       fontWeight="bold"
+      fontSize={["1rem", "1.5rem"]}
       {...props}
     />
   ),
