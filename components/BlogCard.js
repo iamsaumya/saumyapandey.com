@@ -21,7 +21,7 @@ const BlogCard = ({ title, summary, published }) => {
           transitionTimingFunction: "ease",
           boxShadow: "1px 1px 5px rgba(52, 61, 68, 0.2)"
         }}
-        _focus={{
+        _active={{
           transform: "scale(1.02)",
           borderTop: "2px",
           borderTopColor: "#ed7842",
