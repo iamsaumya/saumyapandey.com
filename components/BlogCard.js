@@ -13,11 +13,17 @@ const BlogCard = ({ title, summary, published }) => {
   return (
     <NextLink href={`/blog/${slug}`} passHref>
       <Link
-        _hover={{ transform: "scale(1.01)" }}
-        _hover={{ borderTop: "2px", borderTopColor: "#ed7842" }}
+        _hover={{
+          transform: "scale(1.02)",
+          borderTop: "2px",
+          borderTopColor: "#ed7842",
+          transition: "0.5s",
+          transitionTimingFunction: "ease",
+          boxShadow: "1px 1px 5px rgba(52, 61, 68, 0.2)"
+        }}
         border="0.5px solid"
         borderRadius="5px"
-        boxShadow="rgba(52, 61, 68, 0.1) 0px 1px 2px"
+        boxShadow="0px 1px 2px rgba(52, 61, 68, 0.1)"
         borderColor={
           colorMode === "light"
             ? "rgba(52, 61, 68, 0.05)"
