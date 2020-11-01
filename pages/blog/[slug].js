@@ -30,7 +30,7 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
       )}
       <Box m={8}>
         <BlogHeader frontMatter={frontMatter} slug={slug} />
-        <Stack as="article" textAlign="justify">
+        <Stack as="article" textAlign="justify" fontSize={["1rem", "1.5rem"]}>
           {content}
         </Stack>
         <Box mt={10}>

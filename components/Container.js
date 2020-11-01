@@ -10,8 +10,8 @@ export default function Container({ children }) {
     dark: "gray.900"
   };
   const primarytextColor = {
-    light: "black",
-    dark: "white"
+    light: "#334259",
+    dark: "#EDEDED"
   };
   return (
     <>

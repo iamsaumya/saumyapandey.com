@@ -13,10 +13,17 @@ const BlogCard = ({ title, summary, published }) => {
   return (
     <NextLink href={`/blog/${slug}`} passHref>
       <Link
-        _hover={{ textDecoration: "none", transform: "scale(1.01)" }}
-        border="0.5px solid #ebebeb"
+        _hover={{ transform: "scale(1.01)" }}
+        _hover={{ borderTop: "2px", borderTopColor: "#ed7842" }}
+        border="0.5px solid"
         borderRadius="5px"
-        boxShadow={colorMode === "light" ? "2px 2px 5px white" : ""}
+        boxShadow="rgba(52, 61, 68, 0.1) 0px 1px 2px"
+        borderColor={
+          colorMode === "light"
+            ? "rgba(52, 61, 68, 0.05)"
+            : "rgba(48, 52, 73, 1)"
+        }
+        backgroundColor={colorMode === "light" ? "white" : "#232636"}
         p={4}
         mt={4}
       >
@@ -26,7 +33,12 @@ const BlogCard = ({ title, summary, published }) => {
             width="100"
             flexDirection={["column", "column", "row"]}
           >
-            <Heading size="md" as="h3" maxW="85%">
+            <Heading
+              size="md"
+              as="h3"
+              maxW="85%"
+              fontFamily="GT Walsheim Pro Bold"
+            >
               {title}
             </Heading>
             <Text mt={["4", "4", "0"]}>{published}</Text>

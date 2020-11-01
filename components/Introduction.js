@@ -18,7 +18,11 @@ const Introduction = () => {
         >
           Hi! I am Saumya.
         </Text>
-        <Text color={secondaryTextColor[colorMode]} fontSize={["2rem"]}>
+        <Text
+          fontFamily="FreightTextProLight"
+          color={secondaryTextColor[colorMode]}
+          fontSize={["1.5rem", "2rem"]}
+        >
           I’m a developer, Noob chess player and Runner.
         </Text>
         <Socials />

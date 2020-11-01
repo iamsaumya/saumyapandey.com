@@ -1,8 +1,9 @@
 import React from "react";
 import BlogCard from "../components/BlogCard";
-import { Flex, Heading } from "@chakra-ui/core";
+import { Flex, Text, useColorMode } from "@chakra-ui/core";
 
 const Content = () => {
+  const { colorMode } = useColorMode();
   return (
     <React.Fragment>
       <Flex
@@ -10,7 +11,12 @@ const Content = () => {
         justifyContent="flex-start"
         alignItems="flex-start"
       >
-        <Heading>Blogs</Heading>
+        <Text
+          fontSize={["1.5rem", "2rem"]}
+          color={colorMode === "light" ? "#334259" : "white"}
+        >
+          Blog
+        </Text>
         <BlogCard
           title="Everything I Know About Style Guides, Design Systems and Component
           Libraries"

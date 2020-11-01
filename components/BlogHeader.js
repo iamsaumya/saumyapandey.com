@@ -31,7 +31,13 @@ const BlogHeader = ({ frontMatter, slug }) => {
         maxWidth="700px"
         w="100%"
       >
-        <Heading letterSpacing="tight" mb={2} as="h1" size="2xl">
+        <Heading
+          fontFamily="GT Walsheim Pro Bold"
+          letterSpacing="tight"
+          mb={2}
+          as="h1"
+          size="2xl"
+        >
           {frontMatter.title}
         </Heading>
         <Flex
@@ -49,7 +55,7 @@ const BlogHeader = ({ frontMatter, slug }) => {
               src="https://avatars1.githubusercontent.com/u/40148448?s=460&v=4"
               mr={2}
             />
-            <Text fontSize="sm" color={textColor[colorMode]}>
+            <Text fontSize={["md", "lg"]} color={textColor[colorMode]}>
               {"Saumya Pandey "}
               {" / " + frontMatter.publishedAt}
             </Text>
