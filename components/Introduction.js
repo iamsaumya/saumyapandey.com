@@ -23,7 +23,7 @@ const Introduction = () => {
           color={secondaryTextColor[colorMode]}
           fontSize={["1.5rem", "2rem"]}
         >
-          I’m a developer, Noob chess player and Runner.
+          I’m a developer, noob chess player and runner.
         </Text>
         <Socials />
       </Stack>
