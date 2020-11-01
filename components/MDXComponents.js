@@ -53,22 +53,34 @@ const TData = (props) => (
 const CustomLink = (props) => {
   const colorMode = "light";
   const color = {
-    light: "#b01803",
-    dark: "#e12105"
+    light: "hsl(208, 99%, 44%)",
+    dark: "hsl(208, 95%, 68%)"
   };
-
   const href = props.href;
   const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 
   if (isInternalLink) {
     return (
       <NextLink href={href} passHref>
-        <Link color={color[colorMode]} {...props} />
+        <Link
+          color={color[colorMode]}
+          _hover={{ color: "#ed7842" }}
+          fontSize={["1rem", "1.5rem"]}
+          {...props}
+        />
       </NextLink>
     );
   }
 
-  return <Link color={color[colorMode]} isExternal {...props} />;
+  return (
+    <Link
+      color={color[colorMode]}
+      fontSize={["1rem", "1.5rem"]}
+      _hover={{ color: "#ed7842" }}
+      isExternal
+      {...props}
+    />
+  );
 };
 
 const Quote = (props) => {
@@ -152,9 +164,27 @@ const Hr = () => {
 };
 
 const MDXComponents = {
-  h1: (props) => <Heading as="h1" size="xl" my={4} {...props} />,
-  h2: (props) => <DocsHeading as="h2" fontWeight="bold" size="lg" {...props} />,
-  h3: (props) => <DocsHeading as="h3" size="md" fontWeight="bold" {...props} />,
+  h1: (props) => (
+    <Heading fontFamily="FreightTextBook" as="h1" size="xl" my={4} {...props} />
+  ),
+  h2: (props) => (
+    <DocsHeading
+      fontFamily="FreightTextBook"
+      as="h2"
+      fontWeight="bold"
+      size="lg"
+      {...props}
+    />
+  ),
+  h3: (props) => (
+    <DocsHeading
+      fontFamily="FreightTextBook"
+      as="h3"
+      size="md"
+      fontWeight="bold"
+      {...props}
+    />
+  ),
   inlineCode: (props) => (
     <Code variantColor="yellow" fontSize="0.84em" {...props} />
   ),
