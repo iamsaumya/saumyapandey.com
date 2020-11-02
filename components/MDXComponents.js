@@ -7,8 +7,7 @@ import {
   Link,
   PseudoBox,
   Text,
-  Divider,
-  useColorMode
+  Divider
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import NextLink from "next/link";
@@ -195,7 +194,7 @@ const MDXComponents = {
     />
   ),
   inlineCode: (props) => (
-    <Code variantColor="yellow" fontSize="0.84em" {...props} />
+    <Code variantColor="gray" fontSize="0.84em" {...props} />
   ),
   kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
