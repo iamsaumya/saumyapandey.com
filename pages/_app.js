@@ -45,6 +45,7 @@ const GlobalStyle = () => {
                 format("woff2");
             font-weight: normal;
             font-style: normal;
+            font-display: swap;
           }
           @font-face {
             font-family: "FreightTextProLight";
@@ -54,6 +55,7 @@ const GlobalStyle = () => {
                 format("woff2");
             font-weight: 300;
             font-style: normal;
+            font-display: swap;
           }
           @font-face {
             font-family: "GT Walsheim Pro Bold";
@@ -62,6 +64,7 @@ const GlobalStyle = () => {
                 format("woff2");
             font-weight: bold;
             font-style: normal;
+            font-display: swap;
           }
           @font-face {
             font-family: "GT Walsheim Pro";
@@ -70,6 +73,7 @@ const GlobalStyle = () => {
               url("/static/fonts/GT Walsheim/GTWalsheimPro-Regular.woff2")
                 format("woff2");
             font-weight: normal;
+            font-display: swap;
             font-style: normal;
           }
         `}
