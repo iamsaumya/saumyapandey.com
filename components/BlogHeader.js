@@ -52,7 +52,7 @@ const BlogHeader = ({ frontMatter, slug }) => {
             <Avatar
               size="sm"
               name="Saumya Pandey"
-              src="https://avatars1.githubusercontent.com/u/40148448?s=460&v=4"
+              src="/static/images/profilepic.jpeg"
               mr={2}
             />
             <Text fontSize={["md", "lg"]} color={textColor[colorMode]}>

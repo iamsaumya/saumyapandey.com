@@ -9,7 +9,11 @@ image: "/static/images/my_understanding_of_primitive_types/banner.png"
 
 > A distributed system is a system whose components are located on different networked computers, which communicate and coordinate their actions by passing messages to each other.
 
-![Distributed System](/static/images/what_is_the_concept_of_causality_in_distributed_system/DistributedSystem.png)
+<Image
+  src="/static/images/what_is_the_concept_of_causality_in_distributed_system/DistributedSystem.png"
+  width="100%"
+  alt="Distributed System"
+/>
 
 # Time
 
@@ -25,7 +29,11 @@ Knowing the time of occurrence of these events will help us in the above scenari
 
 In a centralized system, we have a single point of truth all the incoming request and occurrences of the events that happen on the system. As a result, it is very intuitive to order events in centralized systems.
 
-![Centralized System](/static/images/what_is_the_concept_of_causality_in_distributed_system/CentralizedSystem.png)
+<Image
+  src="/static/images/what_is_the_concept_of_causality_in_distributed_system/CentralizedSystem.png"
+  width="100%"
+  alt="Centralized System"
+/>
 
 In a distributed system, we can have the physical or global clock to order the events. However, it is not feasible. As a result, we have a concept of logical clocks which are based on the messages passed between the nodes.
 
@@ -59,13 +67,21 @@ In a single-node system, it easy to define total order as all the events are exe
 
 In distributed systems, it is easier to attain partial ordering between the series of events as they happen on different nodes concurrently. While we don’t always need to obtain total order, it is hard to attain when required.
 
-![Ordering of Events](/static/images/what_is_the_concept_of_causality_in_distributed_system/ordering.png)
+<Image
+  src="/static/images/what_is_the_concept_of_causality_in_distributed_system/ordering.png"
+  width="100%"
+  alt="Ordering of Events"
+/>
 
 In the figure above, we can see some of the duration of events interleaving. This is not the only issue that arises when defining the total order. Even if the events do not interleave, we have to consider clock error.
 
 Each node has its clock running at a different rate and granularity, all the nodes are giving timestamps to all the events based on their local clocks and there is not a governing global clock to put all the events into a total order. In a single-node system, clock error can be ignored but not in a distributed system.
 
-![Ordering of events with errors](/static/images/what_is_the_concept_of_causality_in_distributed_system/ordering_with_errors.png)
+<Image
+  src="/static/images/what_is_the_concept_of_causality_in_distributed_system/ordering_with_errors.png"
+  width="100%"
+  alt="Ordering of events with errors"
+/>
 
 Here we have assumed the error to be `1.5` for the sake of simplicity.
 
