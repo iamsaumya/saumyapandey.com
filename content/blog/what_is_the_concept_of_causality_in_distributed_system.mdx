@@ -95,9 +95,9 @@ Before we dive further deep, we need to realize that there are three kinds of ev
 
 The concept of causality is based on [happened-before](https://en.wikipedia.org/wiki/Happened-before) relation. This is a strict, partial order on the above events such that:
 
-If event a and event b are happening on the same node, then relationship a -> b holds if the occurrence of a precedes the occurrence of b. As the events are on the same node, it is easy to define the relationships.
-If event a is the event of a node corresponding the sending message and event b is the node corresponding the receiving message, then its a->b.
-For three events, a,b and c. if a->b and b->c then a->c.
+- If event a and event b are happening on the same node, then relationship a -> b holds if the occurrence of a precedes the occurrence of b. As the events are on the same node, it is easy to define the relationships.
+- If event a is the event of a node corresponding the sending message and event b is the node corresponding the receiving message, then its a->b.
+- For three events, a,b and c. if a->b and b->c then a->c.
 
 Here we can conclude that if a is not causally related to b then both the events can be considered to happen concurrently (a || b).
 
