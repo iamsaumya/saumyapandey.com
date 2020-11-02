@@ -7,7 +7,8 @@ import {
   Link,
   PseudoBox,
   Text,
-  Divider
+  Divider,
+  useColorMode
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import NextLink from "next/link";
@@ -19,7 +20,7 @@ const Table = (props) => (
 );
 
 const THead = (props) => {
-  const colorMode = "light";
+  const { colorMode } = useColorMode();
   const bg = {
     light: "gray.50",
     dark: "whiteAlpha.100"
@@ -50,7 +51,7 @@ const TData = (props) => (
 );
 
 const CustomLink = (props) => {
-  const colorMode = "light";
+  const { colorMode } = useColorMode();
   const color = {
     light: "hsl(208, 99%, 44%)",
     dark: "hsl(208, 95%, 68%)"
@@ -83,7 +84,7 @@ const CustomLink = (props) => {
 };
 
 const Quote = (props) => {
-  const colorMode = "light";
+  const { colorMode } = useColorMode();
   const bgColor = {
     light: "blue.50",
     dark: "blue.900"
@@ -153,7 +154,7 @@ const DocsHeading = (props) => (
 );
 
 const Hr = () => {
-  const colorMode = "light";
+  const { colorMode } = useColorMode();
   const borderColor = {
     light: "gray.200",
     dark: "gray.600"
