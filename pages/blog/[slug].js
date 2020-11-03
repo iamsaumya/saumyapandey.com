@@ -5,7 +5,8 @@ import fs from "fs";
 import path from "path";
 import BlogHeader from "../../components/BlogHeader";
 import { CustomLink } from "../../components/MDXComponents";
-import { Box, Stack, Image } from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/core";
+import Image from "next/image";
 import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
 
