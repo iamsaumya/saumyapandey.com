@@ -4,8 +4,8 @@ import NavLink from "./NavLink";
 const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const navBgColor = {
-    light: "rgba(255, 255, 255, 0.8)",
-    dark: "rgba(23, 25, 35, 0.8)"
+    light: "rgba(255, 255, 255)",
+    dark: "rgba(23, 25, 35)"
   };
   return (
     <Flex

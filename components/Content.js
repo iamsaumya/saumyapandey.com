@@ -10,6 +10,7 @@ const Content = () => {
         flexDirection="column"
         justifyContent="flex-start"
         alignItems="flex-start"
+        mt={2}
       >
         <Text
           fontSize={["1.5rem", "2rem"]}

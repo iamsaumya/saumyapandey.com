@@ -4,7 +4,7 @@ import NextLink from "next/link";
 const NavLink = ({ href, name }) => {
   const { colorMode } = useColorMode();
   const textColor = {
-    light: "rgb(119,124,155)",
+    light: "#334259",
     dark: "#EDEDED"
   };
   return (
