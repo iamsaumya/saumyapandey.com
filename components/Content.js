@@ -2,7 +2,7 @@ import React from "react";
 import BlogCard from "../components/BlogCard";
 import { Flex, Text, useColorMode } from "@chakra-ui/core";
 
-const Content = () => {
+const Content = ({ info }) => {
   const { colorMode } = useColorMode();
   return (
     <React.Fragment>
@@ -18,6 +18,9 @@ const Content = () => {
         >
           Blog
         </Text>
+        {info.map((blog) => (
+          <BlogCard {...blog} />
+        ))}
         <BlogCard
           title="Everything I Know About Style Guides, Design Systems and Component
           Libraries"
@@ -25,6 +28,7 @@ const Content = () => {
           style guides, design systems, component libraries, and their best
           practices."
           published="21-08-2000"
+          slug="backend"
         />
         <BlogCard
           title="Everything I Know About Style Guides, Design Systems and Component
@@ -33,6 +37,7 @@ const Content = () => {
           style guides, design systems, component libraries, and their best
           practices."
           published="21-08-2000"
+          slug="backend"
         />
         <BlogCard
           title="Everything I Know About Style Guides, Design Systems and Component
@@ -41,6 +46,7 @@ const Content = () => {
           style guides, design systems, component libraries, and their best
           practices."
           published="21-08-2000"
+          slug="backend"
         />
         <BlogCard
           title="Everything I Know About Style Guides, Design Systems and Component
@@ -49,6 +55,7 @@ const Content = () => {
           style guides, design systems, component libraries, and their best
           practices."
           published="21-08-2000"
+          slug="backend"
         />
         <BlogCard
           title="Everything I Know About Style Guides, Design Systems and Component
@@ -57,6 +64,7 @@ const Content = () => {
           style guides, design systems, component libraries, and their best
           practices."
           published="21-08-2000"
+          slug="backend"
         />
       </Flex>
     </React.Fragment>

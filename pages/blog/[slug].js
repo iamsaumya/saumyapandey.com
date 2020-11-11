@@ -6,7 +6,6 @@ import path from "path";
 import BlogHeader from "../../components/BlogHeader";
 import { CustomLink } from "../../components/MDXComponents";
 import { Box, Stack } from "@chakra-ui/core";
-import Image from "next/image";
 import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
 
@@ -20,7 +19,7 @@ const discussUrl = (slug) =>
   )}`;
 
 export default function BlogPost({ mdxSource, frontMatter, slug }) {
-  const content = hydrate(mdxSource, { components: { Image } });
+  const content = hydrate(mdxSource);
   return (
     <>
       {frontMatter && (
@@ -64,7 +63,6 @@ export async function getStaticProps({ params }) {
   );
   const { data, content } = matter(source);
   const mdxSource = await renderToString(content, {
-    components: { Image },
     mdxOptions: { rehypePlugins: [mdxPrism] }
   });
   return { props: { mdxSource, frontMatter: data, slug: params.slug } };

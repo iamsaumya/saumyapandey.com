@@ -2,8 +2,7 @@ import React from "react";
 import NextLink from "next/link";
 import { Link, Flex, Box, Heading, Text, useColorMode } from "@chakra-ui/core";
 
-const BlogCard = ({ title, summary, published }) => {
-  const slug = "backend";
+const BlogCard = ({ title, summary, publishedAt, slug }) => {
   const { colorMode } = useColorMode();
   const secondaryTextColor = {
     light: "gray.700",
@@ -13,6 +12,7 @@ const BlogCard = ({ title, summary, published }) => {
   return (
     <NextLink href={`/blog/${slug}`} passHref>
       <Link
+        w="100%"
         _hover={{
           transform: "scale(1.02)",
           borderTop: "2px",
@@ -44,7 +44,6 @@ const BlogCard = ({ title, summary, published }) => {
         <Box>
           <Flex
             justifyContent="space-between"
-            width="100"
             flexDirection={["column", "column", "row"]}
           >
             <Heading
@@ -55,7 +54,7 @@ const BlogCard = ({ title, summary, published }) => {
             >
               {title}
             </Heading>
-            <Text mt={["4", "4", "0"]}>{published}</Text>
+            <Text mt={["4", "4", "0"]}>{publishedAt}</Text>
           </Flex>
           <Text color={secondaryTextColor[colorMode]} mt={4}>
             {summary}
