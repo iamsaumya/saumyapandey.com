@@ -40,5 +40,5 @@ export async function getStaticProps() {
       return 1;
     } else return 0;
   });
-  return { props: { info: info.length > 3 ? info.slice(0, 3) : info } };
+  return { props: { info: info.length > 5 ? info.slice(0, 5) : info } };
 }

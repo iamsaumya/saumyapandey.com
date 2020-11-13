@@ -19,7 +19,7 @@ const Content = ({ info }) => {
           Blog
         </Text>
         {info.map((blog) => (
-          <BlogCard {...blog} />
+          <BlogCard key={blog.slug} {...blog} />
         ))}
         <BlogCard
           title="Everything I Know About Style Guides, Design Systems and Component
