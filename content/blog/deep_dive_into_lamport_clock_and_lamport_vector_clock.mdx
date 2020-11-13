@@ -1,0 +1,86 @@
+---
+title: "Deep dive into Lamport clock and Lamport Vector clock."
+publishedAt: "2020-11-13"
+summary: "We will learn why the lamport clocks were invented and why do we need lamport vector clocks."
+image: "/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/banner.png"
+---
+
+This blog is in continuation of the previous [blog](https://saumyapandey.com/blog/what_is_the_concept_of_causality_in_distributed_system). In the previous blog, we had discussed the types of ordering and the types of events that happen on a distributed system. We got familiar with the concept of causality. When we say the concept of causality we mean those three rules that help us determine the causality between the events and If events don't comply with the causality relation we consider them as concurrent events.
+
+If all the paragraph above did not make sense to you, I highly recommend you to read this [blog](https://saumyapandey.com/blog/what_is_the_concept_of_causality_in_distributed_system) before continuing.
+
+As promised, today we are going to discuss two concepts.
+
+- **How the concept of causality is a potential casualty.**
+
+- **How Lamport clocks help us to determine causality between different events**.
+
+## This concept of causality
+
+![Causality relationship in distributed system](/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/causality.png)
+
+If we apply the concept of causality rules in the above diagram of events. We can infer the following relationships: e<sub>1</sub> -> e<sub>4</sub> , e<sub>1</sub> -> e<sub>5</sub>, e<sub>1</sub> -> e<sub>6</sub>, e<sub>1</sub> -> e<sub>9</sub>, e<sub>1</sub> -> e<sub>7</sub> and e<sub>1</sub> -> e<sub>8</sub>. However, note that e<sub>1</sub> || e<sub>3</sub> and e<sub>2</sub> || e<sub>6</sub> even after occurring at a distant time because we don't have enough information to track the causality relation between them. This is means that events are considered concurrent by the system because they could have happened in any order as there were no information exchanged between them.
+
+This is the reason why the concept of causality is referred to as potential causality. Lamport clock are a logical clock that were invented to solve this problem.
+
+## Lamport clocks
+
+Lamport clocks are a logical clock and numeric in nature. In a distributed system, each node maintains their lamport clocks and starts it from zero when the nodes start operating.
+
+To increment the value of a logical clock when executing an event, each node has to follow the following protocols.
+
+- Before executing an event (send, receive or local) the node increments the counter of its logical clock. LC = LC + 1
+
+- Every message sent across the distributed system piggybacks the counter value of its sender at the sending time. The node which receives the message executes the following command. - Updates its clock with the maximum of its clock value and the sender's clock value. - Executes the message at its end. - Delivers the message.
+
+![Lamport Clocks](/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/lamportclock.png)
+
+To understand how Lamport clocks work let take a look at the example above, here we have a distributed system consisting of three nodes (A, B and C). If we observe all the event are abiding the protocols of incrementing their clocks while performing events.
+
+Let's pick any two events that are causaly related, A<sub>1</sub> and B<sub>1</sub> are causally related (A<sub>1</sub> -> B<sub>1</sub>). We can observe that if one event causally preceds other then C(A<sub>1</sub>) < C(B<sub>1</sub>).
+
+However, we need to observe that the oppposite is not true. If two event exists such that C(e<sub>1</sub>) < C(e<sub>2</sub>), it does not necessarily means that e<sub>1</sub> causally preceds other. For example, Take a look at C<sub>2</sub> and B<sub>2</sub> in the diagram. C(C<sub>2</sub>) < C(B<sub>2</sub>) but C<sub>2</sub> and B<sub>2</sub> are not causally related , B<sub>2</sub> could have happened before C<sub>2</sub> with the same clock value.
+
+Hence, Lamport clocks satisfy so-called **clock consistency condition**: If one event e<sub>1</sub> causally precedes other event e<sub>2</sub> then C(e<sub>1</sub>) < C(e<sub>2</sub>). But it does not satify the **strong consistency condition**: If C(e<sub>1</sub>) < C(e<sub>2</sub>) then e<sub>1</sub> causally precedes e<sub>2</sub>.
+
+## Lamport Vector Clocks
+
+As we realised that Lamport clocks are not good enough to determine the causal relationship between the events because they fail the strong consistency condition. The reason behind this is that in Lamport clocks we are trying to flat the global and local clocks together. As a result, events don't know about all the events that precede it.
+
+A set of all the events that causally precedes an event is known as **Causal History**.
+
+For instance, In the figure above the causal history of e<sub>7</sub> is {e<sub>1</sub>,e<sub>2</sub>,e<sub>3</sub>,e<sub>4</sub>,e<sub>5</sub>}.
+
+We have to solve this problem cost-effectively and utilizing a compact data structure. A **Vector clock** is an example of such a data structure.
+
+A vector clock is another type of logical clock, where the clock data stucture of each node is an array of N counters (where N is the number of nodes present on the distributed system) [c<sub>1</sub>, c<sub>2</sub>, c<sub>3</sub>, c<sub>4</sub>, ... ,c<sub>N</sub>].
+
+- The i<sup>th</sup> element of the vector represent the local logical clock for that node.
+
+- The remaining element represents the global logical clock of the nodes. [c<sub>0</sub>, c<sub>1</sub>, ..., c<sub>i-1</sub>, c<sub>i+1</sub> , ..., c<sub>n-1</sub>, c<sub>N</sub>].
+
+Just like Lamport clocks, there are protocols for each node to follow to update their logical clock:
+
+- Before executing an event (receive, send or local) increment the counter of its logical clock. c<sub>i</sub> = c<sub>i</sub> + 1.
+
+- Every message sent acorss the distributed system piggybacks the counter vector of its sender at the sending time. When the i<sup>th</sup> node receives the j<sup>th</sup> node counter vector [c<sub>j0</sub>, c<sub>j1</sub>, c<sub>j2</sub>, c<sub>ji</sub>, ... ,c<sub>jN</sub>]. - Executes the received message. - Updates each index of the its vector clocks by taking the maximum of the corresponding index from the j<sup>th</sup> vector clock. C<sub>i,k</sub> = max(C<sub>i,k</sub>,C<sub>j,k</sub>). - Delievers the message.
+
+This kind of logical clock satisify the strong consistency condition. That means if two events e<sub>1</sub> and e<sub>2</sub> exists with timestamp of C<sub>1</sub> and C<sub>2</sub>, such that C(C<sub>1</sub>) < C(C<sub>2</sub>) then e<sub>1</sub> causally precedes e<sub>2</sub> (e<sub>1</sub> -> e<sub>2</sub>).
+
+The only thing missing is to discuss how to compare Lamport vector clocks with each other, which is done in the following way.
+
+- For 2 vector clocks C<sub>i</sub> = [C<sub>i,0</sub>, ..., C<sub>i,N</sub>] and C<sub>j</sub> = [C<sub>j,0</sub>, ..., C<sub>j,N</sub>], C<sub>i</sub> < C<sub>j</sub> iff all the elements of clock C<sub>i</sub> is less than the corresponding elements from clock C<sub>j</sub> (C<sub>i,k</sub> ≤ C<sub>j,k</sub> for all k) and there exist a single element in C<sub>i</sub> that is strictly less than the corresponding element in C<sub>j</sub>. (C<sub>i,L</sub><C<sub>j,L</sub> for atleast one L in [1...N])
+
+![Lamport Vector Clocks](/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/vectorclocks.png)
+
+In the figure above, we can observe that the clocks are updated following the protocaols describe above. This time we can say that C(A<sub>1</sub>) <C(B<sub>1</sub>) while A<sub>1</sub>-> B<sub>1</sub>. What is most important is that we can determine if two events are causally related or concurrent. B<sub>2</sub> || C<sub>2</sub> since C(B<sub>2</sub>) is neither less than or greater than the C(C<sub>2</sub>).
+
+Vector clocks are useful for a situation that benefits from determining whether two events are causally related or concurrent. That too allowing the nodes to progress independently without any bottlenecks of synchronization or coordination.
+
+However, there exists a possible problem with vector clocks. Each node has to maintain a vector of N length. N is the number of nodes contributing to the distributed system. In our examples, our N is fairly low but in real-life scenarios, this could grow in an exponential and unmanageable number. For example, if a distributed system of an application considers every browser as a node.
+
+---
+
+Let's take a break. In the next blog, we will discuss **partitioning in distributed systems and its types**.
+
+See you 👋
