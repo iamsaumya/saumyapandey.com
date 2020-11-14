@@ -37,6 +37,9 @@ const GlobalStyle = () => {
             min-height: 100vh;
             background: ${colorMode === "light" ? "white" : "#171923"};
           }
+          ::selection {
+            background-color: #ed7842;
+          }
           @font-face {
             font-family: "FreightTextBook";
             src: local("FreightText Pro Book"),
