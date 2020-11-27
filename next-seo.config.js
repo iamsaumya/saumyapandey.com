@@ -17,15 +17,15 @@ const SEO = {
         url: "https://saumyapandey.com/static/images/og.png",
         alt: title,
         width: 1280,
-        height: 720
-      }
-    ]
+        height: 720,
+      },
+    ],
   },
   twitter: {
     handle: "@itsrklover",
     site: "@itsrklover",
-    cardType: "summary_large_image"
-  }
+    cardType: "summary_large_image",
+  },
 };
 
 export default SEO;

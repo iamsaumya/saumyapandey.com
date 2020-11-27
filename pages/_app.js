@@ -2,7 +2,7 @@ import {
   ThemeProvider,
   CSSReset,
   ColorModeProvider,
-  useColorMode
+  useColorMode,
 } from "@chakra-ui/core";
 import theme from "../styles/theme";
 import { prismLightTheme, prismDarkTheme } from "../styles/prism";

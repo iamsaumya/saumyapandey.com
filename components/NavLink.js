@@ -5,7 +5,7 @@ const NavLink = ({ href, name }) => {
   const { colorMode } = useColorMode();
   const textColor = {
     light: "#334259",
-    dark: "#EDEDED"
+    dark: "#EDEDED",
   };
   return (
     <NextLink href={href} passHref>

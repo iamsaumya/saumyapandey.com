@@ -5,7 +5,7 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
   const date = new Date(publishedAt).toISOString();
   const featuredImage = {
     url: `https://saumyapandey.com${image}`,
-    alt: title
+    alt: title,
   };
 
   return (
@@ -17,12 +17,12 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
         openGraph={{
           type: "article",
           article: {
-            publishedTime: date
+            publishedTime: date,
           },
           url,
           title,
           description: summary,
-          images: [featuredImage]
+          images: [featuredImage],
         }}
       />
       <ArticleJsonLd

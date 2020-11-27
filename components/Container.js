@@ -7,11 +7,11 @@ export default function Container({ children }) {
   const { colorMode } = useColorMode();
   const bgColor = {
     light: "white",
-    dark: "gray.900"
+    dark: "gray.900",
   };
   const primarytextColor = {
     light: "#334259",
-    dark: "#EDEDED"
+    dark: "#EDEDED",
   };
   return (
     <>

@@ -6,7 +6,7 @@ const Footer = () => {
   const { colorMode } = useColorMode();
   const textColor = {
     light: "rgb(119,124,155)",
-    dark: "#EDEDED"
+    dark: "#EDEDED",
   };
   return (
     <Flex align="center" mt={4} direction="column">

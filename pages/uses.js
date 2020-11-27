@@ -18,7 +18,7 @@ const Uses = ({ mdxSource }) => {
         openGraph={{
           url: "https://saumyapandey.com/uses",
           title: "Uses – Saumya Pandey",
-          description: "Here's what I'm currently using."
+          description: "Here's what I'm currently using.",
         }}
       />
       {content}

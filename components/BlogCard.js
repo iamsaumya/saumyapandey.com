@@ -6,7 +6,7 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
   const { colorMode } = useColorMode();
   const secondaryTextColor = {
     light: "gray.700",
-    dark: "gray.400"
+    dark: "gray.400",
   };
 
   return (
@@ -19,7 +19,7 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
           borderTopColor: "#ed7842",
           transition: "0.5s",
           transitionTimingFunction: "ease",
-          boxShadow: "1px 1px 5px rgba(52, 61, 68, 0.2)"
+          boxShadow: "1px 1px 5px rgba(52, 61, 68, 0.2)",
         }}
         _active={{
           transform: "scale(1.02)",
@@ -27,7 +27,7 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
           borderTopColor: "#ed7842",
           transition: "0.5s",
           transitionTimingFunction: "ease",
-          boxShadow: "1px 1px 5px rgba(52, 61, 68, 0.2)"
+          boxShadow: "1px 1px 5px rgba(52, 61, 68, 0.2)",
         }}
         border="0.5px solid"
         borderRadius="5px"

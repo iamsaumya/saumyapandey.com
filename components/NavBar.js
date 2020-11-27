@@ -5,7 +5,7 @@ const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const navBgColor = {
     light: "rgba(255, 255, 255)",
-    dark: "rgba(23, 25, 35)"
+    dark: "rgba(23, 25, 35)",
   };
   return (
     <Flex
