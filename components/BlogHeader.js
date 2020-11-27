@@ -5,14 +5,14 @@ import {
   Flex,
   Stack,
   Avatar,
-  useColorMode
+  useColorMode,
 } from "@chakra-ui/core";
 
 const BlogHeader = ({ frontMatter, slug }) => {
   const { colorMode } = useColorMode();
   const textColor = {
     light: "gray.700",
-    dark: "gray.400"
+    dark: "gray.400",
   };
 
   return (
@@ -26,10 +26,11 @@ const BlogHeader = ({ frontMatter, slug }) => {
     >
       <Flex
         flexDirection="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
+        justifyContent="center"
+        alignItems="center"
         maxWidth="700px"
         w="100%"
+        textAlign="center"
       >
         <Heading
           fontFamily="GT Walsheim Pro Bold"
@@ -40,26 +41,17 @@ const BlogHeader = ({ frontMatter, slug }) => {
         >
           {frontMatter.title}
         </Heading>
-        <Flex
-          justify="space-between"
-          align={["initial", "center"]}
-          direction={["column", "row"]}
-          mt={2}
-          w="100%"
-          mb={4}
-        >
-          <Flex align="center">
-            <Avatar
-              size="sm"
-              name="Saumya Pandey"
-              src="/static/images/profilepic.jpeg"
-              mr={2}
-            />
-            <Text fontSize={["md", "lg"]} color={textColor[colorMode]}>
-              {"Saumya Pandey "}
-              {" / " + frontMatter.publishedAt}
-            </Text>
-          </Flex>
+        <Flex align="center">
+          <Avatar
+            size="sm"
+            name="Saumya Pandey"
+            src="/static/images/profilepic.jpeg"
+            mr={2}
+          />
+          <Text fontSize={["md", "lg"]} color={textColor[colorMode]}>
+            {"Saumya Pandey "}
+            {" / " + frontMatter.publishedAt}
+          </Text>
         </Flex>
       </Flex>
     </Stack>

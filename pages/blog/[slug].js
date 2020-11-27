@@ -30,7 +30,7 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
       )}
       <Box m={8}>
         <BlogHeader frontMatter={frontMatter} slug={slug} />
-        <Stack as="article" textAlign="justify" fontSize={["1rem", "1.5rem"]}>
+        <Stack as="article" fontSize={["1rem", "1.5rem"]}>
           {content}
         </Stack>
         <Box mt={10}>
@@ -52,7 +52,7 @@ export async function getStaticPaths() {
     fallback: false,
     paths: fs
       .readdirSync(path.join(root, "content/blog"))
-      .map((p) => ({ params: { slug: p.replace(/\.mdx/, "") } }))
+      .map((p) => ({ params: { slug: p.replace(/\.mdx/, "") } })),
   };
 }
 
@@ -63,7 +63,7 @@ export async function getStaticProps({ params }) {
   );
   const { data, content } = matter(source);
   const mdxSource = await renderToString(content, {
-    mdxOptions: { rehypePlugins: [mdxPrism] }
+    mdxOptions: { rehypePlugins: [mdxPrism] },
   });
   return { props: { mdxSource, frontMatter: data, slug: params.slug } };
 }

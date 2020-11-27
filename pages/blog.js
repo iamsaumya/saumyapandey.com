@@ -7,7 +7,7 @@ export default function Blog({ info }) {
   return (
     <>
       {info.map((blog) => (
-        <BlogCard {...blog} />
+        <BlogCard {...blog} key={blog.slug} />
       ))}
       <BlogCard
         title="Everything I Know About Style Guides, Design Systems and Component
