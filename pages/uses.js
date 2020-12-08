@@ -3,7 +3,7 @@ import hydrate from "next-mdx-remote/hydrate";
 import fs from "fs";
 import path from "path";
 import { NextSeo } from "next-seo";
-import { Box } from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/core";
 
 const root = process.cwd();
 
@@ -21,7 +21,9 @@ const Uses = ({ mdxSource }) => {
           description: "Here's what I'm currently using.",
         }}
       />
-      {content}
+      <Stack as="article" fontSize={["1rem", "1.5rem"]}>
+        {content}
+      </Stack>
     </Box>
   );
 };
