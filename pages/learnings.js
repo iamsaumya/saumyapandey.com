@@ -2,13 +2,17 @@ import renderToString from "next-mdx-remote/render-to-string";
 import hydrate from "next-mdx-remote/hydrate";
 import fs from "fs";
 import path from "path";
-import { Box } from "@chakra-ui/core";
+import { Stack } from "@chakra-ui/core";
 
 const root = process.cwd();
 
 const Learnings = ({ mdxSource }) => {
   const content = hydrate(mdxSource);
-  return <Box>{content}</Box>;
+  return (
+    <Stack as="article" fontSize={["1rem", "1.5rem"]}>
+      {content}
+    </Stack>
+  );
 };
 
 export async function getStaticProps({ params }) {
