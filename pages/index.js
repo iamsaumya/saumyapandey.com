@@ -21,8 +21,6 @@ export async function getStaticProps() {
     .readdirSync(path.join(root, "content/blog"))
     .map((p) => p.replace(/\.mdx/, ""));
 
-  console.log(paths);
-
   let info = [];
   paths.forEach((p) => {
     const source = fs.readFileSync(

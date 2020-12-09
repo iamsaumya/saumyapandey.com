@@ -21,51 +21,6 @@ const Content = ({ info }) => {
         {info.map((blog) => (
           <BlogCard key={blog.slug} {...blog} />
         ))}
-        <BlogCard
-          title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-          summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-          published="21-08-2000"
-          slug="backend"
-        />
-        <BlogCard
-          title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-          summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-          published="21-08-2000"
-          slug="backend"
-        />
-        <BlogCard
-          title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-          summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-          published="21-08-2000"
-          slug="backend"
-        />
-        <BlogCard
-          title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-          summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-          published="21-08-2000"
-          slug="backend"
-        />
-        <BlogCard
-          title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-          summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-          published="21-08-2000"
-          slug="backend"
-        />
       </Flex>
     </React.Fragment>
   );

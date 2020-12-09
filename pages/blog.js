@@ -9,51 +9,6 @@ export default function Blog({ info }) {
       {info.map((blog) => (
         <BlogCard {...blog} key={blog.slug} />
       ))}
-      <BlogCard
-        title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-        summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-        published="21-08-2000"
-        slug="backend"
-      />
-      <BlogCard
-        title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-        summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-        published="21-08-2000"
-        slug="backend"
-      />
-      <BlogCard
-        title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-        summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-        published="21-08-2000"
-        slug="backend"
-      />
-      <BlogCard
-        title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-        summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-        published="21-08-2000"
-        slug="backend"
-      />
-      <BlogCard
-        title="Everything I Know About Style Guides, Design Systems and Component
-          Libraries"
-        summary="A deep-dive on everything I've learned in the past year building
-          style guides, design systems, component libraries, and their best
-          practices."
-        published="21-08-2000"
-        slug="backend"
-      />
     </>
   );
 }
