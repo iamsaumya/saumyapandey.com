@@ -28,7 +28,7 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
           {...frontMatter}
         />
       )}
-      <Box m={8}>
+      <Box width="100%" mx="auto">
         <BlogHeader frontMatter={frontMatter} slug={slug} />
         <Stack as="article" fontSize={["1.3rem", "1.5rem"]}>
           {content}
