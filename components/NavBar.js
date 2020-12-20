@@ -12,13 +12,20 @@ const NavBar = () => {
     dark: "rgba(23, 25, 35)",
   };
   return (
-    <Flex flexDirection="column" width="100%" mx="auto" maxW="800px" p={4}>
-      <Flex
-        justifyContent="space-between"
-        alignItems="center"
-        mt="3em"
-        bg={navBgColor[colorMode]}
-      >
+    <Flex
+      flexDirection="column"
+      width="100%"
+      mx="auto"
+      maxW="800px"
+      position="sticky"
+      top="-1px"
+      mt="3em"
+      p={4}
+      bg={navBgColor[colorMode]}
+      zIndex={1800}
+      fontFamily="GT Walsheim Pro"
+    >
+      <Flex justifyContent="space-between" alignItems="center">
         <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
           {show ? <AiOutlineClose size="42" /> : <AiOutlineMenu size="42" />}
         </Box>
