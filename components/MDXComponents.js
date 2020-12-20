@@ -65,7 +65,7 @@ const CustomLink = (props) => {
         <Link
           color={color[colorMode]}
           _hover={{ color: "#ed7842" }}
-          fontSize={["1rem", "1.5rem"]}
+          fontSize={["1.3rem", "1.5rem"]}
           {...props}
         />
       </NextLink>
@@ -75,7 +75,7 @@ const CustomLink = (props) => {
   return (
     <Link
       color={color[colorMode]}
-      fontSize={["1rem", "1.5rem"]}
+      fontSize={["1.3rem", "1.5rem"]}
       _hover={{ color: "#ed7842" }}
       isExternal
       {...props}
@@ -190,7 +190,7 @@ const MDXComponents = {
       as="h3"
       size="md"
       fontWeight="bold"
-      fontSize={["1rem", "1.5rem"]}
+      fontSize={["1.3rem", "1.5rem"]}
       {...props}
     />
   ),
