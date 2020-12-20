@@ -19,7 +19,7 @@ const NavBar = () => {
       maxW="800px"
       position="sticky"
       top="-1px"
-      mt="3em"
+      mt="1em"
       p={4}
       bg={navBgColor[colorMode]}
       zIndex={1800}
