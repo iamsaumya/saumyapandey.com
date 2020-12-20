@@ -28,12 +28,12 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
           {...frontMatter}
         />
       )}
-      <Box m={8}>
+      <Box width="100%" mx="auto">
         <BlogHeader frontMatter={frontMatter} slug={slug} />
-        <Stack as="article" fontSize={["1rem", "1.5rem"]}>
+        <Stack as="article" fontSize={["1.3rem", "1.5rem"]}>
           {content}
         </Stack>
-        <Box mt={10}>
+        <Box mt={10} fontSize={["1.3rem", "1.5rem"]}>
           <CustomLink href={discussUrl(slug)} isExternal>
             {"Discuss on Twitter"}
           </CustomLink>
