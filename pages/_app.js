@@ -88,7 +88,7 @@ const GlobalStyle = () => {
 function App({ Component, pageProps }) {
   return (
     <>
-      <MDXProvider components={components}>
+      <MDXProvider components={{ ...components }}>
         <ThemeProvider theme={theme}>
           <ColorModeProvider value="light">
             <DefaultSeo {...SEO} />
