@@ -17,7 +17,14 @@ As promised, today we are going to discuss two concepts.
 
 ## The concept of causality
 
-![Causality relationship in distributed system](/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/causality.png)
+<Image
+    alt={`Causality relationship in distributed system`}
+    src={`/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/causality.png`}
+    width={1187}
+    height={620}
+    priority={true}
+/>
+
 
 If we apply the concept of causality rules in the above diagram of events. We can infer the following relationships: e<sub>1</sub> -> e<sub>4</sub> , e<sub>1</sub> -> e<sub>5</sub>, e<sub>1</sub> -> e<sub>6</sub>, e<sub>1</sub> -> e<sub>9</sub>, e<sub>1</sub> -> e<sub>7</sub> and e<sub>1</sub> -> e<sub>8</sub>. However, note that e<sub>1</sub> || e<sub>3</sub> and e<sub>2</sub> || e<sub>6</sub> even after occurring at a distant time because we don't have enough information to track the causality relation between them. This is means that events are considered concurrent by the system because they could have happened in any order as there were no information exchanged between them.
 
@@ -33,7 +40,12 @@ To increment the value of a logical clock when executing an event, each node has
 
 - Every message sent across the distributed system piggybacks the counter value of its sender at the sending time. The node which receives the message executes the following command. - Updates its clock with the maximum of its clock value and the sender's clock value. - Executes the message at its end. - Delivers the message.
 
-![Lamport Clocks](/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/lamportclock.png)
+<Image
+    alt={`Lamport Clocks`}
+    src={`/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/lamportclock.png`}
+    width={1323}
+    height={622}
+/>
 
 To understand how Lamport clocks work let take a look at the example above, here we have a distributed system consisting of three nodes (A, B and C). If we observe all the event are abiding the protocols of incrementing their clocks while performing events.
 
@@ -71,7 +83,12 @@ The only thing missing is to discuss how to compare Lamport vector clocks with e
 
 - For 2 vector clocks C<sub>i</sub> = [C<sub>i,0</sub>, ..., C<sub>i,N</sub>] and C<sub>j</sub> = [C<sub>j,0</sub>, ..., C<sub>j,N</sub>], C<sub>i</sub> < C<sub>j</sub> iff all the elements of clock C<sub>i</sub> is less than the corresponding elements from clock C<sub>j</sub> (C<sub>i,k</sub> ≤ C<sub>j,k</sub> for all k) and there exist a single element in C<sub>i</sub> that is strictly less than the corresponding element in C<sub>j</sub>. (C<sub>i,L</sub><C<sub>j,L</sub> for atleast one L in [1...N])
 
-![Lamport Vector Clocks](/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/vectorclocks.png)
+<Image
+    alt={`Lamport Vector Clocks`}
+    src={`/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/vectorclocks.png`}
+    width={1322}
+    height={702}
+/>
 
 In the figure above, we can observe that the clocks are updated following the protocaols describe above. This time we can say that C(A<sub>1</sub>) <C(B<sub>1</sub>) while A<sub>1</sub>-> B<sub>1</sub>. What is most important is that we can determine if two events are causally related or concurrent. B<sub>2</sub> || C<sub>2</sub> since C(B<sub>2</sub>) is neither less than or greater than the C(C<sub>2</sub>).
 

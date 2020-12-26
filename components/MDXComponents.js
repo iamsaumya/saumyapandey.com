@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/core";
 import { jsx } from "@emotion/core";
 import NextLink from "next/link";
+import Image from "next/image";
 
 const Table = (props) => (
   <Box overflowX="scroll" w="full">
@@ -209,6 +210,7 @@ const MDXComponents = {
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
   li: (props) => <Box as="li" pb={1} {...props} />,
   blockquote: Quote,
+  Image,
 };
 
 export { CustomLink };
