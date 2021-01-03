@@ -1,27 +1,28 @@
-import renderToString from "next-mdx-remote/render-to-string";
-import hydrate from "next-mdx-remote/hydrate";
-import fs from "fs";
-import path from "path";
-import { Stack } from "@chakra-ui/core";
+import { Stack, Box, Heading } from "@chakra-ui/core";
+import Achievement from "../components/Achievement";
 
-const root = process.cwd();
-
-const Learnings = ({ mdxSource }) => {
-  const content = hydrate(mdxSource);
+const Learnings = () => {
   return (
     <Stack as="article" fontSize={["1rem", "1.5rem"]}>
-      {content}
+      <Box>
+        <Heading mb="4">December 2020</Heading>
+        <Achievement text="Busy with university exams" />
+        <Heading mb="4">November 2020</Heading>
+        <Achievement text="Ben Awad's Lireddit course" />
+        <Achievement text="Dan Abramov's JustJavascript course" />
+        <Achievement
+          text="Fullstack Node.js"
+          isLink
+          link={"https://newline.co/fullstack-nodejs"}
+        />
+        <Achievement
+          text="Fullstack GraphQL"
+          isLink
+          link={"https://newline.co/fullstack-graphql"}
+        />
+      </Box>
     </Stack>
   );
 };
-
-export async function getStaticProps({ params }) {
-  const source = fs.readFileSync(
-    path.join(root, "content", "learnings.mdx"),
-    "utf8"
-  );
-  const mdxSource = await renderToString(source);
-  return { props: { mdxSource } };
-}
 
 export default Learnings;

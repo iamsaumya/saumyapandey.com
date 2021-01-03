@@ -74,7 +74,7 @@ const CustomLink = (props) => {
   return (
     <Link
       color={color[colorMode]}
-      fontSize={["1.3rem", "1.5rem"]}
+      fontSize={["1rem", "1.5rem"]}
       _hover={{ color: "#ed7842" }}
       isExternal
       {...props}
