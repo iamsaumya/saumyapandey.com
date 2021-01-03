@@ -5,6 +5,7 @@ const theme = {
   ...chakraTheme,
   fonts: {
     ...chakraTheme.fonts,
+    heading: `FreightTextBook,-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
     body: `FreightTextBook,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
   },
   fontWeights: {
