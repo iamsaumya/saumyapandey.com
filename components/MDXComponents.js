@@ -10,9 +10,7 @@ import {
   Divider,
   useColorMode,
 } from "@chakra-ui/core";
-import { jsx } from "@emotion/core";
 import NextLink from "next/link";
-import Image from "next/image";
 
 const Table = (props) => (
   <Box overflowX="scroll" w="full">
@@ -79,31 +77,6 @@ const CustomLink = (props) => {
       fontSize={["1.3rem", "1.5rem"]}
       _hover={{ color: "#ed7842" }}
       isExternal
-      {...props}
-    />
-  );
-};
-
-const Quote = (props) => {
-  const { colorMode } = useColorMode();
-  const bgColor = {
-    light: "blue.50",
-    dark: "blue.900",
-  };
-
-  return (
-    <Callout
-      mt={4}
-      w="98%"
-      bg={bgColor[colorMode]}
-      variant="left-accent"
-      status="info"
-      css={{
-        "> *:first-of-type": {
-          marginTop: 0,
-          marginLeft: 8,
-        },
-      }}
       {...props}
     />
   );
@@ -209,8 +182,6 @@ const MDXComponents = {
   ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
   li: (props) => <Box as="li" pb={1} {...props} />,
-  blockquote: Quote,
-  Image,
 };
 
 export { CustomLink };
