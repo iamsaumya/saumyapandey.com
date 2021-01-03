@@ -4,11 +4,11 @@ import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
 import BlogHeader from "../../components/BlogHeader";
-import MDXComponents from "../../components/MDXComponents";
 import { CustomLink } from "../../components/MDXComponents";
 import { Box, Stack } from "@chakra-ui/core";
 import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
+import Image from "next/image";
 
 const root = process.cwd();
 
@@ -20,7 +20,7 @@ const discussUrl = (slug) =>
   )}`;
 
 export default function BlogPost({ mdxSource, frontMatter, slug }) {
-  const content = hydrate(mdxSource, { components: MDXComponents });
+  const content = hydrate(mdxSource, { components: { Image } });
   return (
     <>
       {frontMatter && (
@@ -64,7 +64,7 @@ export async function getStaticProps({ params }) {
   );
   const { data, content } = matter(source);
   const mdxSource = await renderToString(content, {
-    component: MDXComponents,
+    components: { Image },
     mdxOptions: { rehypePlugins: [mdxPrism] },
   });
   return { props: { mdxSource, frontMatter: data, slug: params.slug } };
