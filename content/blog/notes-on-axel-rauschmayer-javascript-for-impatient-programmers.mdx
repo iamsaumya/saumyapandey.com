@@ -1,0 +1,266 @@
+---
+title: "Notes on Axel Rauschmayer's JavaScript for Impatient Programmers"
+publishedAt: "2021-02-08"
+summary: "Notes on Axel Rauschmayer's JavaScript for Impatient Programmers. Suitable for interview preparation and quick revision of concepts."
+image: "/static/images/notes-on-axel-rauschmayer-javascript-for-impatient-programmers/banner.png"
+---
+<Image
+    alt={`Causality relationship in distributed system`}
+    src={`/static/images/notes-on-axel-rauschmayer-javascript-for-impatient-programmers/banner.png`}
+    width={686}
+    height={983}
+    priority="true"
+/>
+
+These are my notes from [Javascript for impatient programmers](https://exploringjs.com/impatient-js/). I highly recommend you to read through the book for better understanding of the concepts. However, if you are already familiar with JS this could be a great way resource to revise essentials things. 
+
+---
+# III: Variables and values
+---
+
+## Variables and assignment 
+
+### let 
+Variables declared using let are blocked scope and mutable.
+```js
+{
+    let i;
+    i = 0;
+    console.log(i) //0 
+}
+console.log(i) //ReferenceError
+```
+
+### const
+Variables declared using const are blocked scoped and immutable. They have to be declared and unitialised at the same point.
+```js
+{
+    const i = 0;
+    i = 1; //TypeError: Assignment of const variable.
+    console.log(i) //0 
+}
+console.log(i) //Reference error
+```
+When are saying that variable declared via const are immuatable we mean the binding between the variable name and its value. The value itself could be mutable.
+
+<Image
+    alt={`const binding depiction`}
+    src={`/static/images/notes-on-axel-rauschmayer-javascript-for-impatient-programmers/constantbinding.png`}
+    width={2615}
+    height={3177}
+/>
+
+Here we depict that the connection between `i` and `{}`  is constant and cannot be changed but we can add a new property to the `{}`.
+
+### Stactic vs Dyanmic
+
+- Static means something is related to the source code and can be determined without executing code.
+- Dynamic means at runtime.
+
+### Global variable and global object
+All the scope in javascript can be imagined in a tree form. The outermost scope or root node is the global scope of the environment.
+
+The variables of the global scope are called __global variables__ and are accessable everywhere.
+
+There are two types of global variables.
+
+1. Global declarative variables.
+	Normal variables declared using `let`, `const` or `class` declarations.
+2. Global object variables.
+	Variables declared using `var` or `function` declarations.
+
+__globalThis__ is used to access global object variables. The reason why it got its name is because it is equal to `this` in global scope.
+
+<Image
+    alt={`Global Scope`}
+    src={`/static/images/notes-on-axel-rauschmayer-javascript-for-impatient-programmers/globalscoping.png`}
+    width={1382}
+    height={732}
+/>
+
+```js
+//Global scope
+const declarativeVariables = 0;
+var objectVariables = 23;
+
+console.log(declarativeVariables) //0
+console.log(objectVariables) //23
+
+console.log(globalThis.declarativeVariables)//undefined
+console.log(globalThis.objectVariables) //23
+
+```
+### Declarations: scope and activation
+
+Declaration scope is the area where a variable or entity can be seen. Variables which are blocked scope have their declaration scope between the `{` and `}` they enclosed. 
+
+But, their activation is somewhere else. The activation is the line where we can access the variable or entity without getting any errors.
+
+```js
+{
+    console.log(sum) //ReferenceError
+    const sum = 0;
+}
+```
+Here we are trying to access a variable in its scope but the variable is not activated yet. `const`,`let` and `class` declarations behave in this particular way. The zone between the scope and activation of entity is called __Temporal Dead Zone__ (TDZ).  
+
+The reason why `class` declarations also have TDZ is following
+```js
+class Name extends <expression>{
+
+}
+```
+the expression part could evolve into anything and it is better to start its activation at the same place where it is written to not make things confusing. 
+
+Wherease, the variables declared with `var` are function scoped and they do not have TDZ. In case of variables declared with `var` will return `undefined` when accessed before their intializations.
+
+Same goes with `function`, you could write function declaration at the bottow and make a function call at the top of the file. 
+
+However, there is a caveat. `function` declared with `let` or `const` keyword have TDZ and cannot be accessed before their declarations. 
+```js
+onetwothree() //ReferenceError
+const onetwothree = () => {return 123;}
+```
+
+### Closures
+Closures are functions that have connection with variables that exists at its "_birth place_".
+```js
+function increment(value){
+	return (num) => {
+        return num+value;
+	}
+}
+const incrementFive = increment(5);
+console.log(incrementFive(1)); //6
+```
+
+Static scoping is supported via closures in JS. Technically every function is a closure.
+
+__Use cases of closures__
+
+- They are implementation of static scoping and helps to provide context data to callbacks.
+- To store state to persist across function calls. 
+
+## Values
+
+__What is a type?__
+
+Type is a set of values. 
+For example : type `boolean` consist of `{true,false}`. Only two values.
+
+Similary, `string` and `number` have infinitely many values.
+
+The types in JS
+- null
+- undefined
+- boolean
+- string
+- number
+- bigint
+- symbol
+- object
+
+__Primitive values__ are variables of the types null, undefined, string, number, bigint, symbol and boolean and all other values are __objects__.
+
+Primitive values are always __passed and compared by values__.
+
+Objects values are always __passed and compared by reference__.
+
+Two common ways of creating an object:
+
+- Object literal
+	```js
+	const obj = {
+        first : 'saumya'
+	}
+- Array literal
+	```js
+	const arr = ['saumya']
+	```
+### typeof and instanceof 
+
+- __typeof__ is used to check the type of a value. Returns a string.
+- __instanceof__ determines which class created a given value. Returns `true` or `false`. 
+
+_Rule of thumb: __typeof__ is used for primitive types and __instanceof__ is used for Objects._
+
+| x | typeof x |
+| ------------- |:-------------:|
+| undefined | 'undefined' | 
+| null | 'object' | 
+| string | 'string' |
+| boolean | 'boolean' | 
+| bigint | 'bigint' | 
+| number | 'number' | 
+| function | 'function' | 
+| All other objects | 'object' | 
+
+```js
+({}) instanceof Object //true
+([]) instanceof Array //true
+
+123 instanceof Number //false
+```  
+
+Use `Object(value)` to convert value from a primitive to object type. 
+
+| x | Object(x) |
+| ------------- |:-------------:|
+| undefined | {} | 
+| null | {} | 
+| string | new String(x) |
+| boolean | new Boolean(x) | 
+| bigint | An instance of BigInt | 
+| number | new Number(x) | 
+| symbol | An instance of Symbol | 
+| object | x | 
+
+ 
+### Coercion
+
+When we perform an operation, the operator needs the operands in specific type. If the operands are not in the desired types, they are tried to convert into the desired type. Most of the time people don't bother to understand the significance of operand type and raise questiosn about unpredictibility of JS. 
+
+For example
+```js
+'1' x '4' 
+```
+will result in `4`. Because the `x` operator will convert its operand to numbers.
+
+## Operators
+
+### Loose equality ( == )
+- It coerces its operands to primitives type if the other operand is primitive type.
+- If both the operand are objects, they only equal if the objects are same.
+```js 
+undefined == null //true
+```
+### Strict Equality ( === )
+- It doesn't coerces its operands.
+```js
+undefined === null //false
+NaN === NaN //false
+```
+### Strictest : Object.is(x,y)
+```js
+Object.is(123,123) //true
+Object.is(NaN,NaN) //true
+```
+
+### Nullish Coalescing operator ( ?? )
+If the first operand is either `null` and `undefined` and return the second operand as a fallback.
+```js
+a ?? b
+a !== undefined && a!== null ? a : b
+```
+### Comma Operator
+Evaluate both expression and return the second one.
+
+```JS
+2+2,4+1 //5
+```
+
+### Void operator
+Evaluates its operand and returns undefined
+```JS
+void(3+1) //undefined
+```
