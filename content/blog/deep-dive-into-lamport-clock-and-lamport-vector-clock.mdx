@@ -2,7 +2,7 @@
 title: "Deep dive into Lamport clock and Lamport Vector clock."
 publishedAt: "2020-11-13"
 summary: "We will learn why the lamport clocks were invented and why do we need lamport vector clocks."
-image: "/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/banner.png"
+image: "/static/images/deep-dive-into-lamport-clock-and-lamport-vector-clock/banner.png"
 ---
 
 This blog is in continuation of the previous [blog](https://saumyapandey.com/blog/what_is_the_concept_of_causality_in_distributed_system). In the previous blog, we had discussed the types of ordering and the types of events that happen on a distributed system. We got familiar with the concept of causality. When we say the concept of causality we mean those three rules that help us determine the causality between the events and If events don't comply with the causality relation we consider them as concurrent events.
@@ -19,7 +19,7 @@ As promised, today we are going to discuss two concepts.
 
 <Image
     alt={`Causality relationship in distributed system`}
-    src={`/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/causality.png`}
+    src={`/static/images/deep-dive-into-lamport-clock-and-lamport-vector-clock/causality.png`}
     width={1187}
     height={620}
     priority="true"
@@ -42,7 +42,7 @@ To increment the value of a logical clock when executing an event, each node has
 
 <Image
     alt={`Lamport Clocks`}
-    src={`/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/lamportclock.png`}
+    src={`/static/images/deep-dive-into-lamport-clock-and-lamport-vector-clock/lamportclock.png`}
     width={1323}
     height={622}
 />
@@ -85,7 +85,7 @@ The only thing missing is to discuss how to compare Lamport vector clocks with e
 
 <Image
     alt={`Lamport Vector Clocks`}
-    src={`/static/images/deep_dive_into_lamport_clock_and_lamport_vector_clock/vectorclocks.png`}
+    src={`/static/images/deep-dive-into-lamport-clock-and-lamport-vector-clock/vectorclocks.png`}
     width={1322}
     height={702}
 />
