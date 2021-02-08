@@ -1,6 +1,6 @@
 import {
   Box,
-  Callout,
+  Flex,
   Code,
   Heading,
   Kbd,
@@ -13,7 +13,7 @@ import {
 import NextLink from "next/link";
 
 const Table = (props) => (
-  <Box overflowX="scroll" w="full">
+  <Box overflowX="auto" w="full">
     <Box as="table" textAlign="left" mt="32px" w="full" {...props} />
   </Box>
 );
@@ -100,8 +100,8 @@ const DocsHeading = (props) => (
       "&[id]:hover a": { opacity: 1 },
     }}
     {...props}
-    mb="1em"
-    mt="2em"
+    mb="0.5em"
+    mt="1em"
   >
     <Box pointerEvents="auto">
       {props.children}
@@ -139,14 +139,16 @@ const Hr = () => {
 
 const MDXComponents = {
   h1: (props) => (
-    <Heading
-      fontSize={["2rem", "2.5rem"]}
-      fontFamily="FreightTextBook"
-      as="h1"
-      size="xl"
-      my={4}
-      {...props}
-    />
+    <Flex align="center" justify="center">
+      <Heading
+        fontSize={["2rem", "2.5rem"]}
+        fontFamily="FreightTextBook"
+        as="h1"
+        size="xl"
+        id={props.children.replaceAll(" ", "-")}
+        {...props}
+      />
+    </Flex>
   ),
   h2: (props) => (
     <DocsHeading
@@ -155,6 +157,7 @@ const MDXComponents = {
       fontWeight="bold"
       size="lg"
       fontSize={["1.5rem", "2rem"]}
+      id={props.children.replaceAll(" ", "-")}
       {...props}
     />
   ),
@@ -165,6 +168,7 @@ const MDXComponents = {
       size="md"
       fontWeight="bold"
       fontSize={["1.3rem", "1.5rem"]}
+      id={props.children.replaceAll(" ", "-")}
       {...props}
     />
   ),
