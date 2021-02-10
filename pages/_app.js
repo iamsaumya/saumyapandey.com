@@ -4,6 +4,7 @@ import {
   ColorModeProvider,
   useColorMode,
 } from "@chakra-ui/core";
+import { useEffect } from "react";
 import theme from "../styles/theme";
 import { prismLightTheme, prismDarkTheme } from "../styles/prism";
 import { Global, css } from "@emotion/core";
@@ -13,6 +14,8 @@ import MDXComponents from "../components/MDXComponents";
 import SEO from "../next-seo.config";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import * as gtag from "../lib/gtag";
 
 const GlobalStyle = () => {
   const { colorMode } = useColorMode();
@@ -86,6 +89,17 @@ const GlobalStyle = () => {
 };
 
 function App({ Component, pageProps }) {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <MDXProvider components={MDXComponents}>
       <ThemeProvider theme={theme}>
