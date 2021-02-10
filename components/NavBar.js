@@ -16,7 +16,7 @@ const NavBar = () => {
       flexDirection="column"
       width="100%"
       mx="auto"
-      maxW="800px"
+      maxW="850px"
       position="sticky"
       top="-1px"
       mt="1em"

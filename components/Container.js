@@ -23,7 +23,7 @@ export default function Container({ children }) {
         flexDirection="column"
         mx="auto"
         width="100%"
-        maxW="700px"
+        maxW="750px"
         p={4}
         bg={bgColor[colorMode]}
         color={primarytextColor[colorMode]}

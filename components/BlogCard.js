@@ -10,11 +10,10 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
   };
 
   return (
-    <NextLink href={`/blog/${slug}`} passHref>
+    <NextLink href={`/blog/${encodeURIComponent(slug)}`} passHref>
       <Link
         w="100%"
         _hover={{
-          transform: "scale(1.02)",
           borderTop: "2px",
           borderTopColor: "#ed7842",
           transition: "0.5s",
@@ -22,7 +21,6 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
           boxShadow: "1px 1px 5px rgba(52, 61, 68, 0.2)",
         }}
         _active={{
-          transform: "scale(1.02)",
           borderTop: "2px",
           borderTopColor: "#ed7842",
           transition: "0.5s",

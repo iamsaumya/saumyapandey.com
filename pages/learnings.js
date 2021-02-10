@@ -3,7 +3,7 @@ import Achievement from "../components/Achievement";
 
 const Learnings = () => {
   return (
-    <Stack as="article" fontSize={["1rem", "1.5rem"]}>
+    <Stack as="article" fontSize={["1rem", "1.2rem"]}>
       <Box>
         <Heading mb="4">December 2020</Heading>
         <Achievement text="Busy with university exams" />
