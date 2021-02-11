@@ -12,6 +12,11 @@ import {
 } from "@chakra-ui/core";
 import NextLink from "next/link";
 
+const textColor = {
+  light: "#334259",
+  dark: "#d9d9d9",
+};
+
 const Table = (props) => (
   <Box overflowX="auto" w="full">
     <Box as="table" textAlign="left" mt="32px" w="full" {...props} />
@@ -182,10 +187,48 @@ const MDXComponents = {
   th: THead,
   td: TData,
   a: CustomLink,
-  p: (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />,
-  ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
-  ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
-  li: (props) => <Box as="li" pb={1} {...props} />,
+  p: (props) => {
+    const { colorMode } = useColorMode();
+    return (
+      <Text
+        as="p"
+        mt={4}
+        lineHeight="tall"
+        color={textColor[colorMode]}
+        {...props}
+      />
+    );
+  },
+  ul: (props) => {
+    const { colorMode } = useColorMode();
+    return (
+      <Box
+        as="ul"
+        pt={2}
+        pl={4}
+        ml={2}
+        color={textColor[colorMode]}
+        {...props}
+      />
+    );
+  },
+  ol: (props) => {
+    const { colorMode } = useColorMode();
+    return (
+      <Box
+        as="ol"
+        pt={2}
+        pl={4}
+        ml={2}
+        color={textColor[colorMode]}
+        {...props}
+      />
+    );
+  },
+  li: (props) => {
+    const { colorMode } = useColorMode();
+    return <Box as="li" pb={1} color={textColor[colorMode]} {...props} />;
+  },
 };
 
 export { CustomLink };

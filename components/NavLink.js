@@ -7,7 +7,7 @@ const NavLink = (props) => {
 
   const textColor = {
     light: "#334259",
-    dark: "#EDEDED",
+    dark: "#FAFAFA",
   };
 
   return (

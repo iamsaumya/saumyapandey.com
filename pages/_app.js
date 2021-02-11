@@ -26,10 +26,6 @@ const GlobalStyle = () => {
       <Global
         styles={css`
           ${colorMode === "light" ? prismLightTheme : prismDarkTheme};
-          ::selection {
-            background-color: #47a3f3;
-            color: #fefefe;
-          }
           html {
             min-width: 360px;
             scroll-behavior: smooth;
@@ -38,10 +34,11 @@ const GlobalStyle = () => {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background: ${colorMode === "light" ? "white" : "#171923"};
+            background: ${colorMode === "light" ? "white" : "#050505"};
           }
           ::selection {
             background-color: #ed7842;
+            color: #fefefe;
           }
           @font-face {
             font-family: "FreightTextBook";

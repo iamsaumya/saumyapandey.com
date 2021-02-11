@@ -9,7 +9,7 @@ const NavBar = () => {
 
   const navBgColor = {
     light: "rgba(255, 255, 255)",
-    dark: "rgba(23, 25, 35)",
+    dark: "#050505",
   };
   return (
     <Flex
