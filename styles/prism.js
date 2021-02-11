@@ -236,17 +236,17 @@ export const prismDarkTheme = css`
 
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
-    background: ${theme.colors.gray[800]};
-    border: 1px solid ${theme.colors.gray[700]};
+    background: #080701;
+    border: 1px solid #262626;
   }
 
   .mdx-marker {
-    background-color: ${theme.colors.gray[700]};
+    background-color: #080701;
   }
 
   .remark-code-title {
-    background: ${theme.colors.gray[700]};
+    background: #080701;
     color: ${theme.colors.gray[100]};
-    border: 1px solid ${theme.colors.gray[700]};
+    border: 1px solid #262626;
   }
 `;

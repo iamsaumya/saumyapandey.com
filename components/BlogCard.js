@@ -12,7 +12,7 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
 
   const boxShadow = {
     light: "rgba(52, 61, 68, 0.1)",
-    dark: "#ffffff",
+    dark: "#f0f0f0f0",
   };
 
   const boxShadowActive = {
@@ -29,14 +29,14 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
           borderTopColor: "#ed7842",
           transition: "0.2s",
           transitionTimingFunction: "ease",
-          boxShadow: `1px 1px 5px ${boxShadow[colorMode]}`,
+          boxShadow: `1px 1px 5px ${boxShadowActive[colorMode]}`,
         }}
         _active={{
           borderTop: "2px",
           borderTopColor: "#ed7842",
           transition: "0.2s",
           transitionTimingFunction: "ease",
-          boxShadow: `1px 1px 5px ${boxShadow[colorMode]}`,
+          boxShadow: `1px 1px 5px ${boxShadowActive[colorMode]}`,
         }}
         border="0.5px solid"
         borderRadius="5px"
