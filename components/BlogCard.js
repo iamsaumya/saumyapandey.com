@@ -21,7 +21,7 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
   };
 
   return (
-    <NextLink href={`/blog/${encodeURIComponent(slug)}`} passHref>
+    <NextLink href={`/blog/${encodeURIComponent(slug)}`} passHref prefetch={false}>
       <Link
         w="100%"
         _hover={{
