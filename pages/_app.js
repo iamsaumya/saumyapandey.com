@@ -51,16 +51,6 @@ const GlobalStyle = () => {
             font-display: swap;
           }
           @font-face {
-            font-family: "FreightTextProLight";
-            src: local("FreightText Pro Light"),
-              local("FreightTextProLight-Regular"),
-              url("/static/fonts/Freight Text Pro/FreightTextProLight-Regular.woff2")
-                format("woff2");
-            font-weight: 300;
-            font-style: normal;
-            font-display: swap;
-          }
-          @font-face {
             font-family: "GT Walsheim Pro Bold";
             src: local("GT Walsheim Pro Bold"), local("GTWalsheimPro-Bold"),
               url("/static/fonts/GT Walsheim/GTWalsheimPro-Bold.woff2")

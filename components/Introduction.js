@@ -19,9 +19,9 @@ const Introduction = () => {
           Hi! I am Saumya.
         </Text>
         <Text
-          fontFamily="FreightTextProLight"
+          fontWeight="100"
           color={secondaryTextColor[colorMode]}
-          fontSize={["1.5rem", "2rem"]}
+          fontSize={["1.2rem", "1.7rem"]}
         >
           I’m developer, noob chess player and runner.
         </Text>
