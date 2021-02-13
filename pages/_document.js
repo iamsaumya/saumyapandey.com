@@ -43,12 +43,6 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
-          <link
-            rel="preload"
-            href="/static/fonts/GT Walsheim/GTWalsheimPro-Regular.woff2"
-            as="font"
-            crossOrigin=""
-          />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
