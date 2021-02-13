@@ -59,16 +59,6 @@ const GlobalStyle = () => {
             font-style: normal;
             font-display: swap;
           }
-          @font-face {
-            font-family: "GT Walsheim Pro";
-            src: local("GT Walsheim Pro Regular"),
-              local("GTWalsheimPro-Regular"),
-              url("/static/fonts/GT Walsheim/GTWalsheimPro-Regular.woff2")
-                format("woff2");
-            font-weight: normal;
-            font-display: swap;
-            font-style: normal;
-          }
         `}
       />
     </>
