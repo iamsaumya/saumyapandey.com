@@ -1,6 +1,5 @@
-const title = "Saumya Pandey – Developer, Runner, Anime Watcher.";
-const description =
-  "FullStack Web developer, JavaScript enthusiast, and Noob chess player.";
+const title = "Saumya Pandey – Developer";
+const description = "Developer";
 
 const SEO = {
   title,
