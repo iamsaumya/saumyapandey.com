@@ -11,7 +11,7 @@ image: "/static/images/what-is-the-concept-of-causality-in-distributed-system/Di
 
 A distributed system is a system whose components are located on different networked computers, which communicate and coordinate their actions by passing messages to each other.
 
-<Image
+<CustomImage
     alt={`Distributed System`}
     src={`/static/images/what-is-the-concept-of-causality-in-distributed-system/DistributedSystem.png`}
     width={816}
@@ -35,7 +35,7 @@ Knowing the time of occurrence of the events will help us in the above scenarios
 
 In a centralized system, we have a single point of truth for all the incoming request and occurrences of the events that happen on the system. As a result, it is very intuitive to order events in centralized systems.
 
-<Image
+<CustomImage
     alt={`Centralized System`}
     src={`/static/images/what-is-the-concept-of-causality-in-distributed-system/CentralizedSystem.png`}
     width={701}
@@ -76,7 +76,7 @@ In a single-node system, it easy to define total order as all the events are exe
 
 In distributed systems, it is easier to attain partial ordering between the series of events as they happen on different nodes concurrently. While we don’t always need to obtain total order, it is hard to attain when required.
 
-<Image
+<CustomImage
     alt={`Ordering of Events`}
     src={`/static/images/what-is-the-concept-of-causality-in-distributed-system/ordering.png`}
     width={1222}
@@ -87,7 +87,7 @@ In the figure above, we can see some of the duration of events interleaving. Thi
 
 Each node has its clock running at a different rate and granularity, all the nodes are giving timestamps to all the events based on their local clocks and there is not a governing global clock to put all the events into a total order. In a single-node system, clock error can be ignored but not in a distributed system.
 
-<Image
+<CustomImage
     alt={`Ordering of events with errors`}
     src={`/static/images/what-is-the-concept-of-causality-in-distributed-system/ordering_with_errors.png`}
     width={1223}

@@ -1,52 +1,33 @@
 import React from "react";
 import NextLink from "next/link";
-import { Link, Flex, Box, Heading, Text, useColorMode } from "@chakra-ui/core";
+import { Link, Flex, Box, Heading, Text } from "@chakra-ui/core";
 
 const BlogCard = ({ title, summary, publishedAt, slug }) => {
-  const { colorMode } = useColorMode();
-
-  const secondaryTextColor = {
-    light: "#334259",
-    dark: "#d9d9d9",
-  };
-
-  const boxShadow = {
-    light: "rgba(52, 61, 68, 0.1)",
-    dark: "#f0f0f0f0",
-  };
-
-  const boxShadowActive = {
-    light: "rgba(52, 61, 68, 0.2)",
-    dark: "#ffffff",
-  };
-
   return (
-    <NextLink href={`/blog/${encodeURIComponent(slug)}`} passHref prefetch={false}>
+    <NextLink
+      href={`/blog/${encodeURIComponent(slug)}`}
+      passHref
+      prefetch={false}
+    >
       <Link
         w="100%"
         _hover={{
           borderTop: "2px",
           borderTopColor: "#ed7842",
-          transition: "0.2s",
+          transition: "0.5s",
           transitionTimingFunction: "ease",
-          boxShadow: `1px 1px 5px ${boxShadowActive[colorMode]}`,
         }}
         _active={{
           borderTop: "2px",
           borderTopColor: "#ed7842",
-          transition: "0.2s",
+          transition: "0.5s",
           transitionTimingFunction: "ease",
-          boxShadow: `1px 1px 5px ${boxShadowActive[colorMode]}`,
         }}
-        border="0.5px solid"
-        borderRadius="5px"
-        boxShadow={`0px 1px 2px ${boxShadow[colorMode]}`}
-        borderColor={
-          colorMode === "light"
-            ? "rgba(52, 61, 68, 0.05)"
-            : "rgba(48, 52, 73, 1)"
-        }
-        backgroundColor={colorMode === "light" ? "white" : "#080701"}
+        border="1px solid"
+        borderRadius="8px"
+        boxShadow="0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%)"
+        borderColor="rgb(32, 32, 34)"
+        backgroundColor="#202124"
         p={4}
         mt={4}
       >
@@ -65,9 +46,7 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
             </Heading>
             <Text mt={["4", "4", "0"]}>{publishedAt}</Text>
           </Flex>
-          <Text color={secondaryTextColor[colorMode]} mt={4}>
-            {summary}
-          </Text>
+          <Text mt={4}>{summary}</Text>
         </Box>
       </Link>
     </NextLink>

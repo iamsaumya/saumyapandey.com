@@ -8,14 +8,8 @@ import {
   PseudoBox,
   Text,
   Divider,
-  useColorMode,
 } from "@chakra-ui/core";
 import NextLink from "next/link";
-
-const textColor = {
-  light: "#334259",
-  dark: "#d9d9d9",
-};
 
 const Table = (props) => (
   <Box overflowX="auto" w="full">
@@ -24,16 +18,10 @@ const Table = (props) => (
 );
 
 const THead = (props) => {
-  const { colorMode } = useColorMode();
-  const bg = {
-    light: "gray.50",
-    dark: "whiteAlpha.100",
-  };
-
   return (
     <Box
       as="th"
-      bg={bg[colorMode]}
+      bg="whiteAlpha.100"
       fontWeight="semibold"
       p={2}
       fontSize="sm"
@@ -55,11 +43,6 @@ const TData = (props) => (
 );
 
 const CustomLink = (props) => {
-  const { colorMode } = useColorMode();
-  const color = {
-    light: "hsl(208, 99%, 44%)",
-    dark: "hsl(208, 95%, 68%)",
-  };
   const href = props.href;
   const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
 
@@ -67,7 +50,7 @@ const CustomLink = (props) => {
     return (
       <NextLink href={href} passHref>
         <Link
-          color={color[colorMode]}
+          color="hsl(208, 95%, 68%)"
           _hover={{ color: "#ed7842" }}
           fontSize={["1rem", "1.2rem"]}
           {...props}
@@ -78,7 +61,7 @@ const CustomLink = (props) => {
 
   return (
     <Link
-      color={color[colorMode]}
+      color="hsl(208, 95%, 68%)"
       fontSize={["1rem", "1.2rem"]}
       _hover={{ color: "#ed7842" }}
       isExternal
@@ -133,13 +116,7 @@ const DocsHeading = (props) => (
 );
 
 const Hr = () => {
-  const { colorMode } = useColorMode();
-  const borderColor = {
-    light: "gray.200",
-    dark: "gray.600",
-  };
-
-  return <Divider borderColor={borderColor[colorMode]} my={4} w="100%" />;
+  return <Divider borderColor="gray.600" my={4} w="100%" />;
 };
 
 const MDXComponents = {
@@ -188,46 +165,16 @@ const MDXComponents = {
   td: TData,
   a: CustomLink,
   p: (props) => {
-    const { colorMode } = useColorMode();
-    return (
-      <Text
-        as="p"
-        mt={4}
-        lineHeight="tall"
-        color={textColor[colorMode]}
-        {...props}
-      />
-    );
+    return <Text as="p" mt={4} lineHeight="tall" {...props} />;
   },
   ul: (props) => {
-    const { colorMode } = useColorMode();
-    return (
-      <Box
-        as="ul"
-        pt={2}
-        pl={4}
-        ml={2}
-        color={textColor[colorMode]}
-        {...props}
-      />
-    );
+    return <Box as="ul" pt={2} pl={4} ml={2} {...props} />;
   },
   ol: (props) => {
-    const { colorMode } = useColorMode();
-    return (
-      <Box
-        as="ol"
-        pt={2}
-        pl={4}
-        ml={2}
-        color={textColor[colorMode]}
-        {...props}
-      />
-    );
+    return <Box as="ol" pt={2} pl={4} ml={2} {...props} />;
   },
   li: (props) => {
-    const { colorMode } = useColorMode();
-    return <Box as="li" pb={1} color={textColor[colorMode]} {...props} />;
+    return <Box as="li" pb={1} {...props} />;
   },
 };
 

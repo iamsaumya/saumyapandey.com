@@ -1,16 +1,10 @@
-import { Stack, Flex, Box, useColorMode, IconButton } from "@chakra-ui/core";
+import { Box, Flex } from "@chakra-ui/core";
 import React from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import NavLink from "./NavLink";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 const NavBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   const [show, setShow] = React.useState(false);
   const toggleMenu = () => setShow(!show);
-
-  const navBgColor = {
-    light: "rgba(255, 255, 255)",
-    dark: "#050505",
-  };
   return (
     <Flex
       flexDirection="column"
@@ -21,9 +15,10 @@ const NavBar = () => {
       top="-1px"
       mt="1em"
       p={4}
-      bg={navBgColor[colorMode]}
+      bg="#202124"
+      color="#fefefe"
       zIndex={1800}
-      fontFamily="GT Walsheim Pro"
+      fontFamily="GT Walsheim Pro Bold"
     >
       <Flex justifyContent="space-between" alignItems="center">
         <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
@@ -40,15 +35,6 @@ const NavBar = () => {
           <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/learnings">Learnings</NavLink>
           <NavLink href="/projects">Projects</NavLink>
-        </Flex>
-        <Flex justifyContent="center" alignItems="center">
-          <IconButton
-            size="lg"
-            aria-label="Toggle dark mode"
-            icon={colorMode === "dark" ? "sun" : "moon"}
-            onClick={toggleColorMode}
-            mr={2}
-          />
         </Flex>
       </Flex>
       {show && (

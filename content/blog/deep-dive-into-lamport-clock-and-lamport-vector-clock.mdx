@@ -17,7 +17,7 @@ As promised, today we are going to discuss two concepts.
 
 ## The concept of causality
 
-<Image
+<CustomImage
     alt={`Causality relationship in distributed system`}
     src={`/static/images/deep-dive-into-lamport-clock-and-lamport-vector-clock/causality.png`}
     width={1187}
@@ -40,7 +40,7 @@ To increment the value of a logical clock when executing an event, each node has
 
 - Every message sent across the distributed system piggybacks the counter value of its sender at the sending time. The node which receives the message executes the following command. - Updates its clock with the maximum of its clock value and the sender's clock value. - Executes the message at its end. - Delivers the message.
 
-<Image
+<CustomImage
     alt={`Lamport Clocks`}
     src={`/static/images/deep-dive-into-lamport-clock-and-lamport-vector-clock/lamportclock.png`}
     width={1323}
@@ -83,7 +83,7 @@ The only thing missing is to discuss how to compare Lamport vector clocks with e
 
 - For 2 vector clocks C<sub>i</sub> = [C<sub>i,0</sub>, ..., C<sub>i,N</sub>] and C<sub>j</sub> = [C<sub>j,0</sub>, ..., C<sub>j,N</sub>], C<sub>i</sub> < C<sub>j</sub> iff all the elements of clock C<sub>i</sub> is less than the corresponding elements from clock C<sub>j</sub> (C<sub>i,k</sub> ≤ C<sub>j,k</sub> for all k) and there exist a single element in C<sub>i</sub> that is strictly less than the corresponding element in C<sub>j</sub>. (C<sub>i,L</sub><C<sub>j,L</sub> for atleast one L in [1...N])
 
-<Image
+<CustomImage
     alt={`Lamport Vector Clocks`}
     src={`/static/images/deep-dive-into-lamport-clock-and-lamport-vector-clock/vectorclocks.png`}
     width={1322}

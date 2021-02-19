@@ -1,26 +1,12 @@
 import React from "react";
-import {
-  Heading,
-  Text,
-  Flex,
-  Stack,
-  Avatar,
-  useColorMode,
-} from "@chakra-ui/core";
+import { Heading, Text, Flex, Stack, Avatar } from "@chakra-ui/core";
 
-const BlogHeader = ({ frontMatter, slug }) => {
-  const { colorMode } = useColorMode();
-  const textColor = {
-    light: "gray.700",
-    dark: "gray.400",
-  };
-
+const BlogHeader = ({ frontMatter }) => {
   return (
     <Stack
       spacing={8}
       justifyContent="center"
       alignItems="flex-start"
-      m="0 auto 2rem auto"
       maxWidth="700px"
       w="100%"
     >
@@ -35,22 +21,23 @@ const BlogHeader = ({ frontMatter, slug }) => {
         <Heading
           fontFamily="GT Walsheim Pro Bold"
           letterSpacing="tight"
-          mb={2}
+          mb={4}
           as="h1"
           size="2xl"
         >
           {frontMatter.title}
         </Heading>
-        <Flex align="center">
-          <Avatar
-            size="sm"
-            name="Saumya Pandey"
-            src="/static/images/profilepic.jpeg"
-            mr={2}
-          />
-          <Text fontSize={["md", "lg"]} color={textColor[colorMode]}>
-            {"Saumya Pandey "}
-            {" / " + frontMatter.publishedAt}
+        <Flex flexDirection="column" align="center" width="100%" px="1rem">
+          <Flex align="center">
+            <Avatar
+              size="md"
+              name="Saumya Pandey"
+              src="/static/images/profilepic.jpeg"
+              mb={4}
+            />
+          </Flex>
+          <Text fontSize={["xl", "2xl"]} mb={4} color="#EDEDED">
+            {"Last tinkered on " + frontMatter.publishedAt}
           </Text>
         </Flex>
       </Flex>

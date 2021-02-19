@@ -142,25 +142,6 @@ const prismBaseTheme = css`
   }
 `;
 
-export const prismLightTheme = css`
-  ${prismBaseTheme};
-
-  code[class*="language-"],
-  pre[class*="language-"] {
-    color: ${theme.colors.gray[800]};
-  }
-
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    background: ${theme.colors.gray[50]};
-    border: 1px solid ${theme.colors.gray[200]};
-  }
-
-  .mdx-marker {
-    background-color: hsla(204, 45%, 96%, 1);
-  }
-`;
-
 export const prismDarkTheme = css`
   ${prismBaseTheme};
 
@@ -236,17 +217,18 @@ export const prismDarkTheme = css`
 
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
-    background: #080701;
-    border: 1px solid #262626;
+    background: #202124;
+    border: 1px solid rgb(32, 32, 34);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
   }
 
   .mdx-marker {
-    background-color: #080701;
+    background-color: #202124;
   }
 
   .remark-code-title {
-    background: #080701;
+    background: #202124;
     color: ${theme.colors.gray[100]};
-    border: 1px solid #262626;
+    border: 1px solid rgb(32, 32, 34);
   }
 `;

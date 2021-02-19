@@ -1,12 +1,7 @@
-import {
-  ThemeProvider,
-  CSSReset,
-  ColorModeProvider,
-  useColorMode,
-} from "@chakra-ui/core";
+import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 import { useEffect } from "react";
 import theme from "../styles/theme";
-import { prismLightTheme, prismDarkTheme } from "../styles/prism";
+import { prismDarkTheme } from "../styles/prism";
 import { Global, css } from "@emotion/core";
 import Container from "../components/Container.js";
 import { MDXProvider } from "@mdx-js/react";
@@ -18,14 +13,12 @@ import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
 
 const GlobalStyle = () => {
-  const { colorMode } = useColorMode();
-
   return (
     <>
       <CSSReset />
       <Global
         styles={css`
-          ${colorMode === "light" ? prismLightTheme : prismDarkTheme};
+          ${prismDarkTheme}
           html {
             min-width: 360px;
             scroll-behavior: smooth;
@@ -34,7 +27,16 @@ const GlobalStyle = () => {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background: ${colorMode === "light" ? "white" : "#050505"};
+            background: #202124;
+            color: "#fefefe";
+          }
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            letter-spacing: -0.01em;
           }
           ::selection {
             background-color: #ed7842;
@@ -80,26 +82,21 @@ function App({ Component, pageProps }) {
   return (
     <MDXProvider components={MDXComponents}>
       <ThemeProvider theme={theme}>
-        <ColorModeProvider value="light">
-          <DefaultSeo {...SEO} />
-          <GlobalStyle />
-          <Head>
-            <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-            <meta
-              content="width=device-width, initial-scale=1"
-              name="viewport"
-            />
-            <meta content="#ffffff" name="theme-color" />
-            <meta content="#ffffff" name="msapplication-TileColor" />
-            <meta
-              content="/static/favicons/browserconfig.xml"
-              name="msapplication-config"
-            />
-          </Head>
-          <Container>
-            <Component {...pageProps} />
-          </Container>
-        </ColorModeProvider>
+        <DefaultSeo {...SEO} />
+        <GlobalStyle />
+        <Head>
+          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+          <meta content="#202124" name="theme-color" />
+          <meta content="#202124" name="msapplication-TileColor" />
+          <meta
+            content="/static/favicons/browserconfig.xml"
+            name="msapplication-config"
+          />
+        </Head>
+        <Container>
+          <Component {...pageProps} />
+        </Container>
       </ThemeProvider>
     </MDXProvider>
   );

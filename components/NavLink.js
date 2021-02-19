@@ -1,24 +1,17 @@
-import { Link, useColorMode } from "@chakra-ui/core";
+import { Link } from "@chakra-ui/core";
 import NextLink from "next/link";
 
 const NavLink = (props) => {
-  const { colorMode } = useColorMode();
   const { children, isLast, toggleMenu, href = "/", isBlock, ...rest } = props;
-
-  const textColor = {
-    light: "#334259",
-    dark: "#FAFAFA",
-  };
-
   return (
     <NextLink href={href} passHref>
       <Link
         onClick={toggleMenu}
         mr={{ base: 0, sm: isLast ? 0 : 8 }}
         p={[2, 4]}
-        color={colorMode === "light" ? textColor.light : textColor.dark}
-        fontSize={["1.5rem", "1.7rem"]}
+        fontSize={["1.3rem", "1.5rem"]}
         lineHeight="22px"
+        fontWeight="light"
         {...rest}
         display={isBlock ? "block" : "inline"}
       >

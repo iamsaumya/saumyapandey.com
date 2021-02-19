@@ -8,7 +8,7 @@ import { CustomLink } from "../../components/MDXComponents";
 import { Box, Stack } from "@chakra-ui/core";
 import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
-import Image from "next/image";
+import CustomImage from "../../components/CustomImage";
 
 const root = process.cwd();
 
@@ -20,7 +20,7 @@ const discussUrl = (slug) =>
   )}`;
 
 export default function BlogPost({ mdxSource, frontMatter, slug }) {
-  const content = hydrate(mdxSource, { components: { Image } });
+  const content = hydrate(mdxSource, { components: { CustomImage } });
   return (
     <>
       {frontMatter && (
@@ -31,7 +31,7 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
       )}
       <Box width="100%" mx="auto">
         <BlogHeader frontMatter={frontMatter} slug={slug} />
-        <Stack as="article" fontSize={["1rem", "1.2rem"]} p="4">
+        <Stack as="article" color="#fefefe" fontSize={["1rem", "1.2rem"]} p="4">
           {content}
         </Stack>
         <Box mt={10} fontSize={["1rem", "1.2rem"]}>
@@ -64,7 +64,7 @@ export async function getStaticProps({ params }) {
   );
   const { data, content } = matter(source);
   const mdxSource = await renderToString(content, {
-    components: { Image },
+    components: { CustomImage },
     mdxOptions: { rehypePlugins: [mdxPrism] },
   });
   return { props: { mdxSource, frontMatter: data, slug: params.slug } };
