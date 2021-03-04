@@ -5,6 +5,12 @@ const Learnings = () => {
   return (
     <Stack as="article" fontSize={["1rem", "1.2rem"]}>
       <Box>
+        <Heading mb="4">February 2020</Heading>
+        <Achievement text="Start building Btech final year project" />
+        <Achievement text="Contributions to Outline" />
+        <Achievement text="Read Alex Rauschmayer's JS for impatient programmer" />
+        <Heading mb="4">January 2020</Heading>
+        <Achievement text="Nothing much, wasted a lot of time." />
         <Heading mb="4">December 2020</Heading>
         <Achievement text="Busy with university exams" />
         <Heading mb="4">November 2020</Heading>
