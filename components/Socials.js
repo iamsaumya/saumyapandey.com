@@ -9,6 +9,7 @@ const Socials = () => {
           icon="twitter"
           size="lg"
           variant="ghost"
+          _hover={{ color: "#ed7842" }}
         />
       </Link>
       <Link href="https://github.com/iamsaumya" title="GitHub" isExternal>
@@ -17,6 +18,7 @@ const Socials = () => {
           icon="github"
           size="lg"
           variant="ghost"
+          _hover={{ color: "#ed7842" }}
         />
       </Link>
       <Link
@@ -29,10 +31,17 @@ const Socials = () => {
           icon="linkedin"
           size="lg"
           variant="ghost"
+          _hover={{ color: "#ed7842" }}
         />
       </Link>
       <Link href="mailto:pandeyysaumya@gmail.com" title="Email" isExternal>
-        <IconButton aria-label="Email" icon="mail" size="lg" variant="ghost" />
+        <IconButton
+          aria-label="Email"
+          icon="mail"
+          size="lg"
+          variant="ghost"
+          _hover={{ color: "#ed7842" }}
+        />
       </Link>
     </div>
   );

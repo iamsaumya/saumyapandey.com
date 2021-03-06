@@ -35,6 +35,7 @@ const NavBar = () => {
           <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/learnings">Learnings</NavLink>
           <NavLink href="/projects">Projects</NavLink>
+          <NavLink href="/static/resume.pdf">Resume</NavLink>
         </Flex>
       </Flex>
       {show && (
@@ -55,6 +56,9 @@ const NavBar = () => {
             </NavLink>
             <NavLink toggleMenu={toggleMenu} isBlock href="/projects">
               Projects
+            </NavLink>
+            <NavLink toggleMenu={toggleMenu} isBlock href="/static/resume.pdf">
+              Resume
             </NavLink>
           </Flex>
         </Flex>

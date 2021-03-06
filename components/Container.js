@@ -9,6 +9,20 @@ export default function Container({ children }) {
       <Head>
         <title>Saumya Pandey</title>
       </Head>
+      <Flex
+        backgroundColor="hsl(208,95%,68%)"
+        width="100%"
+        color="#fefefe"
+        p={4}
+        fontSize={["lg", , "xl", "2xl"]}
+        fontWeight="bold"
+        align="center"
+        justifyContent="center"
+      >
+        <Flex wordBreak="break-word">
+          I am looking for remote or in-person work!
+        </Flex>
+      </Flex>
       <NavBar />
       <Flex
         flexDirection="column"
