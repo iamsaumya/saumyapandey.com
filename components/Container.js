@@ -9,7 +9,7 @@ export default function Container({ children }) {
       <Head>
         <title>Saumya Pandey</title>
       </Head>
-      <Flex
+      {/* <Flex
         backgroundColor="hsl(208,95%,68%)"
         width="100%"
         color="#fefefe"
@@ -22,7 +22,7 @@ export default function Container({ children }) {
         <Flex wordBreak="break-word">
           I am looking for remote or in-person work!
         </Flex>
-      </Flex>
+      </Flex> */}
       <NavBar />
       <Flex
         flexDirection="column"
