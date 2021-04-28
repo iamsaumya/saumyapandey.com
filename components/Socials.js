@@ -3,7 +3,7 @@ import { IconButton, Link } from "@chakra-ui/core";
 const Socials = () => {
   return (
     <div>
-      <Link href="https://twitter.com/itsrklover" title="Twitter" isExternal>
+      <Link href="https://twitter.com/iamsaumya137" title="Twitter" isExternal>
         <IconButton
           aria-label="Twitter"
           icon="twitter"

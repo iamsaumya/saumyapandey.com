@@ -1,4 +1,4 @@
-const title = "Saumya Pandey – Developer";
+const title = "Saumya Pandey";
 const description = "Developer";
 
 const SEO = {
@@ -21,8 +21,8 @@ const SEO = {
     ],
   },
   twitter: {
-    handle: "@itsrklover",
-    site: "@itsrklover",
+    handle: "@iamsaumya137",
+    site: "@iamsaumya137",
     cardType: "summary_large_image",
   },
 };
