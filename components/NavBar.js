@@ -34,7 +34,7 @@ const NavBar = () => {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/blog">Blog</NavLink>
           <NavLink href="/learnings">Learnings</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
+          <NavLink href="/failures">Failures</NavLink>
           <NavLink href="/static/resume.pdf">Resume</NavLink>
         </Flex>
       </Flex>
@@ -54,8 +54,8 @@ const NavBar = () => {
             <NavLink toggleMenu={toggleMenu} isBlock href="/learnings">
               Learnings
             </NavLink>
-            <NavLink toggleMenu={toggleMenu} isBlock href="/projects">
-              Projects
+            <NavLink toggleMenu={toggleMenu} isBlock href="/failures">
+              Failures
             </NavLink>
             <NavLink toggleMenu={toggleMenu} isBlock href="/static/resume.pdf">
               Resume

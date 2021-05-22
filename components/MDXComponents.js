@@ -8,8 +8,28 @@ import {
   PseudoBox,
   Text,
   Divider,
+  Callout,
 } from "@chakra-ui/core";
 import NextLink from "next/link";
+
+const Quote = (props) => {
+  return (
+    <Callout
+      mt={4}
+      w="98%"
+      bg="blue.900"
+      variant="left-accent"
+      status="info"
+      css={{
+        "> *:first-of-type": {
+          marginTop: 0,
+          marginLeft: 8,
+        },
+      }}
+      {...props}
+    />
+  );
+};
 
 const Table = (props) => (
   <Box overflowX="auto" w="full">
@@ -176,6 +196,7 @@ const MDXComponents = {
   li: (props) => {
     return <Box as="li" pb={1} {...props} />;
   },
+  blockquote: Quote,
 };
 
 export { CustomLink };
