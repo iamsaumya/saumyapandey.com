@@ -1,24 +1,37 @@
 import React from "react";
-import { Flex, Text, Stack } from "@chakra-ui/core";
 import Socials from "./Socials";
+import Flex from "../components/Flex";
+import { breakpoint } from "styled-components-breakpoint";
+import styled from "styled-components";
+
 const Introduction = () => {
   return (
-    <Flex justifyContent="center" flexDirection="column" width="100%" mx="auto">
-      <Stack flexDirection="column">
-        <Text
-          fontFamily="GT Walsheim Pro Bold"
-          fontSize={["2rem", "5rem"]}
-          color="#ed7842"
-        >
-          Hey, I am Saumya
-        </Text>
-        <Text fontWeight="100" color="#d9d9d9" fontSize={["1.2rem", "1.7rem"]}>
-          I’m developer, noob chess player and runner.
-        </Text>
-        <Socials />
-      </Stack>
+    <Flex column justify="center">
+      <Title>Hey, I am Saumya</Title>
+      <Info>I’m developer, noob chess player and runner.</Info>
+      <Socials />
     </Flex>
   );
 };
+
+const Title = styled.h1`
+  color: #ed7842;
+  font-family: "GT Walsheim Pro Bold";
+  font-size: 2rem;
+
+  ${breakpoint("tablet")`
+    font-size: 5rem;
+  `};
+`;
+
+const Info = styled.p`
+  font-weight: 100;
+  color: "#d9d9d9";
+  font-size: 1.2rem;
+
+  ${breakpoint("tablet")`
+    font-size: 1.7rem;
+  `};
+`;
 
 export default Introduction;

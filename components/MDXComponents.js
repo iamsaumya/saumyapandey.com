@@ -3,7 +3,6 @@ import {
   Flex,
   Code,
   Heading,
-  Kbd,
   Link,
   PseudoBox,
   Text,
@@ -177,7 +176,6 @@ const MDXComponents = {
   inlineCode: (props) => (
     <Code variantColor="gray" fontSize="0.84em" {...props} />
   ),
-  kbd: Kbd,
   br: (props) => <Box height="24px" {...props} />,
   hr: Hr,
   table: Table,

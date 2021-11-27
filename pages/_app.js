@@ -23,6 +23,9 @@ const GlobalStyle = () => {
             min-width: 360px;
             scroll-behavior: smooth;
           }
+          :root {
+            font-size: 16px;
+          }
           #__next {
             display: flex;
             flex-direction: column;

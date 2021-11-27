@@ -1,56 +1,57 @@
 import React from "react";
 import NextLink from "next/link";
-import { Link, Flex, Box, Heading, Text } from "@chakra-ui/core";
+import styled from "styled-components";
+import Flex from "../components/Flex";
 
 const BlogCard = ({ title, summary, publishedAt, slug }) => {
   return (
-    <NextLink
-      href={`/blog/${encodeURIComponent(slug)}`}
-      passHref
-      prefetch={false}
-    >
-      <Link
-        w="100%"
-        _hover={{
-          borderTop: "2px",
-          borderTopColor: "#ed7842",
-          transition: "0.5s",
-          transitionTimingFunction: "ease",
-        }}
-        _active={{
-          borderTop: "2px",
-          borderTopColor: "#ed7842",
-          transition: "0.5s",
-          transitionTimingFunction: "ease",
-        }}
-        border="1px solid"
-        borderRadius="8px"
-        boxShadow="0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%)"
-        borderColor="rgb(32, 32, 34)"
-        backgroundColor="#202124"
-        p={4}
-        mt={4}
-      >
-        <Box>
-          <Flex
-            justifyContent="space-between"
-            flexDirection={["column", "column", "row"]}
-          >
-            <Heading
-              size="md"
-              as="h3"
-              maxW="85%"
-              fontFamily="GT Walsheim Pro Bold"
-            >
-              {title}
-            </Heading>
-            <Text mt={["4", "4", "0"]}>{publishedAt}</Text>
-          </Flex>
-          <Text mt={4}>{summary}</Text>
-        </Box>
+    <NextLink href={`/blog/${encodeURIComponent(slug)}`} prefetch={false}>
+      <Link>
+        <Flex justify="space-between" column>
+          <Heading>{title}</Heading>
+          <Text mt={["4", "4", "0"]}>{publishedAt}</Text>
+        </Flex>
+        <Text mt={4}>{summary}</Text>
       </Link>
     </NextLink>
   );
 };
+
+const Link = styled.a`
+  cursor: pointer;
+  width: 100%;
+  border: 0.1rem solid;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
+  border-color: rgb(32, 32, 34);
+  /* background-color: #202124; */
+  padding: 1rem;
+  margin-top: 1rem;
+
+  &:hover {
+    border-top: 0.2rem solid #ed7842;
+    transition: all 100ms ease;
+  }
+
+  &:active {
+    border-top: 0.2rem solid #ed7842;
+    transition: all 100ms ease;
+  }
+`;
+
+const Heading = styled.h3`
+  font-size: 1.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+  font-family: GT Walsheim Pro Bold;
+  max-width: 85%;
+`;
+
+const Text = styled.p`
+  font-family: FreightTextBook, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  margin-top: 1rem;
+`;
 
 export default BlogCard;

@@ -1,50 +1,49 @@
 import React from "react";
-import { IconButton, Link } from "@chakra-ui/core";
+import { Twitter, Github, Linkedin, Mail } from "../Icon";
+import styled from "styled-components";
+
 const Socials = () => {
   return (
     <div>
-      <Link href="https://twitter.com/iamsaumya137" title="Twitter" isExternal>
-        <IconButton
-          aria-label="Twitter"
-          icon="twitter"
-          size="lg"
-          variant="ghost"
-          _hover={{ color: "#ed7842" }}
-        />
-      </Link>
-      <Link href="https://github.com/iamsaumya" title="GitHub" isExternal>
-        <IconButton
-          aria-label="GitHub"
-          icon="github"
-          size="lg"
-          variant="ghost"
-          _hover={{ color: "#ed7842" }}
-        />
-      </Link>
-      <Link
+      <a href="https://twitter.com/iamsaumya137" alt="Twitter" target="_blank">
+        <IconButton aria-label="Twitter">
+          <Twitter size={24} />
+        </IconButton>
+      </a>
+      <a href="https://github.com/iamsaumya" alt="GitHub" target="_blank">
+        <IconButton aria-label="GitHub">
+          <Github />
+        </IconButton>
+      </a>
+      <a
         href="https://www.linkedin.com/in/iamsaumya"
-        title="LinkedIn"
-        isExternal
+        alt="LinkedIn"
+        target="_blank"
       >
-        <IconButton
-          aria-label="LinkedIn"
-          icon="linkedin"
-          size="lg"
-          variant="ghost"
-          _hover={{ color: "#ed7842" }}
-        />
-      </Link>
-      <Link href="mailto:pandeyysaumya@gmail.com" title="Email" isExternal>
-        <IconButton
-          aria-label="Email"
-          icon="mail"
-          size="lg"
-          variant="ghost"
-          _hover={{ color: "#ed7842" }}
-        />
-      </Link>
+        <IconButton aria-label="Linkedin">
+          <Linkedin />
+        </IconButton>
+      </a>
+      <a href="mailto:pandeyysaumya@gmail.com" alt="Email" target="_blank">
+        <IconButton aria-label="Mail">
+          <Mail />
+        </IconButton>
+      </a>
     </div>
   );
 };
+
+const IconButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  color: white;
+
+  &:hover {
+    color: #ed7842;
+  }
+`;
 
 export default Socials;

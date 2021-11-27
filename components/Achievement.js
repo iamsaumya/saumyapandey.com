@@ -1,10 +1,16 @@
-import { Flex, Icon } from "@chakra-ui/core";
+import styled, { css } from "styled-components";
 import { CustomLink } from "../components/MDXComponents";
+import Flex from "../components/Flex";
+import Check from "../Icon/Check";
+
+const CheckCSS = css`
+  margin-right: 1rem;
+`;
 
 const Achievement = ({ text, isLink = false, link }) => {
   return (
-    <Flex mb="2" direction="row" alignItems="center">
-      <Icon name="check" color="#077337" mr="4" size="24px" />
+    <Container row align="center">
+      <Check color="#077337" size="24" styles={CheckCSS} />
       {isLink ? (
         <CustomLink href={link} isExternal>
           {text}
@@ -12,8 +18,12 @@ const Achievement = ({ text, isLink = false, link }) => {
       ) : (
         text
       )}
-    </Flex>
+    </Container>
   );
 };
+
+const Container = styled(Flex)`
+  margin-bottom: 0.5rem;
+`;
 
 export default Achievement;
