@@ -17,10 +17,6 @@ const Introduction = () => {
 const Title = styled.h1`
   color: #ed7842;
   font-size: 2rem;
-
-  ${breakpoint("tablet")`
-    font-size: 5rem;
-  `};
 `;
 
 const Info = styled.p`

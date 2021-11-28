@@ -13,9 +13,7 @@ const BlogHeader = ({ frontMatter }) => {
             <Image alt="Saumya Pandey" src="/static/images/profilepic.jpeg" />
           </Flex>
         </Flex>
-        <Text fontSize={["xl", "2xl"]} mb={4} color="#EDEDED">
-          {"Last tinkered on " + frontMatter.publishedAt}
-        </Text>
+        <Text>{"Last tinkered on " + frontMatter.publishedAt}</Text>
       </BlogMeta>
     </Container>
   );
@@ -23,10 +21,11 @@ const BlogHeader = ({ frontMatter }) => {
 
 const Text = styled.p`
   font-size: 1.25rem;
-
+  margin-bottom: 0.25rem;
+  color: #aeb0b7;
   ${breakpoint("tablet")`
     font-size: "2.25rem"
-  `}
+  `};
 `;
 const BlogMeta = styled(Flex)`
   width: 100%;

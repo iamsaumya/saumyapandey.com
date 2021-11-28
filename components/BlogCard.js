@@ -48,6 +48,7 @@ const Heading = styled.h3`
 
 const Text = styled.p`
   margin-top: 1rem;
+  color: #aeb0b7;
 `;
 
 export default BlogCard;

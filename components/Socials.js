@@ -39,7 +39,7 @@ const IconButton = styled.button`
   justify-content: center;
   width: 4rem;
   height: 4rem;
-  color: white;
+  color: #aeb0b7;
 
   &:hover {
     color: #ed7842;

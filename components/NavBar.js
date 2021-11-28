@@ -61,7 +61,7 @@ const NavContainer = styled(Flex)`
   max-width: 750px;
   width: 100%;
   display: none;
-  padding: 1rem;
+  padding: 1rem 0;
   ${breakpoint("tablet")`
     display: block;
   `};
