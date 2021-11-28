@@ -23,7 +23,7 @@ const Introduction = () => {
         >
           Outline
         </CustomLink>{" "}
-        in every now and then.
+        every now and then.
       </Info>
       <Socials />
     </Container>
