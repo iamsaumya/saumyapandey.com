@@ -4,7 +4,7 @@ import Flex from "../components/Flex";
 import Check from "../Icon/Check";
 
 const CheckCSS = css`
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 `;
 
 const Achievement = ({ text, isLink = false, link }) => {
