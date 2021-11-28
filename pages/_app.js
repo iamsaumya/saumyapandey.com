@@ -7,9 +7,12 @@ import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle, css, ThemeProvider } from "styled-components";
+import { prismDarkTheme } from "../styles/prism";
 
 const GlobalStyle = createGlobalStyle`
+  ${prismDarkTheme};
+
   html {
     min-width: 360px;
     scroll-behavior: smooth;

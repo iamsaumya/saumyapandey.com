@@ -12,6 +12,6 @@ const Footer = () => {
 };
 
 const Container = styled(Flex)`
-  margin-top: 0.5rem;
+  margin-top: 2rem;
 `;
 export default Footer;

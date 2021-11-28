@@ -10,41 +10,39 @@ const NavBar = () => {
   const toggleMenu = () => setShow(!show);
 
   return (
-    <>
-      <Nav column>
-        <Flex row justify="center" align="flex-start">
-          <NavContainer row justify="space-between" align="center">
-            <NavLink href="/">Home</NavLink>
-            <NavLink href="/blog">Blog</NavLink>
-            <NavLink href="/learnings">Learnings</NavLink>
-            <NavLink href="/failures">Failures</NavLink>
-            <NavLink href="/static/resume.pdf">Resume</NavLink>
-          </NavContainer>
-        </Flex>
+    <Nav column>
+      <Flex row justify="center" align="flex-start">
+        <NavContainer row justify="space-between" align="center">
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/blog">Blog</NavLink>
+          <NavLink href="/learnings">Learnings</NavLink>
+          <NavLink href="/failures">Failures</NavLink>
+          <NavLink href="/static/resume.pdf">Resume</NavLink>
+        </NavContainer>
+      </Flex>
 
-        {/* Mobile nav bar */}
-        <Hambuger onClick={toggleMenu}>
-          {show ? <AiOutlineClose size="32" /> : <AiOutlineMenu size="32" />}
-        </Hambuger>
-        <NavContainerMobile column show={show} justify="center" align="center">
-          <NavLink toggleMenu={toggleMenu} isBlock href="/">
-            Home
-          </NavLink>
-          <NavLink toggleMenu={toggleMenu} isBlock href="/blog">
-            Blog
-          </NavLink>
-          <NavLink toggleMenu={toggleMenu} isBlock href="/learnings">
-            Learnings
-          </NavLink>
-          <NavLink toggleMenu={toggleMenu} isBlock href="/failures">
-            Failures
-          </NavLink>
-          <NavLink toggleMenu={toggleMenu} isBlock href="/static/resume.pdf">
-            Resume
-          </NavLink>
-        </NavContainerMobile>
-      </Nav>
-    </>
+      {/* Mobile nav bar */}
+      <Hambuger onClick={toggleMenu}>
+        {show ? <AiOutlineClose size="32" /> : <AiOutlineMenu size="32" />}
+      </Hambuger>
+      <NavContainerMobile column show={show} justify="center" align="center">
+        <NavLink toggleMenu={toggleMenu} isBlock href="/">
+          Home
+        </NavLink>
+        <NavLink toggleMenu={toggleMenu} isBlock href="/blog">
+          Blog
+        </NavLink>
+        <NavLink toggleMenu={toggleMenu} isBlock href="/learnings">
+          Learnings
+        </NavLink>
+        <NavLink toggleMenu={toggleMenu} isBlock href="/failures">
+          Failures
+        </NavLink>
+        <NavLink toggleMenu={toggleMenu} isBlock href="/static/resume.pdf">
+          Resume
+        </NavLink>
+      </NavContainerMobile>
+    </Nav>
   );
 };
 

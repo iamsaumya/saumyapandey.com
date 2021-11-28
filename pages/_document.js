@@ -32,24 +32,15 @@ class MyDocument extends Document {
             rel="mask-icon"
           />
           <link
-            rel="preload"
-            href="/static/fonts/Freight Text Pro/FreightTextProBook-Regular.woff2"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/static/fonts/GT Walsheim/GTWalsheimPro-Bold.woff2"
-            as="font"
-            crossOrigin=""
-          />
-          <link
             href="https://unpkg.com/tailwindcss@1.1.2/dist/base.css"
             rel="stylesheet"
           />
-
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin=""
+          />
           <link
             href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600&display=swap"
             rel="stylesheet"

@@ -19,7 +19,7 @@ const Link = styled.a`
   margin-right: 1rem;
   font-size: 1.5rem;
   line-height: 1.375rem;
-  font-weight: 300;
+  font-weight: 600;
   display: ${(props) => (props.isBlock ? "block" : "inline")};
   &:hover {
     text-decoration: "none";

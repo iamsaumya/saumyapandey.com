@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "styled-components";
 import { theme } from "@chakra-ui/core";
 
 const prismBaseTheme = css`
@@ -143,7 +143,7 @@ const prismBaseTheme = css`
 `;
 
 export const prismDarkTheme = css`
-  ${prismBaseTheme};
+  ${prismBaseTheme}
 
   :not(pre) > code[class*="language-"] {
     background: #011627;
