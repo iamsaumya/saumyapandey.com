@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { theme } from "@chakra-ui/core";
+import theme from "../styles/theme";
 
 const prismBaseTheme = css`
   code {
