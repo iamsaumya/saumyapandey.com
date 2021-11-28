@@ -16,7 +16,7 @@ const Introduction = () => {
         <CustomLink href="https://www.lyearn.com?ref=iamsaumya" isExternal>
           Lyearn
         </CustomLink>{" "}
-        as a <b>Product Engineer</b>. You can find my contributing to{" "}
+        as a <b>Product Engineer</b>. You can find me contributing to{" "}
         <CustomLink
           href="https://github.com/outline/outline?ref=iamsaumya"
           isExternal
