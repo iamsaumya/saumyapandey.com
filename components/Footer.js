@@ -1,36 +1,17 @@
 import React from "react";
-import NextLink from "next/link";
-import { Flex, Link } from "@chakra-ui/core";
 import Socials from "../components/Socials";
+import Flex from "../components/Flex";
+import styled from "styled-components";
+
 const Footer = () => {
   return (
-    <Flex align="center" mt={4} direction="column">
+    <Container align="center" column>
       <Socials />
-      <div>
-        <NextLink href="/uses" passHref>
-          <Link
-            fontSize="18px"
-            lineHeight="22px"
-            minWidth="100px"
-            mr={2}
-            title="Uses"
-          >
-            /uses
-          </Link>
-        </NextLink>
-        <NextLink href="/static/resume.pdf" passHref>
-          <Link
-            fontSize="18px"
-            lineHeight="22px"
-            minWidth="100px"
-            mr={2}
-            title="Uses"
-          >
-            /resume
-          </Link>
-        </NextLink>
-      </div>
-    </Flex>
+    </Container>
   );
 };
+
+const Container = styled(Flex)`
+  margin-top: 2rem;
+`;
 export default Footer;

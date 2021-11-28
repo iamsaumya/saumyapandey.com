@@ -5,10 +5,10 @@ import fs from "fs";
 import path from "path";
 import BlogHeader from "../../components/BlogHeader";
 import { CustomLink } from "../../components/MDXComponents";
-import { Box, Stack } from "@chakra-ui/core";
 import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
 import CustomImage from "../../components/CustomImage";
+import styled from "styled-components";
 
 const root = process.cwd();
 
@@ -29,12 +29,17 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
           {...frontMatter}
         />
       )}
-      <Box width="100%" mx="auto">
+      <Main width="100%" mx="auto">
         <BlogHeader frontMatter={frontMatter} slug={slug} />
-        <Stack as="article" color="#fefefe" fontSize={["1rem", "1.2rem"]} p="4">
+        <Content
+          as="article"
+          color="#fefefe"
+          fontSize={["1rem", "1.2rem"]}
+          p="4"
+        >
           {content}
-        </Stack>
-        <Box mt={10} fontSize={["1rem", "1.2rem"]}>
+        </Content>
+        <EditLinks mt={10} fontSize={["1rem", "1.2rem"]}>
           <CustomLink href={discussUrl(slug)} isExternal>
             {"Discuss on Twitter"}
           </CustomLink>
@@ -42,11 +47,27 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
           <CustomLink href={editUrl(slug)} isExternal>
             {"Edit on GitHub"}
           </CustomLink>
-        </Box>
-      </Box>
+        </EditLinks>
+      </Main>
     </>
   );
 }
+
+const Main = styled.div`
+  width: 100%;
+  margin: 0 auto;
+`;
+
+const Content = styled.article`
+  color: #fefefe;
+  font-size: 1.2rem;
+  padding: 1rem;
+`;
+
+const EditLinks = styled.div`
+  margin-top: 1rem;
+  font-size: 1.2rem;
+`;
 
 export async function getStaticPaths() {
   return {

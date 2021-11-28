@@ -3,14 +3,14 @@ import hydrate from "next-mdx-remote/hydrate";
 import fs from "fs";
 import path from "path";
 import { NextSeo } from "next-seo";
-import { Box, Stack } from "@chakra-ui/core";
+import styled from "styled-components";
 
 const root = process.cwd();
 
 const failures = ({ mdxSource }) => {
   const content = hydrate(mdxSource);
   return (
-    <Box height="100%">
+    <div>
       <NextSeo
         title="Failures – Saumya Pandey"
         description="Here's what I tried hard and failed."
@@ -21,14 +21,16 @@ const failures = ({ mdxSource }) => {
           description: "Here's what I tried hard and failed.",
         }}
       />
-      <Stack as="article" fontSize={["1rem", "1.5rem"]}>
-        {content}
-      </Stack>
-    </Box>
+      <Article>{content}</Article>
+    </div>
   );
 };
 
-export async function getStaticProps({ params }) {
+const Article = styled.article`
+  font-size: 1.5rem;
+`;
+
+export async function getStaticProps() {
   const source = fs.readFileSync(
     path.join(root, "content", "failures.mdx"),
     "utf8"

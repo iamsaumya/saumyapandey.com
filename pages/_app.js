@@ -1,8 +1,4 @@
-import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 import { useEffect } from "react";
-import theme from "../styles/theme";
-import { prismDarkTheme } from "../styles/prism";
-import { Global, css } from "@emotion/core";
 import Container from "../components/Container.js";
 import { MDXProvider } from "@mdx-js/react";
 import MDXComponents from "../components/MDXComponents";
@@ -11,61 +7,40 @@ import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
+import { createGlobalStyle, css, ThemeProvider } from "styled-components";
+import { prismDarkTheme } from "../styles/prism";
 
-const GlobalStyle = () => {
-  return (
-    <>
-      <CSSReset />
-      <Global
-        styles={css`
-          ${prismDarkTheme}
-          html {
-            min-width: 360px;
-            scroll-behavior: smooth;
-          }
-          #__next {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background: #202124;
-            color: "#fefefe";
-          }
-          h1,
-          h2,
-          h3,
-          h4,
-          h5,
-          h6 {
-            letter-spacing: -0.01em;
-          }
-          ::selection {
-            background-color: #ed7842;
-            color: #fefefe;
-          }
-          @font-face {
-            font-family: "FreightTextBook";
-            src: local("FreightText Pro Book"),
-              local("FreightTextProBook-Regular"),
-              url("/static/fonts/Freight Text Pro/FreightTextProBook-Regular.woff2")
-                format("woff2");
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-          }
-          @font-face {
-            font-family: "GT Walsheim Pro Bold";
-            src: local("GT Walsheim Pro Bold"), local("GTWalsheimPro-Bold"),
-              url("/static/fonts/GT Walsheim/GTWalsheimPro-Bold.woff2")
-                format("woff2");
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-          }
-        `}
-      />
-    </>
-  );
-};
+const GlobalStyle = createGlobalStyle`
+  ${prismDarkTheme};
+
+  html {
+    min-width: 360px;
+    scroll-behavior: smooth;
+  }
+  :root {
+    font-size: 16px;
+    font-family: "Outfit", sans-serif;
+  }
+  #__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #202124;
+    color: "#fefefe";
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background-color: #ed7842;
+    color: #fefefe;
+  }
+`;
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -81,9 +56,8 @@ function App({ Component, pageProps }) {
 
   return (
     <MDXProvider components={MDXComponents}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={{}}>
         <DefaultSeo {...SEO} />
-        <GlobalStyle />
         <Head>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -94,6 +68,7 @@ function App({ Component, pageProps }) {
             name="msapplication-config"
           />
         </Head>
+        <GlobalStyle />
         <Container>
           <Component {...pageProps} />
         </Container>

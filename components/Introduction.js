@@ -1,24 +1,49 @@
 import React from "react";
-import { Flex, Text, Stack } from "@chakra-ui/core";
 import Socials from "./Socials";
+import Flex from "../components/Flex";
+import styled from "styled-components";
+import { CustomLink } from "./MDXComponents";
+
 const Introduction = () => {
   return (
-    <Flex justifyContent="center" flexDirection="column" width="100%" mx="auto">
-      <Stack flexDirection="column">
-        <Text
-          fontFamily="GT Walsheim Pro Bold"
-          fontSize={["2rem", "5rem"]}
-          color="#ed7842"
+    <Container column justify="center">
+      <Title>
+        Saumya is just another frontend engineer struggling with CSS, frontend
+        tooling and whatnot
+      </Title>
+      <Info>
+        I tinker with web at{" "}
+        <CustomLink href="https://www.lyearn.com?ref=iamsaumya" isExternal>
+          Lyearn
+        </CustomLink>{" "}
+        as a <b>Product Engineer</b>. You can find my contributing to{" "}
+        <CustomLink
+          href="https://github.com/outline/outline?ref=iamsaumya"
+          isExternal
         >
-          Hey, I am Saumya
-        </Text>
-        <Text fontWeight="100" color="#d9d9d9" fontSize={["1.2rem", "1.7rem"]}>
-          I’m developer, noob chess player and runner.
-        </Text>
-        <Socials />
-      </Stack>
-    </Flex>
+          Outline
+        </CustomLink>{" "}
+        in every now and then.
+      </Info>
+      <Socials />
+    </Container>
   );
 };
+
+const Container = styled(Flex)`
+  margin: 2rem 0;
+  gap: 1rem;
+`;
+
+const Title = styled.div`
+  color: #ed7842;
+  font-size: 1.5rem;
+`;
+
+const Info = styled.p`
+  font-weight: 100;
+  color: #d9d9d9;
+  font-size: 1.2rem;
+`;
 
 export default Introduction;
