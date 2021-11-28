@@ -25,7 +25,13 @@ const NavBar = () => {
       <Hambuger onClick={toggleMenu}>
         {show ? <AiOutlineClose size="32" /> : <AiOutlineMenu size="32" />}
       </Hambuger>
-      <NavContainerMobile column show={show} justify="center" align="center">
+      <NavContainerMobile
+        gap={1}
+        column
+        show={show}
+        justify="center"
+        align="center"
+      >
         <NavLink toggleMenu={toggleMenu} isBlock href="/">
           Home
         </NavLink>
@@ -68,7 +74,7 @@ const NavContainer = styled(Flex)`
 const NavContainerMobile = styled(Flex)`
   height: ${(props) => (props.show ? "100%" : "0")};
   transform: ${(props) =>
-    props.show ? `translateX(0px)` : `translateX(-1000px)`};
+    props.show ? `translateX(0px)` : `translateX(-9000px)`};
   transition: height 100ms cubic-bezier(0, 0.7, 0.79, 0.67);
   padding-bottom: 0.5rem;
 
