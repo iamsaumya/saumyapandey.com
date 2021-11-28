@@ -43,6 +43,18 @@ class MyDocument extends Document {
             as="font"
             crossOrigin=""
           />
+          <link
+            href="https://unpkg.com/tailwindcss@1.1.2/dist/base.css"
+            rel="stylesheet"
+          />
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600&display=swap"
+            rel="stylesheet"
+          />
+
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async

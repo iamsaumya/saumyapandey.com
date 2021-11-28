@@ -24,7 +24,7 @@ const Link = styled.a`
   border-radius: 8px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
   border-color: rgb(32, 32, 34);
-  /* background-color: #202124; */
+  background-color: #202124;
   padding: 1rem;
   margin-top: 1rem;
 
@@ -43,14 +43,10 @@ const Heading = styled.h3`
   font-size: 1.25rem;
   line-height: 1.25;
   font-weight: 700;
-  font-family: GT Walsheim Pro Bold;
   max-width: 85%;
 `;
 
 const Text = styled.p`
-  font-family: FreightTextBook, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
   margin-top: 1rem;
 `;
 

@@ -16,7 +16,6 @@ const Introduction = () => {
 
 const Title = styled.h1`
   color: #ed7842;
-  font-family: "GT Walsheim Pro Bold";
   font-size: 2rem;
 
   ${breakpoint("tablet")`
@@ -26,7 +25,7 @@ const Title = styled.h1`
 
 const Info = styled.p`
   font-weight: 100;
-  color: "#d9d9d9";
+  color: #d9d9d9;
   font-size: 1.2rem;
 
   ${breakpoint("tablet")`

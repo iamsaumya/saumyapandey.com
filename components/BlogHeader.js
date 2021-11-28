@@ -50,7 +50,6 @@ const Heading = styled.h1`
   font-size: 2.25rem;
   line-height: 1.25;
   font-weight: 700;
-  font-family: GT Walsheim Pro Bold;
   letter-spacing: -0.025em;
   margin-bottom: 1rem;
 

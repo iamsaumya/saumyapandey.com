@@ -23,7 +23,7 @@ const Mail = ({ size = 24, color = "currentColor", styles }) => {
 };
 
 const Box = styled.div`
-  ${(props) => props.styles}
+  ${(props) => props.styles};
 `;
 
 export default Mail;

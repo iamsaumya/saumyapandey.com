@@ -54,7 +54,6 @@ const Nav = styled(Flex)`
   width: 100%;
   background: #202124;
   color: #fefefe;
-  font-family: "GT Walsheim Pro Bold";
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
 `;
 

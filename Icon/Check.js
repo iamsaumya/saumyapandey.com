@@ -10,9 +10,9 @@ const Check = ({ size, color, styles }) => {
         viewBox={`0 0 ${size} ${size}`}
         fill="none"
         stroke={color}
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <polyline points="20 6 9 17 4 12" />
       </svg>
@@ -21,7 +21,7 @@ const Check = ({ size, color, styles }) => {
 };
 
 const Box = styled.div`
-  ${(props) => props.styles}
+  ${(props) => props.styles};
 `;
 
 export default Check;

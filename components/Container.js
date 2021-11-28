@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import Flex from "./Flex";
 import styled from "styled-components";
+import ClientOnly from "./ClientOnly";
 
 export default function Container({ children }) {
   return (
@@ -10,11 +11,13 @@ export default function Container({ children }) {
       <Head>
         <title>Saumya Pandey</title>
       </Head>
-      <NavBar />
-      <ContainerWrapper column>
-        {children}
-        <Footer />
-      </ContainerWrapper>
+      <ClientOnly>
+        <NavBar />
+        <ContainerWrapper column>
+          {children}
+          <Footer />
+        </ContainerWrapper>
+      </ClientOnly>
     </>
   );
 }
