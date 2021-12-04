@@ -6,7 +6,11 @@ import { breakpoint } from "styled-components-breakpoint";
 
 const BlogCard = ({ title, summary, publishedAt, slug }) => {
   return (
-    <NextLink href={`/blog/${encodeURIComponent(slug)}`} prefetch={false}>
+    <NextLink
+      href={`/blog/${encodeURIComponent(slug)}`}
+      passHref
+      prefetch={false}
+    >
       <Link>
         <Wrap justify="space-between" align="flex-start">
           <Heading>{title}</Heading>
@@ -30,7 +34,7 @@ const Link = styled.a`
   cursor: pointer;
   width: 100%;
   border: 0.1rem solid;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
   border-color: rgb(32, 32, 34);
   background-color: #202124;
