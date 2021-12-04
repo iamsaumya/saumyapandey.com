@@ -18,12 +18,9 @@ const Link = styled.a`
   margin-right: 1rem;
   font-size: 1.5rem;
   line-height: 1.375rem;
+  text-align: center;
   font-weight: 600;
-  display: ${(props) => (props.isBlock ? "block" : "inline")};
-  &:hover {
-    text-decoration: "none";
-    background-color: #ed7842;
-  }
+  display: ${(props) => (props.isBlock ? "block" : "inline-block")};
 `;
 
 export default NavLink;
