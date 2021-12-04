@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     min-height: 100vh;
     background: #202124;
-    color: "#fefefe";
+    color: #fefefe;
   }
   h1,
   h2,

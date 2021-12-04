@@ -20,12 +20,10 @@ const BlogHeader = ({ frontMatter }) => {
 };
 
 const Text = styled.p`
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-bottom: 0.25rem;
+  font-weight: lighter;
   color: #aeb0b7;
-  ${breakpoint("tablet")`
-    font-size: "2.25rem"
-  `};
 `;
 const BlogMeta = styled(Flex)`
   width: 100%;
@@ -40,8 +38,8 @@ const Container = styled(Flex)`
 
 const Image = styled.img`
   border-radius: 9999px;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   margin-bottom: 0.5rem;
 `;
 

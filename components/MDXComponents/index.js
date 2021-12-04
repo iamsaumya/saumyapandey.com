@@ -57,7 +57,7 @@ const CustomLink = (props) => {
     );
   }
 
-  return <Link target="_blank" {...props} />;
+  return <Link target="_blank" {...props} rel="noopener" />;
 };
 
 const Link = styled.a`
@@ -126,13 +126,12 @@ const Heading1 = styled.h1`
 
 const Heading2 = styled.h2`
   ${HeadingCSS}
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 `;
 
 const Heading3 = styled.h3`
   ${HeadingCSS}
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
 `;
 
 const MDXComponents = {
@@ -203,6 +202,7 @@ const MDXComponents = {
           paddingTop: "0.5rem",
           paddingLeft: "1rem",
           marginLeft: "0.5rem",
+          fontWeight: "lighter",
         }}
         {...props}
       />
@@ -216,6 +216,7 @@ const MDXComponents = {
           paddingTop: "0.5rem",
           paddingLeft: "1rem",
           marginLeft: "0.5rem",
+          fontWeight: "lighter",
         }}
         {...props}
       />

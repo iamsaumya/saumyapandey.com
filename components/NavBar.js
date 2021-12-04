@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Flex from "./Flex";
 import NavLink from "./NavLink";
 import { breakpoint } from "styled-components-breakpoint";
+import Highlighter from "./Highlighter";
 
 const NavBar = () => {
   const [show, setShow] = React.useState(false);
@@ -12,12 +13,14 @@ const NavBar = () => {
   return (
     <Nav column>
       <Flex row justify="center" align="flex-start">
-        <NavContainer row justify="space-between" align="center">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/learnings">Learnings</NavLink>
-          <NavLink href="/failures">Failures</NavLink>
-          <NavLink href="/static/resume.pdf">Resume</NavLink>
+        <NavContainer row justify="flex-start" align="center">
+          <Highlighter>
+            <NavLink href="/">Home</NavLink>,
+            <NavLink href="/blog">Blog</NavLink>,
+            <NavLink href="/learnings">Learnings</NavLink>,
+            <NavLink href="/failures">Failures</NavLink>,
+            <NavLink href="/static/resume.pdf">Resume</NavLink>,
+          </Highlighter>
         </NavContainer>
       </Flex>
 
@@ -62,12 +65,13 @@ const Nav = styled(Flex)`
 `;
 
 const NavContainer = styled(Flex)`
+  position: relative;
   max-width: 750px;
   width: 100%;
   display: none;
   padding: 1rem 0;
   ${breakpoint("tablet")`
-    display: block;
+    display: flex;
   `};
 `;
 

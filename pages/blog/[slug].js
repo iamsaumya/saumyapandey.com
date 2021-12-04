@@ -31,15 +31,8 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
       )}
       <Main width="100%" mx="auto">
         <BlogHeader frontMatter={frontMatter} slug={slug} />
-        <Content
-          as="article"
-          color="#fefefe"
-          fontSize={["1rem", "1.2rem"]}
-          p="4"
-        >
-          {content}
-        </Content>
-        <EditLinks mt={10} fontSize={["1rem", "1.2rem"]}>
+        <Content>{content}</Content>
+        <EditLinks>
           <CustomLink href={discussUrl(slug)} isExternal>
             {"Discuss on Twitter"}
           </CustomLink>
