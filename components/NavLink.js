@@ -14,8 +14,7 @@ const NavLink = (props) => {
 
 const Link = styled.a`
   border-radius: 2px;
-  padding: 0.25rem 0.6rem;
-  margin-right: 1rem;
+  padding: 0.2rem 0.8rem;
   font-size: 1.5rem;
   line-height: 1.375rem;
   text-align: center;
