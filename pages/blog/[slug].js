@@ -9,6 +9,7 @@ import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
 import CustomImage from "../../components/CustomImage";
 import styled from "styled-components";
+import { FiArrowLeft } from "react-icons/fi";
 
 const root = process.cwd();
 
@@ -30,6 +31,11 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
         />
       )}
       <Main width="100%" mx="auto">
+        <BackToBlog href="/blog">
+          <FiArrowLeft size={24} style={{ display: "inline" }} />
+          <span>Back to Blog</span>
+        </BackToBlog>
+
         <article>
           <header>
             <BlogHeader frontMatter={frontMatter} slug={slug} />
@@ -66,6 +72,19 @@ const Content = styled.div`
 const EditLinks = styled.div`
   margin-top: 1rem;
   font-size: 1.2rem;
+`;
+
+const BackToBlog = styled(CustomLink)`
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 1rem 0;
+
+  &:hover {
+    svg {
+      transform: translateX(-2px);
+      transition: all 0.15s ease-out;
+    }
+  }
 `;
 
 export async function getStaticPaths() {
