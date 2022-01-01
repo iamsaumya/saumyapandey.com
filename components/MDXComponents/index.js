@@ -134,6 +134,28 @@ const Heading3 = styled.h3`
   font-size: 1.2rem;
 `;
 
+const listItemCSS = css`
+  list-style: auto;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  margin-left: 0.5rem;
+  font-weight: lighter;
+`;
+
+const P = styled.p`
+  margin-top: 1rem;
+  line-height: 1.625;
+  font-weight: lighter;
+`;
+
+const OL = styled.ol`
+  ${listItemCSS}
+`;
+
+const UL = styled.ul`
+  ${listItemCSS}
+`;
+
 const MDXComponents = {
   h1: (props) => {
     const { children, ...rest } = props;
@@ -187,40 +209,13 @@ const MDXComponents = {
   td: TData,
   a: CustomLink,
   p: (props) => {
-    return (
-      <p
-        style={{ marginTop: "1rem", lineHeight: 1.625, fontWeight: "lighter" }}
-        {...props}
-      />
-    );
+    return <P {...props} />;
   },
   ul: (props) => {
-    return (
-      <ul
-        style={{
-          listStyle: "auto",
-          paddingTop: "0.5rem",
-          paddingLeft: "1rem",
-          marginLeft: "0.5rem",
-          fontWeight: "lighter",
-        }}
-        {...props}
-      />
-    );
+    return <UL {...props} />;
   },
   ol: (props) => {
-    return (
-      <ol
-        style={{
-          listStyle: "auto",
-          paddingTop: "0.5rem",
-          paddingLeft: "1rem",
-          marginLeft: "0.5rem",
-          fontWeight: "lighter",
-        }}
-        {...props}
-      />
-    );
+    return <OL {...props} />;
   },
   li: (props) => {
     return <li style={{ paddingBottom: "0.25rem" }} {...props} />;
