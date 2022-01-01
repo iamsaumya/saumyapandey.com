@@ -1,4 +1,3 @@
-const { ro } = require("date-fns/locale");
 const fs = require("fs");
 
 const globby = require("globby");
