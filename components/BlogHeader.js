@@ -13,7 +13,7 @@ const BlogHeader = ({ frontMatter }) => {
             <Image alt="Saumya Pandey" src="/static/images/profilepic.jpeg" />
           </Flex>
         </Flex>
-        <Text>{"Last tinkered on " + frontMatter.publishedAt}</Text>
+        <Text>{"Last tinkered on " + frontMatter.modifiedAt}</Text>
       </BlogMeta>
     </Container>
   );

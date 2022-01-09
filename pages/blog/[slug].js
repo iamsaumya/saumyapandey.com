@@ -9,6 +9,7 @@ import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
 import CustomImage from "../../components/CustomImage";
 import styled from "styled-components";
+import { FiArrowLeft } from "react-icons/fi";
 
 const root = process.cwd();
 
@@ -30,28 +31,39 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
         />
       )}
       <Main width="100%" mx="auto">
-        <BlogHeader frontMatter={frontMatter} slug={slug} />
-        <Content>{content}</Content>
-        <EditLinks>
-          <CustomLink href={discussUrl(slug)} isExternal>
-            {"Discuss on Twitter"}
-          </CustomLink>
-          {` • `}
-          <CustomLink href={editUrl(slug)} isExternal>
-            {"Edit on GitHub"}
-          </CustomLink>
-        </EditLinks>
+        <BackToBlog href="/blog">
+          <FiArrowLeft size={24} style={{ display: "inline" }} />
+          <span>Back to Blog</span>
+        </BackToBlog>
+
+        <article>
+          <header>
+            <BlogHeader frontMatter={frontMatter} slug={slug} />
+          </header>
+          <Content>{content}</Content>
+          <footer>
+            <EditLinks>
+              <CustomLink href={discussUrl(slug)} isExternal>
+                {"Discuss on Twitter"}
+              </CustomLink>
+              {` • `}
+              <CustomLink href={editUrl(slug)} isExternal>
+                {"Edit on GitHub"}
+              </CustomLink>
+            </EditLinks>
+          </footer>
+        </article>
       </Main>
     </>
   );
 }
 
-const Main = styled.div`
+const Main = styled.main`
   width: 100%;
   margin: 0 auto;
 `;
 
-const Content = styled.article`
+const Content = styled.div`
   color: #fefefe;
   font-size: 1.2rem;
   padding: 1rem;
@@ -60,6 +72,19 @@ const Content = styled.article`
 const EditLinks = styled.div`
   margin-top: 1rem;
   font-size: 1.2rem;
+`;
+
+const BackToBlog = styled(CustomLink)`
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 1rem 0;
+
+  &:hover {
+    svg {
+      transform: translateX(-2px);
+      transition: all 0.15s ease-out;
+    }
+  }
 `;
 
 export async function getStaticPaths() {

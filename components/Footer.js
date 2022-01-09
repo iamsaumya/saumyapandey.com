@@ -5,9 +5,11 @@ import styled from "styled-components";
 
 const Footer = () => {
   return (
-    <Container align="center" column>
-      <Socials />
-    </Container>
+    <footer>
+      <Container align="center" column>
+        <Socials />
+      </Container>
+    </footer>
   );
 };
 

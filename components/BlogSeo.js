@@ -1,8 +1,10 @@
 import React from "react";
 import { NextSeo, ArticleJsonLd } from "next-seo";
 
-const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
-  const date = new Date(publishedAt).toISOString();
+const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, image }) => {
+  const publishedDate = new Date(publishedAt).toISOString();
+  const modifiedDate = new Date(modifiedAt).toISOString();
+
   const featuredImage = {
     url: `https://saumyapandey.com${image}`,
     alt: title,
@@ -17,7 +19,8 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
         openGraph={{
           type: "article",
           article: {
-            publishedTime: date,
+            publishedTime: publishedDate,
+            modifiedTime: modifiedDate,
           },
           url,
           title,
@@ -27,8 +30,8 @@ const BlogSeo = ({ title, summary, publishedAt, url, image }) => {
       />
       <ArticleJsonLd
         authorName="Saumya Pandey"
-        dateModified={date}
-        datePublished={date}
+        dateModified={modifiedDate}
+        datePublished={publishedDate}
         description={summary}
         images={[featuredImage]}
         publisherLogo="/static/favicons/android-chrome-192x192.png"
