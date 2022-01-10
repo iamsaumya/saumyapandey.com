@@ -77,6 +77,7 @@ const HeadingCSS = css`
   scroll-margin-top: 6rem;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
+  color: #fefefe;
 
   &[id]:hover > a {
     display: inline;
