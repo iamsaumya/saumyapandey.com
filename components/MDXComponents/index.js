@@ -132,13 +132,11 @@ const listItemCSS = css`
   padding-top: 0.5rem;
   padding-left: 1rem;
   margin-left: 0.5rem;
-  font-weight: lighter;
 `;
 
 const P = styled.p`
-  margin-top: 1rem;
+  margin-top: 1.4rem;
   line-height: 1.625;
-  font-weight: lighter;
 `;
 
 const OL = styled.ol`
