@@ -64,7 +64,7 @@ const Main = styled.main`
 `;
 
 const Content = styled.div`
-  color: #cbd5e0;
+  color: #bcbdc3;
   font-size: 1.125rem;
   padding: 1rem;
 `;
