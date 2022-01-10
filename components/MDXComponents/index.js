@@ -77,17 +77,10 @@ const HeadingCSS = css`
   scroll-margin-top: 6rem;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
+  color: #fefefe;
 
-  &[id] {
-    pointer-events: none;
-  }
-
-  &[id]:before {
-    display: block;
-    height: 6rem;
-    margin-top: -6rem;
-    visibility: hidden;
-    content: "";
+  &[id]:hover > a {
+    display: inline;
   }
 `;
 
@@ -109,6 +102,7 @@ const HashSelector = styled.a`
   margin-left: 0.375rem;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
+  display: none;
 `;
 
 const Divider = styled.div`
@@ -139,13 +133,11 @@ const listItemCSS = css`
   padding-top: 0.5rem;
   padding-left: 1rem;
   margin-left: 0.5rem;
-  font-weight: lighter;
 `;
 
 const P = styled.p`
-  margin-top: 1rem;
+  margin-top: 1.4rem;
   line-height: 1.625;
-  font-weight: lighter;
 `;
 
 const OL = styled.ol`
@@ -160,34 +152,28 @@ const MDXComponents = {
   h1: (props) => {
     const { children, ...rest } = props;
     return (
-      <Flex align="center" justify="center">
-        <Heading1 id={children.replaceAll(" ", "-")} {...rest}>
-          {children}
-        </Heading1>
+      <Heading1 id={children.replaceAll(" ", "-")} {...rest}>
+        {children}
         <DocsHeading id={children.replaceAll(" ", "-")} />
-      </Flex>
+      </Heading1>
     );
   },
   h2: (props) => {
     const { children, ...rest } = props;
     return (
-      <Flex align="center">
-        <Heading2 id={children.replaceAll(" ", "-")} {...rest}>
-          {children}
-        </Heading2>
+      <Heading2 id={children.replaceAll(" ", "-")} {...rest}>
+        {children}
         <DocsHeading id={children.replaceAll(" ", "-")} />
-      </Flex>
+      </Heading2>
     );
   },
   h3: (props) => {
     const { children, ...rest } = props;
     return (
-      <Flex align="center">
-        <Heading3 id={children.replaceAll(" ", "-")} {...rest}>
-          {children}
-        </Heading3>
+      <Heading3 id={children.replaceAll(" ", "-")} {...rest}>
+        {children}
         <DocsHeading id={children.replaceAll(" ", "-")} />
-      </Flex>
+      </Heading3>
     );
   },
   inlineCode: (props) => (
