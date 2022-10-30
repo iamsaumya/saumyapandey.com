@@ -11,13 +11,11 @@ export default function Container({ children }) {
       <Head>
         <title>Saumya Pandey</title>
       </Head>
-      <ClientOnly>
-        <NavBar />
-        <ContainerWrapper column>
-          {children}
-          <Footer />
-        </ContainerWrapper>
-      </ClientOnly>
+      <NavBar />
+      <ContainerWrapper column>
+        {children}
+        <Footer />
+      </ContainerWrapper>
     </>
   );
 }
