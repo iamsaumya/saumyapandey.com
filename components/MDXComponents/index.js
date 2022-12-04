@@ -24,7 +24,7 @@ import Flex from "../../components/Flex";
 const Table = (props) => (
   <div style={{ overflowX: "auto", width: "100%" }}>
     <table
-      style={{ textAlign: "left", marginTop: "32px", width: "100%" }}
+      style={{ textAlign: "left", marginBottom: "32px", width: "100%" }}
       {...props}
     />
   </div>
@@ -75,8 +75,8 @@ const Link = styled.a`
 const HeadingCSS = css`
   scroll-snap-align: start;
   scroll-margin-top: 6rem;
-  margin-bottom: 0.5rem;
-  margin-top: 1rem;
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
   color: #fefefe;
 
   &[id]:hover > a {
@@ -130,13 +130,13 @@ const Heading3 = styled.h3`
 
 const listItemCSS = css`
   list-style: auto;
-  padding-top: 0.5rem;
+  padding-bottom: 1rem;
   padding-left: 1rem;
   margin-left: 0.5rem;
 `;
 
 const P = styled.p`
-  margin-top: 1.4rem;
+  padding-bottom: 1.4rem;
   line-height: 1.625;
 `;
 
@@ -179,11 +179,14 @@ const MDXComponents = {
   inlineCode: (props) => (
     <code
       style={{
-        color: "gray",
-        backgroundColor: "#d7d8db",
+        color: "rgb(255 139 139)",
+        backgroundColor: "#202124",
         padding: "0.25rem",
         borderRadius: "2px",
         fontSize: "0.84em",
+        marginRight: "0.25rem",
+        marginLeft: "0.25rem",
+        border: "1px solid rgb(52 52 55)",
       }}
       {...props}
     />

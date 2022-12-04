@@ -1,0 +1,155 @@
+---
+title: "Slashing Next.js build time more than half without turbopack"
+publishedAt: "2022-12-04"
+modifiedAt: "2022-12-04"
+summary: "Improving preview builds using webpack loader to replace the unnecessary pages with a dummy UI."
+image: "/static/images/slashing-nextjs-build-time-more-than-half-without-turbopack/banner.png"
+---
+
+Being a UI Engineer, it's a blessing that we can see whatever magic our code does within a blink of a second. Setting the expectations, we want to see our changes ASAP while developing and want our preview build to be flash fast.
+
+Thankfully, `HMR` does solve the development issue, and we see our changes reflected within seconds, but for preview builds, it could be far from the truth. Building a monolith frontend codebase of a significant size project could take 20-30mins. And it's a pain when you want to see your changes, but other previews builds are queued.
+
+In this scenario, queuing massive builds will stretch the time till we see our changes. And it's a pain when you want to see your changes, but other previews builds are queued.
+
+I was thinking, why can't we build the pages worked on? And that's how I came up with the hacky solution of `specific builds`.
+
+## How to build specific pages?
+
+The idea is to build the pages I want and replace the rest of the pages with a dummy UI. This way, I can see my changes faster, and the build time would be reduced.
+
+We can prevent heavy transpilation and bundling if we make all the code of unnecessary pages unreachable. To achieve it, we will have to replace the content of their entry points with a dummy UI.
+
+**NB**: We must also ensure that all the entry points are independent. Otherwise, entry point `A` would-be importing stuff from entry point `B`, but if we don't want page `B`, it will have all its export replaced by the dummy UI.
+
+## Approach
+
+Generally, when we build a page, we want to build its whole module. A module is an entity of the app. For example, `product`, `user` and `checkout` are modules.
+Let's say I worked on `/products/:id` page, I would want all the URLs with `/products` pathname working. So, I will build the `product` module.
+
+Following are the high-level steps to achieve it:
+- Have the name of the modules to build
+- Create a map `pagesToBuild`. It will contain the pathname of all the pages to build
+- Use string-replace-loader webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
+
+### 1. Have the name of the modules to build
+
+Next.js 12 offers [file-based routing](https://nextjs.org/docs/routing/introduction). It means that we can have a file named `products/[id].js`, and it will be accessible at `/products/:id` URL. 
+
+
+```js
+├── 1on1s
+│   ├── [id]
+│   │   ├── [meetingInstanceId]
+│   │   │   ├── [tabId].js
+│   │   │   └── index.js
+│   │   └── index.js
+│   └── index.js
+├── _app.js
+├── _document.js
+├── admin
+│   ├── article
+│   │   ├── [articleId]
+│   │   │   ├── build.js
+│   │   │   └── reports.js
+│   │   └── create.js
+│   └── course
+│       ├── [courseId]
+│       │   ├── build.js
+│       │   ├── details.js
+│       │   └── reports.js
+│       └── create.js
+├── article
+│   └── [articleId]
+│       └── view.js
+└── course
+    └── [courseId]
+        ├── details.js
+        └── view
+            ├── index.js
+            └── review.js
+```
+
+In the above example, we have 4 modules: `1on1s`, `article`, `course` and `admin`.
+
+Take the modules from Github Actions or git commit.
+
+```bash
+git commit -m "some commit message" -m "article course"
+# The following command to output `article course` while building
+git log -1 --pretty=format:\"%b\"
+```
+
+### 2. Create a pagesToBuild map
+
+Write a script to create a map with the key as the file's code and the value as the file's path.
+
+For example, if we want to build the `article` module, we will have the following map.
+
+```js
+{
+  "import * as react from react...": "article/index.js",
+  "import * as react from react...": "article/[articleId]/view.js"
+  "import * as react from react...": "admin/article/[articleId]/build.js"
+  "import * as react from react...": "admin/article/[articleId]/reports.js"
+  "import * as react from react...": "admin/article/create.js"
+}
+```
+
+### 3. Use a webpack loader to replace the content
+
+Use [string-replace-loader](https://www.npmjs.com/package/string-replace-loader) webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
+
+```js
+config.module.rules.push({
+  // run on all the files inside src/pages/
+  test: /.*src\/pages/,
+  loader: 'string-replace-loader',
+  options: {
+    // match all the content inside the file
+    search: '(.*?\n)*',
+    replace(...args) {
+      // if there is an entry of the content, we want to build it
+      const buildingPath = pagesToBuild[args[0]];
+      if (buildingPath) {
+        console.log('building', buildingPath);
+        // return the content as it is
+        return args[0];
+      } else {
+        // otherwise, return the dummy UI to be replaced
+        return dummyUI;
+      }
+    },
+    flags: ",
+  },
+  exclude: /node_modules/,
+});
+```
+
+## Suggestions
+
+I have been using this approach for a while, and it has been working well. But I would like to suggest a few things.
+
+- Always build pages involved in authentication flow.
+- Always build pages for navigating the app, like the home page.
+- To avoid pushing specific builds to production servers, include the necessary check for `!isProd`.
+
+
+## Conclusion
+
+This little approach has fixed one of my major pain points. I know it's hacky but, Are we even programming if we don't do some hacks? 😅
+
+Throughout my usage at [Lyearn](https://www.lyearn.com/?ref=iamsaumya), I observed the preview build time is reduced significantly. 
+
+|  | Initial Build | Cache Build |
+| --- | --- | --- |
+| Vercel | ~20mins | ~8mins |
+| Specific Builds | ~8mins | ~4mins |
+
+Ultimately, we have super fast preview builds with short queues and developers who can experiment as much as they want. 
+
+With Turbopack and [Next.js 13](https://nextjs.org/blog/next-13), we won't need these hacks anymore. Or maybe we can combine specific builds and turbopack to build in under a minute 🙈
+
+I hope this article will help you to build specific pages in your Next.js app. If you have any suggestions or feedback, please hit me up on Twitter. I would love to hear from you.
+
+Thanks for reading! 🙏
