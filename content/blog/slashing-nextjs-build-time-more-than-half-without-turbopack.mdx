@@ -10,7 +10,7 @@ Being a UI Engineer, it's a blessing that we can see whatever magic our code doe
 
 Thankfully, `HMR` does solve the development issue, and we see our changes reflected within seconds, but for preview builds, it could be far from the truth. Building a monolith frontend codebase of a significant size project could take 20-30mins. And it's a pain when you want to see your changes, but other previews builds are queued.
 
-In this scenario, queuing massive builds will stretch the time till we see our changes. And it's a pain when you want to see your changes, but other previews builds are queued.
+In this scenario, queuing massive builds will stretch the time till we see our changes.
 
 I was thinking, why can't we build the pages worked on? And that's how I came up with the hacky solution of `specific builds`.
 
@@ -30,7 +30,7 @@ Let's say I worked on `/products/:id` page, I would want all the URLs with `/pro
 Following are the high-level steps to achieve it:
 - Have the name of the modules to build
 - Create a map `pagesToBuild`. It will contain the pathname of all the pages to build
-- Use string-replace-loader webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
+- Use [string-replace-loader](https://www.npmjs.com/package/string-replace-loader) webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
 
 ### 1. Have the name of the modules to build
 
@@ -76,7 +76,7 @@ Take the modules from Github Actions or git commit.
 
 ```bash
 git commit -m "some commit message" -m "article course"
-# The following command to output `article course` while building
+# The following command to output `article course`
 git log -1 --pretty=format:\"%b\"
 ```
 
@@ -120,7 +120,7 @@ config.module.rules.push({
         return dummyUI;
       }
     },
-    flags: ",
+    flags: "",
   },
   exclude: /node_modules/,
 });
