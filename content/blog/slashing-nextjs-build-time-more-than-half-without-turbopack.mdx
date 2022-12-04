@@ -6,26 +6,28 @@ summary: "Improving preview builds using webpack loader to replace the unnecessa
 image: "/static/images/slashing-nextjs-build-time-more-than-half-without-turbopack/banner.png"
 ---
 
-Being a UI Engineer, it's a blessing that we can see whatever magic our code does within a blink of a second. We want to see our changes ASAP while developing and want our preview build to be flash fast.
+Being a UI Engineer, it's a blessing that we can see whatever magic our code does within a blink of a second. Setting the expectations, we want to see our changes ASAP while developing and want our preview build to be flash fast.
 
-Thankfully, `HMR` does solve the development issue, and we see our changes reflected within seconds, but for preview builds, it could be far from the truth. Building the monolith frontend codebase of a significant size project could take 20-30mins. And it's a pain when you want to see your changes, but other previews builds are queued.
+Thankfully, `HMR` does solve the development issue, and we see our changes reflected within seconds, but for preview builds, it could be far from the truth. Building a monolith frontend codebase of a significant size project could take 20-30mins. And it's a pain when you want to see your changes, but other previews builds are queued.
 
-In this situation, the build would take so much time, but I want to see the changes for the pages I worked on.
+In this scenario, queuing massive builds will stretch the time till we see our changes. And it's a pain when you want to see your changes, but other previews builds are queued.
 
-I was thinking, why can't we build the pages I worked on? And that's how I came up with the hacky idea of `specific builds`.
+I was thinking, why can't we build the pages worked on? And that's how I came up with the hacky solution of `specific builds`.
 
 ## How to build specific pages?
 
 The idea is to build the pages I want and replace the rest of the pages with a dummy UI. This way, I can see my changes faster, and the build time would be reduced.
 
-We can prevent heavy transpilation and bundling if we make all the code of unnecessary pages unreachable. To achieve it, we will have to replace the content of unnecessary page entry points with a UI.
+We can prevent heavy transpilation and bundling if we make all the code of unnecessary pages unreachable. To achieve it, we will have to replace the content of their entry points with a dummy UI.
 
 **NB**: We must also ensure that all the entry points are independent. Otherwise, entry point `A` would-be importing stuff from entry point `B`, but if we don't want page `B`, it will have all its export replaced by the dummy UI.
 
 ## Approach
 
-Generally, when we build a page, we want to build its whole module. For example, If I worked on `/products/:id` page, I would want all the URLs with `/products` pathname working.
+Generally, when we build a page, we want to build its whole module. A module is an entity of the app. For example, `product`, `user` and `checkout` are modules.
+Let's say I worked on `/products/:id` page, I would want all the URLs with `/products` pathname working. So, I will build the `product` module.
 
+Following are the high-level steps to achieve it:
 - Have the name of the modules to build
 - Create a map `pagesToBuild`. It will contain the pathname of all the pages to build
 - Use string-replace-loader webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
@@ -34,42 +36,41 @@ Generally, when we build a page, we want to build its whole module. For example,
 
 Next.js 12 offers [file-based routing](https://nextjs.org/docs/routing/introduction). It means that we can have a file named `products/[id].js`, and it will be accessible at `/products/:id` URL. 
 
-Generally, `products` is the module name, and `[id]` is the page name. The module is a directory that contains all the pages with the same pathname.
 
 ```js
 ├── 1on1s
 │   ├── [id]
 │   │   ├── [meetingInstanceId]
-│   │   │   ├── [tabId].tsx
-│   │   │   └── index.tsx
-│   │   └── index.tsx
-│   └── index.tsx
-├── _app.tsx
-├── _document.tsx
+│   │   │   ├── [tabId].js
+│   │   │   └── index.js
+│   │   └── index.js
+│   └── index.js
+├── _app.js
+├── _document.js
 ├── admin
 │   ├── article
 │   │   ├── [articleId]
-│   │   │   ├── build.tsx
-│   │   │   └── reports.tsx
-│   │   └── create.tsx
+│   │   │   ├── build.js
+│   │   │   └── reports.js
+│   │   └── create.js
 │   └── course
 │       ├── [courseId]
-│       │   ├── build.tsx
-│       │   ├── details.tsx
-│       │   └── reports.tsx
-│       └── create.tsx
+│       │   ├── build.js
+│       │   ├── details.js
+│       │   └── reports.js
+│       └── create.js
 ├── article
 │   └── [articleId]
-│       └── view.tsx
+│       └── view.js
 └── course
     └── [courseId]
-        ├── details.tsx
+        ├── details.js
         └── view
-            ├── index.tsx
-            └── review.tsx
+            ├── index.js
+            └── review.js
 ```
 
-In the above example, we have 3 modules: `1on1s`, `admin`, and `course`.
+In the above example, we have 4 modules: `1on1s`, `article`, `course` and `admin`.
 
 Take the modules from Github Actions or git commit.
 
@@ -79,7 +80,7 @@ git commit -m "some commit message" -m "article course"
 git log -1 --pretty=format:\"%b\"
 ```
 
-### 2. Create a map pagesToBuild
+### 2. Create a pagesToBuild map
 
 Write a script to create a map with the key as the file's code and the value as the file's path.
 
@@ -87,17 +88,17 @@ For example, if we want to build the `article` module, we will have the followin
 
 ```js
 {
-  "import * as react from react...": "article/index.tsx",
-  "import * as react from react...": "article/[articleId]/view.tsx"
-  "import * as react from react...": "admin/article/[articleId]/build.tsx"
-  "import * as react from react...": "admin/article/[articleId]/reports.tsx"
-  "import * as react from react...": "admin/article/create.tsx"
+  "import * as react from react...": "article/index.js",
+  "import * as react from react...": "article/[articleId]/view.js"
+  "import * as react from react...": "admin/article/[articleId]/build.js"
+  "import * as react from react...": "admin/article/[articleId]/reports.js"
+  "import * as react from react...": "admin/article/create.js"
 }
 ```
 
 ### 3. Use a webpack loader to replace the content
 
-Use string-replace-loader webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
+Use [string-replace-loader](https://www.npmjs.com/package/string-replace-loader) webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
 
 ```js
 config.module.rules.push({
@@ -136,7 +137,7 @@ I have been using this approach for a while, and it has been working well. But I
 
 ## Conclusion
 
-This little hacky approach has fixed one of my major paint points. I know it's hacky but are we even programming if we don't do some hacks? 😅
+This little approach has fixed one of my major pain points. I know it's hacky but, Are we even programming if we don't do some hacks? 😅
 
 Throughout my usage at [Lyearn](https://www.lyearn.com/?ref=iamsaumya), I observed the preview build time is reduced significantly. 
 
