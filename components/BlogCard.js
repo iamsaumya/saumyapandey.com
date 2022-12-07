@@ -42,12 +42,14 @@ const Link = styled.a`
   margin-top: 1rem;
 
   &:hover {
-    border-top: 0.2rem solid #ed7842;
+    box-shadow: #ed7842 0px -0.2rem 0px 0px, rgb(0 0 0 / 15%) 0px 1px 3px 1px,
+      rgb(0 0 0 / 30%) 0px 1px 2px 0px;
     transition: all 100ms ease;
   }
 
   &:active {
-    border-top: 0.2rem solid #ed7842;
+    box-shadow: #ed7842 0px -0.2rem 0px 0px, rgb(0 0 0 / 15%) 0px 1px 3px 1px,
+      rgb(0 0 0 / 30%) 0px 1px 2px 0px;
     transition: all 100ms ease;
   }
 `;
