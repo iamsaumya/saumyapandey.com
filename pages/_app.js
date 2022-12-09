@@ -9,8 +9,11 @@ import { useRouter } from "next/router";
 import * as gtag from "../lib/gtag";
 import { createGlobalStyle, css, ThemeProvider } from "styled-components";
 import { prismDarkTheme } from "../styles/prism";
+import cssReset from "../styles/cssreset.css";
 
 const GlobalStyle = createGlobalStyle`
+  ${cssReset};
+  
   ${prismDarkTheme};
 
   html {
