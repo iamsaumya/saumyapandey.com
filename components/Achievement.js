@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
-import { CustomLink } from "../components/MDXComponents";
 import Flex from "../components/Flex";
 import Check from "../Icon/Check";
+import CustomLink from "./components/Link";
 
 const CheckCSS = css`
   margin-right: 0.5rem;

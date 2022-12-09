@@ -2,7 +2,7 @@ import React from "react";
 import Socials from "./Socials";
 import Flex from "../components/Flex";
 import styled from "styled-components";
-import { CustomLink } from "./MDXComponents";
+import CustomLink from "./components/Link";
 
 const Introduction = () => {
   return (

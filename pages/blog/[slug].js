@@ -4,12 +4,13 @@ import matter from "gray-matter";
 import fs from "fs";
 import path from "path";
 import BlogHeader from "../../components/BlogHeader";
-import { CustomLink } from "../../components/MDXComponents";
 import mdxPrism from "mdx-prism";
 import BlogSeo from "../../components/BlogSeo";
 import CustomImage from "../../components/CustomImage";
 import styled from "styled-components";
 import { FiArrowLeft } from "react-icons/fi";
+import Article from "../../components/MDXComponents/styles";
+import CustomLink from "../../components/components/Link";
 
 const root = process.cwd();
 
@@ -36,11 +37,11 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
           <span>Back to Blog</span>
         </BackToBlog>
 
-        <article>
+        <Article>
           <header>
             <BlogHeader frontMatter={frontMatter} slug={slug} />
           </header>
-          <Content>{content}</Content>
+          <Content className="content-wrapper">{content}</Content>
           <footer>
             <EditLinks>
               <CustomLink href={discussUrl(slug)} isExternal>
@@ -52,7 +53,7 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
               </CustomLink>
             </EditLinks>
           </footer>
-        </article>
+        </Article>
       </Main>
     </>
   );
