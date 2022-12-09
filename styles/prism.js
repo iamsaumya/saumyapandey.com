@@ -1,5 +1,4 @@
 import { css } from "styled-components";
-import theme from "../styles/theme";
 
 const prismBaseTheme = css`
   code {
@@ -7,15 +6,16 @@ const prismBaseTheme = css`
   }
   code[class*="language-"],
   pre[class*="language-"] {
-    color: ${theme.colors.gray[800]};
+    color: #1a202c;
     background: none;
-    font-family: ${theme.fonts.mono};
-    font-size: ${theme.fontSizes[2]};
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    font-size: 1em;
     text-align: left;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    line-height: ${theme.lineHeights[2]};
+    line-height: 1.5;
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
@@ -27,11 +27,11 @@ const prismBaseTheme = css`
   }
   /* Code blocks */
   pre[class*="language-"] {
-    padding-top: ${theme.space[4]};
-    padding-bottom: ${theme.space[4]};
-    padding-left: ${theme.space[4]};
-    padding-right: ${theme.space[4]};
-    margin: ${theme.space[6]} 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 1.5rem 0;
     overflow: auto;
     min-width: 100%;
     font-size: 0.9rem;
@@ -39,9 +39,9 @@ const prismBaseTheme = css`
   }
   :not(pre) > code[class*="language-"],
   pre[class*="language-"] {
-    background: ${theme.colors.gray[50]};
-    border: 1px solid ${theme.colors.gray[200]};
-    border-radius: ${theme.radii.lg};
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
   }
   /* Inline code */
   :not(pre) > code[class*="language-"] {
@@ -112,23 +112,24 @@ const prismBaseTheme = css`
 
   .mdx-marker {
     display: block;
-    margin-left: -${theme.space[4]};
-    margin-right: -${theme.space[4]};
-    padding-left: ${theme.space[4]};
-    padding-right: ${theme.space[4]};
-    background-color: ${theme.colors.gray[200]};
-    box-shadow: inset 3px 0px 0 0px ${theme.colors.blue[600]};
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #e2e8f0;
+    box-shadow: inset 3px 0px 0 0px #2a69ac;
     min-width: fit-content;
   }
 
   .remark-code-title {
-    padding: ${theme.space[2]} ${theme.space[4]};
-    font-family: ${theme.fonts.mono};
-    background: ${theme.colors.gray[200]};
-    color: ${theme.colors.gray[800]};
-    border: 1px solid ${theme.colors.gray[200]};
-    border-top-left-radius: ${theme.radii.lg};
-    border-top-right-radius: ${theme.radii.lg};
+    padding: 0.5rem, 1rem;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    background: #e2e8f0;
+    color: #1a202c;
+    border: 1px solid #e2e8f0;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
     font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 0;
@@ -212,7 +213,7 @@ export const prismDarkTheme = css`
 
   code[class*="language-"],
   pre[class*="language-"] {
-    color: ${theme.colors.gray[50]};
+    color: #f7fafc;
   }
 
   :not(pre) > code[class*="language-"],
@@ -228,7 +229,7 @@ export const prismDarkTheme = css`
 
   .remark-code-title {
     background: #202124;
-    color: ${theme.colors.gray[100]};
+    color: #edf2f7;
     border: 1px solid rgb(32, 32, 34);
   }
 `;

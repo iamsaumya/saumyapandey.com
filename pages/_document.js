@@ -58,10 +58,6 @@ class MyDocument extends Document {
             href="/static/favicons/safari-pinned-tab.svg"
             rel="mask-icon"
           />
-          <link
-            href="https://unpkg.com/tailwindcss@1.1.2/dist/base.css"
-            rel="stylesheet"
-          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
