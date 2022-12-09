@@ -1,6 +1,5 @@
-import NextLink from "next/link";
 import styled, { css } from "styled-components";
-import Flex from "../../components/Flex";
+import CustomLink from "../components/Link";
 
 // const Quote = (props) => {
 //   return (
@@ -23,66 +22,9 @@ import Flex from "../../components/Flex";
 
 const Table = (props) => (
   <div style={{ overflowX: "auto", width: "100%" }}>
-    <table
-      style={{ textAlign: "left", marginBottom: "32px", width: "100%" }}
-      {...props}
-    />
+    <table {...props} />
   </div>
 );
-
-const THead = styled.th`
-  background: #3c3e43;
-  font-weight: 400;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-`;
-
-const TData = styled.td`
-  padding: 0.5rem;
-  border-bottom-width: 1px;
-  border-color: "inherit";
-  font-size: 1rem;
-  white-space: normal;
-`;
-
-const CustomLink = (props) => {
-  const href = props.href;
-  const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
-
-  if (isInternalLink) {
-    return (
-      <NextLink href={href} passHref>
-        <Link {...props} />
-      </NextLink>
-    );
-  }
-
-  return <Link target="_blank" {...props} rel="noopener" />;
-};
-
-const Link = styled.a`
-  cursor: pointer;
-  text-decoration: none;
-  outline: none;
-  color: #60b3fb;
-
-  :hover {
-    color: #ed7842;
-    transition: all 0.15s ease-out;
-  }
-`;
-
-const HeadingCSS = css`
-  scroll-snap-align: start;
-  scroll-margin-top: 6rem;
-  padding-bottom: 0.5rem;
-  padding-top: 1rem;
-  color: #fefefe;
-
-  &[id]:hover > a {
-    display: inline;
-  }
-`;
 
 const DocsHeading = (props) => {
   if (!props.id) return null;
@@ -105,111 +47,53 @@ const HashSelector = styled.a`
   display: none;
 `;
 
-const Divider = styled.div`
-  width: 100%;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 0.006rem solid #aeb0b7;
-  opacity: 0.6;
-`;
-
-const Heading1 = styled.h1`
-  ${HeadingCSS}
-  font-size: 2rem;
-`;
-
-const Heading2 = styled.h2`
-  ${HeadingCSS}
-  font-size: 1.5rem;
-`;
-
-const Heading3 = styled.h3`
-  ${HeadingCSS}
-  font-size: 1.2rem;
-`;
-
-const listItemCSS = css`
-  list-style: auto;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
-  margin-left: 0.5rem;
-`;
-
-const P = styled.p`
-  padding-bottom: 1.4rem;
-  line-height: 1.625;
-`;
-
-const OL = styled.ol`
-  ${listItemCSS}
-`;
-
-const UL = styled.ul`
-  ${listItemCSS}
-`;
-
 const MDXComponents = {
   h1: (props) => {
     const { children, ...rest } = props;
     return (
-      <Heading1 id={children.replaceAll(" ", "-")} {...rest}>
+      <h1 id={children.replaceAll(" ", "-")} {...rest}>
         {children}
         <DocsHeading id={children.replaceAll(" ", "-")} />
-      </Heading1>
+      </h1>
     );
   },
   h2: (props) => {
     const { children, ...rest } = props;
     return (
-      <Heading2 id={children.replaceAll(" ", "-")} {...rest}>
+      <h2 id={children.replaceAll(" ", "-")} {...rest}>
         {children}
         <DocsHeading id={children.replaceAll(" ", "-")} />
-      </Heading2>
+      </h2>
     );
   },
   h3: (props) => {
     const { children, ...rest } = props;
     return (
-      <Heading3 id={children.replaceAll(" ", "-")} {...rest}>
+      <h3 id={children.replaceAll(" ", "-")} {...rest}>
         {children}
         <DocsHeading id={children.replaceAll(" ", "-")} />
-      </Heading3>
+      </h3>
     );
   },
-  inlineCode: (props) => (
-    <code
-      style={{
-        color: "rgb(255 139 139)",
-        backgroundColor: "#202124",
-        padding: "0.25rem",
-        borderRadius: "2px",
-        fontSize: "0.84em",
-        marginRight: "0.25rem",
-        marginLeft: "0.25rem",
-        border: "1px solid rgb(52 52 55)",
-      }}
-      {...props}
-    />
-  ),
+  inlineCode: (props) => <code {...props} />,
   br: (props) => <div style={{ height: "24px" }} {...props} />,
-  hr: Divider,
+  hr: (props) => <hr {...props} />,
   table: Table,
-  th: THead,
-  td: TData,
+  th: (props) => <th {...props} />,
+  td: (props) => <td {...props} />,
   a: CustomLink,
   p: (props) => {
-    return <P {...props} />;
+    return <p {...props} />;
   },
   ul: (props) => {
-    return <UL {...props} />;
+    return <ul {...props} />;
   },
   ol: (props) => {
-    return <OL {...props} />;
+    return <ol {...props} />;
   },
   li: (props) => {
-    return <li style={{ paddingBottom: "0.25rem" }} {...props} />;
+    return <li {...props} />;
   },
 };
 
-export { CustomLink };
 export default MDXComponents;

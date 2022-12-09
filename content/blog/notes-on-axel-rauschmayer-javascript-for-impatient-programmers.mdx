@@ -1,7 +1,7 @@
 ---
 title: "Notes on Axel Rauschmayer's JavaScript for Impatient Programmers"
 publishedAt: "2021-02-08"
-modifiedAt: "2021-02-08"
+modifiedAt: "2022-12-09"
 summary: "Notes on Axel Rauschmayer's JavaScript for Impatient Programmers. Suitable for interview preparation and quick revision of concepts."
 image: "/static/images/notes-on-axel-rauschmayer-javascript-for-impatient-programmers/banner.png"
 ---
@@ -33,7 +33,7 @@ console.log(i) //ReferenceError
 ```
 
 ### const
-Variables declared using const are blocked scoped and immutable. They have to be declared and uninitialised at the same point.
+Variables declared using const are blocked scoped and immutable. They have to be declared and uninitialized at the same point.
 ```js
 {
     const i = 0;
@@ -70,7 +70,7 @@ There are two types of global variables.
 2. Global object variables.
 	Variables are declared using `var` or `function` declarations.
 
-__globalThis__ is used to access global object variables. The reason why it got its name is because it is equal to `this` in the global scope.
+__globalThis__ is used to access global object variables. The reason why it got its name is that it is equal to `this` in the global scope.
 
 <CustomImage
     alt={`Global Scope`}
@@ -103,7 +103,7 @@ But, their activation is somewhere else. The activation is the line where we can
     const sum = 0;
 }
 ```
-Here we are trying to access a variable in its scope but the variable is not activated yet. `const`, `let` and `class` declarations behave in this particular way. The zone between the scope and activation of entity is called __Temporal Dead Zone__ (TDZ).  
+Here we are trying to access a variable in its scope but the variable is not activated yet. `const`, `let` and `class` declarations behave in this particular way. The zone between the scope and activation of the entity is called __Temporal Dead Zone__ (TDZ).  
 
 The reason why `class` declarations also have TDZ is following
 ```js
@@ -124,7 +124,7 @@ const onetwothree = () => {return 123;}
 ```
 
 ### Closures
-Closures are functions that have connection with variables that exists at its "_birth place_".
+Closures are functions that have a connection with variables that exist at their "_birth place_".
 ```js
 function increment(value){
 	return (num) => {
@@ -147,11 +147,11 @@ __Use cases of closures__
 __What is a type?__
 
 Type is a set of values. 
-For example, type `boolean` consist of `{true,false}`. Only two values.
+For example, type `boolean` consist of `{true, false}`. Only two values.
 
 Similarly, `string` and `number` have infinitely many values.
 
-The types in JS
+The types in JS are:
 - null
 - undefined
 - boolean
@@ -163,9 +163,7 @@ The types in JS
 
 __Primitive values__ are variables of the types null, undefined, string, number, bigint, symbol and boolean and all other values are __objects__.
 
-Primitive values are always __passed and compared by values__.
-
-Object values are always __passed and compared by reference__.
+Primitive values are always __passed and compared by values__. Object values are always __passed and compared by reference__.
 
 Two common ways of creating an object:
 
