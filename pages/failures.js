@@ -12,12 +12,12 @@ const failures = ({ mdxSource }) => {
   return (
     <div>
       <NextSeo
-        title="Failures – Saumya Pandey"
+        title="Failures - Saumya Pandey"
         description="Here's what I tried hard and failed."
         canonical="https://saumyapandey.com/failures"
         openGraph={{
           url: "https://saumyapandey.com/failures",
-          title: "Failures – Saumya Pandey",
+          title: "Failures - Saumya Pandey",
           description: "Here's what I tried hard and failed.",
         }}
       />

@@ -1,7 +1,7 @@
 ---
 title: "Slashing Next.js build time more than half without turbopack"
 publishedAt: "2022-12-04"
-modifiedAt: "2022-12-04"
+modifiedAt: "2023-05-21"
 summary: "Improving preview builds using webpack loader to replace the unnecessary pages with a dummy UI."
 image: "/static/images/slashing-nextjs-build-time-more-than-half-without-turbopack/banner.png"
 ---
@@ -32,7 +32,7 @@ Following are the high-level steps to achieve it:
 - Create a map `pagesToBuild`. It will contain the pathname of all the pages to build
 - Use [string-replace-loader](https://www.npmjs.com/package/string-replace-loader) webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
 
-### 1. Have the name of the modules to build
+### Have the name of the modules to build
 
 Next.js 12 offers [file-based routing](https://nextjs.org/docs/routing/introduction). It means that we can have a file named `products/[id].js`, and it will be accessible at `/products/:id` URL. 
 
@@ -80,7 +80,7 @@ git commit -m "some commit message" -m "article course"
 git log -1 --pretty=format:\"%b\"
 ```
 
-### 2. Create a pagesToBuild map
+### Create a pagesToBuild map
 
 Write a script to create a map with the key as the file's code and the value as the file's path.
 
@@ -96,7 +96,7 @@ For example, if we want to build the `article` module, we will have the followin
 }
 ```
 
-### 3. Use a webpack loader to replace the content
+### Use a webpack loader to replace the content
 
 Use [string-replace-loader](https://www.npmjs.com/package/string-replace-loader) webpack loader to replace file content with dummy UI for pages that don't exist in `pagesToBuild` map.
 
@@ -130,9 +130,9 @@ config.module.rules.push({
 
 I have been using this approach for a while, and it has been working well. But I would like to suggest a few things.
 
-- Always build pages involved in authentication flow.
-- Always build pages for navigating the app, like the home page.
-- To avoid pushing specific builds to production servers, include the necessary check for `!isProd`.
+- Always build pages involved in authentication flow
+- Always build pages for navigating the app, like the home page
+- To avoid pushing specific builds to production servers, include the necessary check for `!isProd`
 
 
 ## Conclusion
@@ -151,5 +151,3 @@ Ultimately, we have super fast preview builds with short queues and developers w
 With Turbopack and [Next.js 13](https://nextjs.org/blog/next-13), we won't need these hacks anymore. Or maybe we can combine specific builds and turbopack to build in under a minute 🙈
 
 I hope this article will help you to build specific pages in your Next.js app. If you have any suggestions or feedback, please hit me up on Twitter. I would love to hear from you.
-
-Thanks for reading! 🙏

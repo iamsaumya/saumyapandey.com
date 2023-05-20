@@ -68,6 +68,14 @@ const Content = styled.div`
   color: #bcbdc3;
   font-size: 1.125rem;
   padding: 1rem;
+
+  > *:first-child {
+    margin-top: 0 !important;
+  }
+
+  > *:last-child {
+    margin-bottom: 0 !important;
+  }
 `;
 
 const EditLinks = styled.div`
