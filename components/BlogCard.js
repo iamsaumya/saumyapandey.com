@@ -12,19 +12,21 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
       prefetch={false}
     >
       <Link>
-        <Wrap justify="space-between" align="flex-start">
-          <Heading>{title}</Heading>
-          <Text>{publishedAt}</Text>
-        </Wrap>
-        <Summary mt={4}>{summary}</Summary>
+        <article>
+          <Wrap justify="space-between" align="flex-start">
+            <Heading>{title}</Heading>
+            <Time datetime={publishedAt}>{publishedAt}</Time>
+          </Wrap>
+          <Summary mt={4}>{summary}</Summary>
+        </article>
       </Link>
     </NextLink>
   );
 };
 
 const Wrap = styled(Flex)`
-  display: flex;
   flex-direction: column;
+
   ${breakpoint("tablet")`
     flex-direction: row;
   `};
@@ -38,8 +40,8 @@ const Link = styled.a`
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
   border-color: rgb(32, 32, 34);
   background-color: #202124;
-  padding: 1rem;
-  margin-top: 1rem;
+  padding: 16px;
+  margin-top: var(--16px);
 
   &:hover {
     box-shadow: #ed7842 0px -0.2rem 0px 0px, rgb(0 0 0 / 15%) 0px 1px 3px 1px,
@@ -54,15 +56,19 @@ const Link = styled.a`
   }
 `;
 
-const Heading = styled.h3`
-  font-size: 1.25rem;
+const Heading = styled.h4`
+  font-size: var(--20px);
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 500;
   max-width: 85%;
+
+  ${breakpoint("mobile")`
+    max-width: 100%;
+  `}
 `;
 
-const Text = styled.p`
-  margin-top: 1rem;
+const Time = styled.time`
+  margin-top: 16px;
   color: #aeb0b7;
 
   ${breakpoint("tablet")`
@@ -71,8 +77,13 @@ const Text = styled.p`
 `;
 
 const Summary = styled.p`
-  margin-top: 1rem;
+  margin-top: 16px;
   color: #aeb0b7;
+  max-width: 100%;
+
+  ${breakpoint("tablet")`
+     max-width: 85%;
+  `}
 `;
 
 export default BlogCard;

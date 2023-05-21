@@ -11,54 +11,53 @@ const NavBar = () => {
   const toggleMenu = () => setShow(!show);
 
   return (
-    <header>
-      <Nav column>
-        <nav>
-          <NavContainer row justify="flex-start" align="center">
-            <Highlighter>
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/blog">Blog</NavLink>
-              <NavLink href="/learnings">Learnings</NavLink>
-              <NavLink href="/failures">Failures</NavLink>
-              <NavLink href="/static/resume.pdf">Resume</NavLink>
-            </Highlighter>
-          </NavContainer>
+    <Header>
+      <nav>
+        <NavContainer row justify="flex-start" align="center">
+          <Highlighter>
+            <NavLink href="/">Home</NavLink>
+            <NavLink href="/blog">Blog</NavLink>
+            <NavLink href="/learnings">Learnings</NavLink>
+            <NavLink href="/failures">Failures</NavLink>
+            <NavLink href="/static/resume.pdf">Resume</NavLink>
+          </Highlighter>
+        </NavContainer>
 
-          {/* Mobile nav bar */}
-          <Hambuger onClick={toggleMenu}>
-            {show ? <AiOutlineClose size="32" /> : <AiOutlineMenu size="32" />}
-          </Hambuger>
-          <NavContainerMobile
-            gap={1}
-            column
-            show={show}
-            justify="center"
-            align="center"
-          >
-            <NavLink toggleMenu={toggleMenu} isBlock href="/">
-              Home
-            </NavLink>
-            <NavLink toggleMenu={toggleMenu} isBlock href="/blog">
-              Blog
-            </NavLink>
-            <NavLink toggleMenu={toggleMenu} isBlock href="/learnings">
-              Learnings
-            </NavLink>
-            <NavLink toggleMenu={toggleMenu} isBlock href="/failures">
-              Failures
-            </NavLink>
-            <NavLink toggleMenu={toggleMenu} isBlock href="/static/resume.pdf">
-              Resume
-            </NavLink>
-          </NavContainerMobile>
-        </nav>
-      </Nav>
-    </header>
+        {/* Mobile nav bar */}
+        <Hambuger onClick={toggleMenu}>
+          {show ? <AiOutlineClose size="32" /> : <AiOutlineMenu size="32" />}
+        </Hambuger>
+        <NavContainerMobile
+          gap={1}
+          column
+          show={show}
+          justify="center"
+          align="center"
+        >
+          <NavLink toggleMenu={toggleMenu} isBlock href="/">
+            Home
+          </NavLink>
+          <NavLink toggleMenu={toggleMenu} isBlock href="/blog">
+            Blog
+          </NavLink>
+          <NavLink toggleMenu={toggleMenu} isBlock href="/learnings">
+            Learnings
+          </NavLink>
+          <NavLink toggleMenu={toggleMenu} isBlock href="/failures">
+            Failures
+          </NavLink>
+          <NavLink toggleMenu={toggleMenu} isBlock href="/static/resume.pdf">
+            Resume
+          </NavLink>
+        </NavContainerMobile>
+      </nav>
+    </Header>
   );
 };
 
-const Nav = styled.div`
-  position: fixed;
+const Header = styled.header`
+  position: sticky;
+  top: 0;
   z-index: 100;
   width: 100%;
   background: #202124;
@@ -68,15 +67,20 @@ const Nav = styled.div`
 
 const NavContainer = styled(Flex)`
   position: relative;
-  max-width: 750px;
+  max-width: 700px;
   width: 100%;
   display: none;
-  padding: 1rem 0;
+  padding: var(--16px) 0;
   margin: auto;
 
   ${breakpoint("tablet")`
     display: flex;
   `};
+
+  // in childrens first .nav-link should not have margin-left
+  .nav-link:first-of-type {
+    margin-left: calc(var(--8px) * -1);
+  }
 `;
 
 const NavContainerMobile = styled(Flex)`
@@ -84,7 +88,7 @@ const NavContainerMobile = styled(Flex)`
   transform: ${(props) =>
     props.show ? `translateX(0px)` : `translateX(-9000px)`};
   transition: height 100ms cubic-bezier(0, 0.7, 0.79, 0.67);
-  padding-bottom: 0.5rem;
+  padding-bottom: ${(props) => (props.show ? "var(--8px)" : "0")};
 
   ${breakpoint("tablet")`
     display: none;

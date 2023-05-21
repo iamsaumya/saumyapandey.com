@@ -5,7 +5,7 @@ const NavLink = (props) => {
   const { children, toggleMenu, href = "/", ...rest } = props;
   return (
     <NextLink href={href} passHref>
-      <Link onClick={toggleMenu} {...rest}>
+      <Link onClick={toggleMenu} className="nav-link" {...rest}>
         {children}
       </Link>
     </NextLink>
@@ -14,11 +14,10 @@ const NavLink = (props) => {
 
 const Link = styled.a`
   border-radius: 2px;
-  padding: 0.2rem 0.8rem;
-  font-size: 1.5rem;
-  line-height: 1.375rem;
+  padding: var(--2px) var(--8px);
+  font-size: var(--20px);
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   display: ${(props) => (props.isBlock ? "block" : "inline-block")};
 `;
 

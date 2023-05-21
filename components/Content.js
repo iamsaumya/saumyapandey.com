@@ -6,24 +6,24 @@ import Flex from "../components/Flex";
 
 const Content = ({ info }) => {
   return (
-    <Container column justify="flex-start" align="flex-start">
-      <Text>Blog</Text>
-      {info.map((blog) => (
-        <BlogCard key={blog.slug} {...blog} />
-      ))}
-    </Container>
+    <section>
+      <Flex column justify="flex-start" align="flex-start">
+        <Text>Blog</Text>
+        {info.map((blog) => (
+          <BlogCard key={blog.slug} {...blog} />
+        ))}
+      </Flex>
+    </section>
   );
 };
 
-const Container = styled(Flex)`
-  margin-top: 0.5rem;
-`;
-
-const Text = styled.p`
-  font-size: 1.5rem;
+const Text = styled.h2`
+  font-size: var(--22px);
+  margin-left: var(--4px);
+  color: #d9d9d9;
 
   ${breakpoint("tablet")`
-    font-size: 2rem;
+    font-size: var(--28px);
   `};
 `;
 

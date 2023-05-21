@@ -1,7 +1,7 @@
 ---
 title: "Partitioning in distibuted systems."
 publishedAt: "2020-11-26"
-modifiedAt: "2020-11-26"
+modifiedAt: "2023-05-21"
 summary: "What is partitioning in distributed systems and its types?"
 image: "/static/images/partitioning-in-distributed-systems/partitioning.png"
 ---
@@ -10,27 +10,25 @@ I recall buying myself two half-plate noodles from China town rather than one fu
 
 Guess what? There seems to be a similar concept in distributed systems where we prefer partitioned data stores rather than standalone because it improves scalability, reduces contention and optimizes performance. 
 
----
 # Partitioning 
----
 
 Partitioning is the process of splitting the data of a schema into multiple smaller schemas and each schema can be stored on different nodes of a distributed system.
 
 ## Why partitioning data?
 
-### 1. Improve scalability.
+### Improve scalability.
 
 When you scale up a database system, it will eventually hit its physical capability. If you divide your data into several partitions, each hosted server will deal with a portion of data and you can always scale out the system indefinitely. 
 
-### 2. Improve Security
+### Improve Security
 
 We can separate sensitive information of our customers into a different data store with high security. Thus, eliminating any chances of compromise. 
 
-### 3. Improve Performance
+### Improve Performance
 
 When the data exceeds a particular limit, querying the databases becomes a lot slower. Partitioning the volume of data makes the system much more efficient. 
 
-### 4. Improve availability 
+### Improve availability 
 
 When a node fails and goes down, partitioned data can help the service still function while losing just the functionality that depends on the failed node. However, nowadays database systems have built-in redundancy that makes this use-case less relevant.
 

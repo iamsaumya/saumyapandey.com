@@ -30,14 +30,13 @@ const BlogMeta = styled(Flex)`
 
 const Container = styled(Flex)`
   max-width: 700px;
-  padding: 0 1rem;
   width: 100%;
 `;
 
 const Heading = styled.h1`
   font-size: 2rem;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.025em;
   margin-bottom: 1rem;
 

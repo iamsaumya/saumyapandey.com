@@ -30,8 +30,6 @@ const TData = css`
 const BaseHeading = css`
   scroll-snap-align: start;
   scroll-margin-top: 6rem;
-  padding-bottom: 0.5rem;
-  padding-top: 1rem;
   color: #fefefe;
 
   &[id]:hover > a {
@@ -42,39 +40,59 @@ const BaseHeading = css`
 const Heading1 = css`
   .content-wrapper h1 {
     ${BaseHeading}
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: var(--36px);
+    line-height: var(--44px);
+    margin-top: var(--54px);
+    margin-bottom: var(--36px);
   }
 `;
 
 const Heading2 = css`
   .content-wrapper h2 {
     ${BaseHeading}
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: var(--32px);
+    line-height: var(--40px);
+    margin-top: var(--48px);
+    margin-bottom: var(--32px);
   }
 `;
 
 const Heading3 = css`
   .content-wrapper h3 {
     ${BaseHeading}
-    font-size: 1.5rem;
-    line-height: 1.75rem;
+    font-size: var(--28px);
+    line-height: var(--36px);
+    margin-top: var(--42px);
+    margin-bottom: var(--28px);
+  }
+`;
+
+const Heading4 = css`
+  .content-wrapper h4 {
+    ${BaseHeading}
+    font-size: var(--24px);
+    line-height: var(--30px);
+    margin-top: var(--36px);
+    margin-bottom: var(--24px);
   }
 `;
 
 const P = css`
   .content-wrapper p {
-    padding-bottom: 1.4rem;
-    line-height: 1.625;
+    font-size: var(--18px);
+    line-height: var(--30px);
+    margin-top: var(--18px);
+    margin-bottom: var(--18px);
   }
 `;
 
 const listItemCSS = css`
   list-style: auto;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
-  margin-left: 0.5rem;
+  font-size: var(--18px);
+  line-height: var(--30px);
+  margin-top: var(--12px);
+  margin-bottom: var(--12px);
+  padding-left: var(--32px);
 `;
 
 const OL = css`
@@ -91,21 +109,17 @@ const UL = css`
 
 const LI = css`
   .content-wrapper li {
-    padding-bottom: 0.5rem;
-    padding-left: 0.5rem;
-    margin-left: 0.5rem;
+    padding-left: var(--8px);
   }
 `;
 
 const InlineCode = css`
-  .content-wrapper p > code {
+  .content-wrapper :not(pre) > code {
     color: rgb(255 139 139);
     background-color: #202124;
-    padding: 0.25rem;
-    border-radius: 2px;
-    font-size: 0.84em;
-    margin-right: 0.25rem;
-    margin-left: 0.25rem;
+    padding: var(--2px) var(--3px);
+    border-radius: 4px;
+    font-size: var(--14px);
     border: 1px solid rgb(52 52 55);
   }
 `;
@@ -128,6 +142,7 @@ const Article = styled.article`
   ${Heading1}
   ${Heading2}
   ${Heading3}
+  ${Heading4}
   ${P}
   ${OL}
   ${UL}
