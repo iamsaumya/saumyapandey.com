@@ -117,7 +117,7 @@ const InlineCode = css`
   .content-wrapper :not(pre) > code {
     color: rgb(255 139 139);
     background-color: #202124;
-    padding: var(--2px);
+    padding: var(--2px) var(--3px);
     border-radius: 4px;
     font-size: var(--14px);
     border: 1px solid rgb(52 52 55);

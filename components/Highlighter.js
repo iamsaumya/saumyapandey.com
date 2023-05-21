@@ -52,7 +52,7 @@ const Highlighter = ({ children }) => {
 const NavHighlight = styled.div`
   position: absolute;
   left: 0;
-  height: 42px;
+  height: 36px;
   contain: strict;
   background-color: #ed7842;
   border-radius: 2px;

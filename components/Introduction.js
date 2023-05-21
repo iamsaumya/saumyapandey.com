@@ -6,7 +6,7 @@ import CustomLink from "./components/Link";
 
 const Introduction = () => {
   return (
-    <Container column justify="center">
+    <Container>
       <Title>
         Saumya is just another frontend engineer struggling with CSS, frontend
         tooling and whatnot
@@ -30,20 +30,23 @@ const Introduction = () => {
   );
 };
 
-const Container = styled(Flex)`
-  margin: 2rem 0;
-  gap: 1rem;
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: var(--32px) 0px;
+  gap: var(--16px);
 `;
 
-const Title = styled.div`
+const Title = styled.h3`
   color: #ed7842;
-  font-size: 1.5rem;
+  font-size: var(--24px);
+  font-weight: 500;
 `;
 
 const Info = styled.p`
   font-weight: 100;
   color: #d9d9d9;
-  font-size: 1.2rem;
+  font-size: var(--18px);
 `;
 
 export default Introduction;

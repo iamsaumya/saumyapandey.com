@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Outfit", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     --1px: 0.0625rem;
     --2px: 0.125rem;
+    --3px: 0.1875rem;
     --4px: 0.25rem;
     --6px: 0.375rem;
     --8px: 0.5rem;

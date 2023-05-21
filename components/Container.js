@@ -20,14 +20,12 @@ export default function Container({ children }) {
   );
 }
 
-// margin top for fixed positioned element
-
 const ContainerWrapper = styled(Flex)`
   margin: auto;
   width: 100%;
   margin-top: 3.5rem;
-  max-width: 750px;
-  padding: 1rem;
+  max-width: 740px;
+  padding: var(--16px) var(--20px) 0px;
   color: #fefefe;
   background-color: #202124;
 `;
