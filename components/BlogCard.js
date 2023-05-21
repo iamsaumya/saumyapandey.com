@@ -12,11 +12,13 @@ const BlogCard = ({ title, summary, publishedAt, slug }) => {
       prefetch={false}
     >
       <Link>
-        <Wrap justify="space-between" align="flex-start">
-          <Heading>{title}</Heading>
-          <Text>{publishedAt}</Text>
-        </Wrap>
-        <Summary mt={4}>{summary}</Summary>
+        <article>
+          <Wrap justify="space-between" align="flex-start">
+            <Heading>{title}</Heading>
+            <Time datetime={publishedAt}>{publishedAt}</Time>
+          </Wrap>
+          <Summary mt={4}>{summary}</Summary>
+        </article>
       </Link>
     </NextLink>
   );
@@ -59,9 +61,13 @@ const Heading = styled.h4`
   line-height: 1.25;
   font-weight: 500;
   max-width: 85%;
+
+  ${breakpoint("mobile")`
+    max-width: 100%;
+  `}
 `;
 
-const Text = styled.p`
+const Time = styled.time`
   margin-top: 16px;
   color: #aeb0b7;
 
@@ -73,6 +79,11 @@ const Text = styled.p`
 const Summary = styled.p`
   margin-top: 16px;
   color: #aeb0b7;
+  max-width: 100%;
+
+  ${breakpoint("tablet")`
+     max-width: 85%;
+  `}
 `;
 
 export default BlogCard;

@@ -12,10 +12,10 @@ export default function Container({ children }) {
         <title>Saumya Pandey</title>
       </Head>
       <NavBar />
-      <ContainerWrapper column>
-        {children}
-        <Footer />
-      </ContainerWrapper>
+      <main>
+        <ContainerWrapper column>{children}</ContainerWrapper>
+      </main>
+      <Footer />
     </>
   );
 }
@@ -23,7 +23,6 @@ export default function Container({ children }) {
 const ContainerWrapper = styled(Flex)`
   margin: auto;
   width: 100%;
-  margin-top: 3.5rem;
   max-width: 740px;
   padding: var(--16px) var(--20px) 0px;
   color: #fefefe;
