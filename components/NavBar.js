@@ -60,9 +60,9 @@ const Header = styled.header`
   top: 0;
   z-index: 100;
   width: 100%;
-  background: #202124;
-  color: #fefefe;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
+  color: var(--white-200);
+  background: var(--gray-1000);
+  border-bottom: 1px solid var(--gray-800);
 `;
 
 const NavContainer = styled(Flex)`

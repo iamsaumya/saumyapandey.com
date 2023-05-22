@@ -20,7 +20,7 @@ const Content = ({ info }) => {
 const Text = styled.h2`
   font-size: var(--22px);
   margin-left: var(--4px);
-  color: #d9d9d9;
+  color: var(--white-600);
 
   ${breakpoint("tablet")`
     font-size: var(--28px);

@@ -10,7 +10,6 @@ const CustomImage = (props) => {
 };
 
 const Box = styled.div`
-  background-color: #202124;
   padding: 0.2rem;
   border-radius: 8px;
   margin: 20px 0;

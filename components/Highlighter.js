@@ -54,7 +54,7 @@ const NavHighlight = styled.div`
   left: 0;
   height: 36px;
   contain: strict;
-  background-color: #ed7842;
+  background-color: var(--orange-100);
   border-radius: 2px;
   z-index: -1;
   transition: 0.15s ease;

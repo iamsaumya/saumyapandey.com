@@ -20,10 +20,10 @@ const Link = styled.a`
   cursor: pointer;
   text-decoration: none;
   outline: none;
-  color: #60b3fb;
+  color: var(--blue-200);
 
   :hover {
-    color: #ed7842;
+    color: var(--orange-200);
     transition: all 0.15s ease-out;
   }
 `;

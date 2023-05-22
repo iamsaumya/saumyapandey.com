@@ -38,14 +38,14 @@ const Container = styled.section`
 `;
 
 const Title = styled.h3`
-  color: #ed7842;
+  color: var(--orange-50);
   font-size: var(--24px);
   font-weight: 500;
 `;
 
 const Info = styled.p`
-  font-weight: 100;
-  color: #d9d9d9;
+  font-weight: 200;
+  color: var(--white-500);
   font-size: var(--18px);
 `;
 

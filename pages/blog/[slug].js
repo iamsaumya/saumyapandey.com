@@ -45,11 +45,11 @@ export default function BlogPost({ mdxSource, frontMatter, slug }) {
           <footer>
             <EditLinks>
               <CustomLink href={discussUrl(slug)} isExternal>
-                {"Discuss on Twitter"}
+                Discuss on Twitter
               </CustomLink>
               {` • `}
               <CustomLink href={editUrl(slug)} isExternal>
-                {"Edit on GitHub"}
+                Edit on GitHub
               </CustomLink>
             </EditLinks>
           </footer>
@@ -65,7 +65,7 @@ const Main = styled.main`
 `;
 
 const Content = styled.div`
-  color: #bcbdc3;
+  color: var(--white-500);
   font-size: 1.125rem;
 
   > *:first-child {
@@ -78,8 +78,10 @@ const Content = styled.div`
 `;
 
 const EditLinks = styled.div`
-  margin-top: 1rem;
-  font-size: 1.2rem;
+  margin-top: var(--32px);
+  font-size: var(--16px);
+  display: flex;
+  gap: var(--8px);
 `;
 
 const BackToBlog = styled(CustomLink)`
