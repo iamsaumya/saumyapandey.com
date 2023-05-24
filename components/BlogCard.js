@@ -35,24 +35,15 @@ const Wrap = styled(Flex)`
 const Link = styled.a`
   cursor: pointer;
   width: 100%;
-  border: 0.1rem solid;
+  border: 2px solid var(--gray-600);
   border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 30%), 0 1px 3px 1px rgb(0 0 0 / 15%);
-  border-color: rgb(32, 32, 34);
-  background-color: #202124;
+  background-color: var(--gray-900);
   padding: 16px;
   margin-top: var(--16px);
 
-  &:hover {
-    box-shadow: #ed7842 0px -0.2rem 0px 0px, rgb(0 0 0 / 15%) 0px 1px 3px 1px,
-      rgb(0 0 0 / 30%) 0px 1px 2px 0px;
-    transition: all 100ms ease;
-  }
-
+  &:hover,
   &:active {
-    box-shadow: #ed7842 0px -0.2rem 0px 0px, rgb(0 0 0 / 15%) 0px 1px 3px 1px,
-      rgb(0 0 0 / 30%) 0px 1px 2px 0px;
-    transition: all 100ms ease;
+    border-color: var(--orange-100);
   }
 `;
 
@@ -69,7 +60,8 @@ const Heading = styled.h4`
 
 const Time = styled.time`
   margin-top: 16px;
-  color: #aeb0b7;
+  color: var(--white-600);
+  white-space: nowrap;
 
   ${breakpoint("tablet")`
     margin-top: 0;
@@ -78,7 +70,7 @@ const Time = styled.time`
 
 const Summary = styled.p`
   margin-top: 16px;
-  color: #aeb0b7;
+  color: var(--white-500);
   max-width: 100%;
 
   ${breakpoint("tablet")`

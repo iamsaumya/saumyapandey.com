@@ -53,14 +53,58 @@ const GlobalStyle = createGlobalStyle`
     --76px: 4.75rem;
     --96px: 6rem;
     --128px: 8rem;
+    --orange-50: #ED682B;
+    --orange-100: #D55E27;
+    --orange-200: #BE5322;
+    --orange-300: #A6491E;
+    --orange-400: #8E3E1A;
+    --orange-500: #773416;
+    --orange-600: #5F2A11;
+    --orange-700: #471F0D;
+    --orange-800: #2F1509;
+    --orange-900: #180A04;
+    --orange-1000: #000000;
+    --blue-50: #2D9BFB;
+    --blue-100: #298CE2;
+    --blue-200: #247CC9;
+    --blue-300: #1F6DB0;
+    --blue-400: #1B5D97;
+    --blue-500: #174E7E;
+    --blue-600: #123E64;
+    --blue-700: #0D2E4B;
+    --blue-800: #091F32;
+    --blue-900: #040F19;
+    --blue-1000: #000000;
+    --gray-50: #9CA6B0;
+    --gray-100: #8A939C;
+    --gray-200: #7A828A;
+    --gray-300: #6A7178;
+    --gray-400: #5A6066;
+    --gray-500: #4B4F54;
+    --gray-600: #3B3F42;
+    --gray-700: #2B2E30;
+    --gray-800: #222426;
+    --gray-900: #1F2123;
+    --gray-1000: #17181A;
+    --white-50: ##F5F7FA;
+    --white-100: #EBEDF0;
+    --white-200: #E1E3E5;
+    --white-300: #D7D9DB;
+    --white-400: #CDCFD1;
+    --white-500: #C3C5C7;
+    --white-600: #AAACAD;
+    --white-700: #898B8C;
+    --white-800: #646566;
+    --white-900: #4B4C4D;
+    --white-1000: #19191A;
   }
 
   #__next {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #202124;
-    color: #fefefe;
+    background: var(--gray-1000);
+    color: var(--white-50);
   }
   h1,
   h2,
@@ -71,8 +115,8 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: -0.02em;
   }
   ::selection {
-    background-color: #ed7842;
-    color: #fefefe;
+    background-color: #BE5322;
+    color: #FAF6F5;
   }
 `;
 

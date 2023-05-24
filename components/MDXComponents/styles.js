@@ -10,7 +10,7 @@ const Table = css`
 
 const THead = css`
   .content-wrapper th {
-    background: #3c3e43;
+    background: var(--gray-800);
     font-weight: 400;
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -30,7 +30,7 @@ const TData = css`
 const BaseHeading = css`
   scroll-snap-align: start;
   scroll-margin-top: 6rem;
-  color: #fefefe;
+  color: var(--white-200);
 
   &[id]:hover > a {
     display: inline;
@@ -79,6 +79,7 @@ const Heading4 = css`
 
 const P = css`
   .content-wrapper p {
+    font-weight: 200;
     font-size: var(--18px);
     line-height: var(--30px);
     margin-top: var(--18px);
@@ -88,6 +89,7 @@ const P = css`
 
 const listItemCSS = css`
   list-style: auto;
+  font-weight: 200;
   font-size: var(--18px);
   line-height: var(--30px);
   margin-top: var(--12px);
@@ -116,7 +118,7 @@ const LI = css`
 const InlineCode = css`
   .content-wrapper :not(pre) > code {
     color: rgb(255 139 139);
-    background-color: #202124;
+    background-color: var(--gray-1000);
     padding: var(--2px) var(--3px);
     border-radius: 4px;
     font-size: var(--14px);

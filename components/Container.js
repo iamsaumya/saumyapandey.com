@@ -25,6 +25,4 @@ const ContainerWrapper = styled(Flex)`
   width: 100%;
   max-width: 740px;
   padding: var(--16px) var(--20px) 0px;
-  color: #fefefe;
-  background-color: #202124;
 `;

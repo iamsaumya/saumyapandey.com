@@ -54,10 +54,10 @@ const IconButton = styled.button`
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  color: #aeb0b7;
+  color: var(--white-600);
 
   &:hover {
-    color: #ed7842;
+    color: var(--orange-400);
   }
 `;
 
