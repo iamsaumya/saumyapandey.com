@@ -13,8 +13,8 @@ const Introduction = () => {
       </Title>
       <Info>
         I tinker with web at{" "}
-        <CustomLink href="https://www.lyearn.com?ref=iamsaumya" isExternal>
-          Lyearn
+        <CustomLink href="https://www.unifyapps.com/?ref=iamsaumya" isExternal>
+          UnifyApps
         </CustomLink>{" "}
         as a <b>Product Engineer</b>. You can find me contributing to{" "}
         <CustomLink
