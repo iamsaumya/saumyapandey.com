@@ -27,6 +27,14 @@ const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, image }) => {
           description: summary,
           images: [featuredImage],
         }}
+        twitter={{
+          handle: "@iamsaumya137",
+          site: "@iamsaumya137",
+          cardType: "summary_large_image",
+          title,
+          description: summary,
+          image: featuredImage.url,
+        }}
       />
       <ArticleJsonLd
         authorName="Saumya Pandey"
