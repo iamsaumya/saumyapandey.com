@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import CustomLink from "../components/Link";
 
 // const Quote = (props) => {

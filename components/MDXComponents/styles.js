@@ -137,6 +137,25 @@ const HR = css`
   }
 `;
 
+const Blockquote = css`
+  .content-wrapper blockquote {
+    border-left: 4px solid var(--gray-600);
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--white-100);
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .content-wrapper blockquote > p {
+    margin: 0.5rem 0;
+  }
+`;
+
 const Article = styled.article`
   ${Table}
   ${THead}
@@ -151,6 +170,7 @@ const Article = styled.article`
   ${LI}
   ${InlineCode}
   ${HR}
+  ${Blockquote}
 `;
 
 export default Article;

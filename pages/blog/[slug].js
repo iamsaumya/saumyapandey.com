@@ -11,6 +11,7 @@ import styled from "styled-components";
 import { FiArrowLeft } from "react-icons/fi";
 import Article from "../../components/MDXComponents/styles";
 import CustomLink from "../../components/components/Link";
+import MDXComponents from "../../components/MDXComponents";
 
 const root = process.cwd();
 
@@ -18,11 +19,13 @@ const editUrl = (slug) =>
   `https://github.com/iamsaumya/saumyapandey.com/edit/master/content/blog/${slug}.mdx`;
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://saumyapandey/blog/${slug}`
+    `https://saumyapandey.com/blog/${slug}`
   )}`;
 
 export default function BlogPost({ mdxSource, frontMatter, slug }) {
-  const content = hydrate(mdxSource, { components: { CustomImage } });
+  const content = hydrate(mdxSource, { 
+    components: { ...MDXComponents, CustomImage } 
+  });
   return (
     <>
       {frontMatter && (
@@ -113,7 +116,7 @@ export async function getStaticProps({ params }) {
   );
   const { data, content } = matter(source);
   const mdxSource = await renderToString(content, {
-    components: { CustomImage },
+    components: { ...MDXComponents, CustomImage },
     mdxOptions: { rehypePlugins: [mdxPrism] },
   });
   return { props: { mdxSource, frontMatter: data, slug: params.slug } };
